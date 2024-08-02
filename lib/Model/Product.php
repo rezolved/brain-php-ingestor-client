@@ -60,6 +60,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'uuid' => 'string',
         'sku' => 'string',
         'sku_id' => 'string',
+        'product_category' => 'string',
         'internal_id' => 'int',
         'availability' => '\OpenAPI\Client\Model\ProductAvailability',
         'price' => 'float',
@@ -88,6 +89,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'uuid' => 'uuid',
         'sku' => null,
         'sku_id' => null,
+        'product_category' => null,
         'internal_id' => null,
         'availability' => null,
         'price' => null,
@@ -114,6 +116,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'uuid' => true,
         'sku' => false,
         'sku_id' => true,
+        'product_category' => false,
         'internal_id' => false,
         'availability' => false,
         'price' => false,
@@ -220,6 +223,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'uuid' => 'uuid',
         'sku' => 'sku',
         'sku_id' => 'sku_id',
+        'product_category' => 'product_category',
         'internal_id' => 'internal_id',
         'availability' => 'availability',
         'price' => 'price',
@@ -246,6 +250,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'uuid' => 'setUuid',
         'sku' => 'setSku',
         'sku_id' => 'setSkuId',
+        'product_category' => 'setProductCategory',
         'internal_id' => 'setInternalId',
         'availability' => 'setAvailability',
         'price' => 'setPrice',
@@ -272,6 +277,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'uuid' => 'getUuid',
         'sku' => 'getSku',
         'sku_id' => 'getSkuId',
+        'product_category' => 'getProductCategory',
         'internal_id' => 'getInternalId',
         'availability' => 'getAvailability',
         'price' => 'getPrice',
@@ -349,6 +355,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('uuid', $data ?? [], null);
         $this->setIfExists('sku', $data ?? [], null);
         $this->setIfExists('sku_id', $data ?? [], null);
+        $this->setIfExists('product_category', $data ?? [], '');
         $this->setIfExists('internal_id', $data ?? [], null);
         $this->setIfExists('availability', $data ?? [], null);
         $this->setIfExists('price', $data ?? [], 0.0);
@@ -511,6 +518,33 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['sku_id'] = $sku_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets product_category
+     *
+     * @return string|null
+     */
+    public function getProductCategory()
+    {
+        return $this->container['product_category'];
+    }
+
+    /**
+     * Sets product_category
+     *
+     * @param string|null $product_category product_category
+     *
+     * @return self
+     */
+    public function setProductCategory($product_category)
+    {
+        if (is_null($product_category)) {
+            throw new \InvalidArgumentException('non-nullable product_category cannot be null');
+        }
+        $this->container['product_category'] = $product_category;
 
         return $this;
     }

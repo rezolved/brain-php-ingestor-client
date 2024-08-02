@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **uuid** | **string** |  | [optional]
 **sku** | **string** |  |
 **sku_id** | **string** |  | [optional]
+**product_category** | **string** |  | [optional] [default to '']
 **internal_id** | **int** |  |
 **availability** | [**\OpenAPI\Client\Model\ProductAvailability**](ProductAvailability.md) |  |
 **price** | **float** |  | [optional] [default to 0.0]
