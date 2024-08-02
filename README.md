@@ -78,14 +78,16 @@ All URIs are relative to */luma*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**healthCheckV1HealthGet**](docs/Api/DefaultApi.md#healthcheckv1healthget) | **GET** /v1/health | Health Check
+*ProductApi* | [**checkIfProductCollectionExistsV1ProductCollectionExistsGet**](docs/Api/ProductApi.md#checkifproductcollectionexistsv1productcollectionexistsget) | **GET** /v1/product/collection-exists | Check If Product Collection Exists.
+*ProductApi* | [**createProductBySKUV1ProductSkuPost**](docs/Api/ProductApi.md#createproductbyskuv1productskupost) | **POST** /v1/product/{sku} | Create Product By Sku
 *ProductApi* | [**createProductCollectionV1ProductCollectionPost**](docs/Api/ProductApi.md#createproductcollectionv1productcollectionpost) | **POST** /v1/product/collection | Create Product Collection
+*ProductApi* | [**deleteProductBySKUV1ProductSkuDelete**](docs/Api/ProductApi.md#deleteproductbyskuv1productskudelete) | **DELETE** /v1/product/{sku} | Delete Product By Sku
 *ProductApi* | [**deleteProductCollectionV1ProductCollectionDelete**](docs/Api/ProductApi.md#deleteproductcollectionv1productcollectiondelete) | **DELETE** /v1/product/collection | Delete Product Collection
+*ProductApi* | [**deletesAllProductsFromCollectionV1ProductResetCollectionDelete**](docs/Api/ProductApi.md#deletesallproductsfromcollectionv1productresetcollectiondelete) | **DELETE** /v1/product/reset-collection | Deletes All Products From Collection
+*ProductApi* | [**gestProductBySKUV1ProductSkuGet**](docs/Api/ProductApi.md#gestproductbyskuv1productskuget) | **GET** /v1/product/{sku} | Gest Product By Sku
 *ProductApi* | [**getAllProductsV1ProductGet**](docs/Api/ProductApi.md#getallproductsv1productget) | **GET** /v1/product | Get All Products
-*ProductApi* | [**getProductCollectionV1ProductResetCollectionDelete**](docs/Api/ProductApi.md#getproductcollectionv1productresetcollectiondelete) | **DELETE** /v1/product/reset-collection | Get Product Collection
-*ProductApi* | [**getProductV1ProductSkuGet**](docs/Api/ProductApi.md#getproductv1productskuget) | **GET** /v1/product/{sku} | Get Product
-*ProductApi* | [**ingestProductV1ProductSkuPost**](docs/Api/ProductApi.md#ingestproductv1productskupost) | **POST** /v1/product/{sku} | Ingest Product
-*ProductApi* | [**ingestProductV1ProductSkuPut**](docs/Api/ProductApi.md#ingestproductv1productskuput) | **PUT** /v1/product/{sku} | Ingest Product
-*ProductApi* | [**ingestProductsV1ProductPost**](docs/Api/ProductApi.md#ingestproductsv1productpost) | **POST** /v1/product | Ingest Products
+*ProductApi* | [**importMultipleProductsV1ProductPost**](docs/Api/ProductApi.md#importmultipleproductsv1productpost) | **POST** /v1/product | Import Multiple Products
+*ProductApi* | [**updateProductBySKUV1ProductSkuPut**](docs/Api/ProductApi.md#updateproductbyskuv1productskuput) | **PUT** /v1/product/{sku} | Update Product By Sku
 
 ## Models
 

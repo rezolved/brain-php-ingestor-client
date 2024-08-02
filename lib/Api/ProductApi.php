@@ -71,28 +71,34 @@ class ProductApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
+        'checkIfProductCollectionExistsV1ProductCollectionExistsGet' => [
+            'application/json',
+        ],
+        'createProductBySKUV1ProductSkuPost' => [
+            'application/json',
+        ],
         'createProductCollectionV1ProductCollectionPost' => [
+            'application/json',
+        ],
+        'deleteProductBySKUV1ProductSkuDelete' => [
             'application/json',
         ],
         'deleteProductCollectionV1ProductCollectionDelete' => [
             'application/json',
         ],
+        'deletesAllProductsFromCollectionV1ProductResetCollectionDelete' => [
+            'application/json',
+        ],
+        'gestProductBySKUV1ProductSkuGet' => [
+            'application/json',
+        ],
         'getAllProductsV1ProductGet' => [
             'application/json',
         ],
-        'getProductCollectionV1ProductResetCollectionDelete' => [
+        'importMultipleProductsV1ProductPost' => [
             'application/json',
         ],
-        'getProductV1ProductSkuGet' => [
-            'application/json',
-        ],
-        'ingestProductV1ProductSkuPost' => [
-            'application/json',
-        ],
-        'ingestProductV1ProductSkuPut' => [
-            'application/json',
-        ],
-        'ingestProductsV1ProductPost' => [
+        'updateProductBySKUV1ProductSkuPut' => [
             'application/json',
         ],
     ];
@@ -141,6 +147,664 @@ class ProductApi
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Operation checkIfProductCollectionExistsV1ProductCollectionExistsGet
+     *
+     * Check If Product Collection Exists.
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfProductCollectionExistsV1ProductCollectionExistsGet'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return mixed
+     */
+    public function checkIfProductCollectionExistsV1ProductCollectionExistsGet(string $contentType = self::contentTypes['checkIfProductCollectionExistsV1ProductCollectionExistsGet'][0])
+    {
+        list($response) = $this->checkIfProductCollectionExistsV1ProductCollectionExistsGetWithHttpInfo($contentType);
+        return $response;
+    }
+
+    /**
+     * Operation checkIfProductCollectionExistsV1ProductCollectionExistsGetWithHttpInfo
+     *
+     * Check If Product Collection Exists.
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfProductCollectionExistsV1ProductCollectionExistsGet'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of mixed, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function checkIfProductCollectionExistsV1ProductCollectionExistsGetWithHttpInfo(string $contentType = self::contentTypes['checkIfProductCollectionExistsV1ProductCollectionExistsGet'][0])
+    {
+        $request = $this->checkIfProductCollectionExistsV1ProductCollectionExistsGetRequest($contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('mixed' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('mixed' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'mixed', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'mixed';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation checkIfProductCollectionExistsV1ProductCollectionExistsGetAsync
+     *
+     * Check If Product Collection Exists.
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfProductCollectionExistsV1ProductCollectionExistsGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function checkIfProductCollectionExistsV1ProductCollectionExistsGetAsync(string $contentType = self::contentTypes['checkIfProductCollectionExistsV1ProductCollectionExistsGet'][0])
+    {
+        return $this->checkIfProductCollectionExistsV1ProductCollectionExistsGetAsyncWithHttpInfo($contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation checkIfProductCollectionExistsV1ProductCollectionExistsGetAsyncWithHttpInfo
+     *
+     * Check If Product Collection Exists.
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfProductCollectionExistsV1ProductCollectionExistsGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function checkIfProductCollectionExistsV1ProductCollectionExistsGetAsyncWithHttpInfo(string $contentType = self::contentTypes['checkIfProductCollectionExistsV1ProductCollectionExistsGet'][0])
+    {
+        $returnType = 'mixed';
+        $request = $this->checkIfProductCollectionExistsV1ProductCollectionExistsGetRequest($contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'checkIfProductCollectionExistsV1ProductCollectionExistsGet'
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfProductCollectionExistsV1ProductCollectionExistsGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function checkIfProductCollectionExistsV1ProductCollectionExistsGetRequest(string $contentType = self::contentTypes['checkIfProductCollectionExistsV1ProductCollectionExistsGet'][0])
+    {
+
+
+        $resourcePath = '/v1/product/collection-exists';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation createProductBySKUV1ProductSkuPost
+     *
+     * Create Product By Sku
+     *
+     * @param  string $sku sku (required)
+     * @param  \OpenAPI\Client\Model\Product $product product (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductBySKUV1ProductSkuPost'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\Product|\OpenAPI\Client\Model\HTTPValidationError
+     */
+    public function createProductBySKUV1ProductSkuPost($sku, $product, string $contentType = self::contentTypes['createProductBySKUV1ProductSkuPost'][0])
+    {
+        list($response) = $this->createProductBySKUV1ProductSkuPostWithHttpInfo($sku, $product, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createProductBySKUV1ProductSkuPostWithHttpInfo
+     *
+     * Create Product By Sku
+     *
+     * @param  string $sku (required)
+     * @param  \OpenAPI\Client\Model\Product $product (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductBySKUV1ProductSkuPost'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\Product|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createProductBySKUV1ProductSkuPostWithHttpInfo($sku, $product, string $contentType = self::contentTypes['createProductBySKUV1ProductSkuPost'][0])
+    {
+        $request = $this->createProductBySKUV1ProductSkuPostRequest($sku, $product, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\Product' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\Product' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Product', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\Product';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\Product',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createProductBySKUV1ProductSkuPostAsync
+     *
+     * Create Product By Sku
+     *
+     * @param  string $sku (required)
+     * @param  \OpenAPI\Client\Model\Product $product (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductBySKUV1ProductSkuPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createProductBySKUV1ProductSkuPostAsync($sku, $product, string $contentType = self::contentTypes['createProductBySKUV1ProductSkuPost'][0])
+    {
+        return $this->createProductBySKUV1ProductSkuPostAsyncWithHttpInfo($sku, $product, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createProductBySKUV1ProductSkuPostAsyncWithHttpInfo
+     *
+     * Create Product By Sku
+     *
+     * @param  string $sku (required)
+     * @param  \OpenAPI\Client\Model\Product $product (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductBySKUV1ProductSkuPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createProductBySKUV1ProductSkuPostAsyncWithHttpInfo($sku, $product, string $contentType = self::contentTypes['createProductBySKUV1ProductSkuPost'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\Product';
+        $request = $this->createProductBySKUV1ProductSkuPostRequest($sku, $product, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createProductBySKUV1ProductSkuPost'
+     *
+     * @param  string $sku (required)
+     * @param  \OpenAPI\Client\Model\Product $product (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductBySKUV1ProductSkuPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createProductBySKUV1ProductSkuPostRequest($sku, $product, string $contentType = self::contentTypes['createProductBySKUV1ProductSkuPost'][0])
+    {
+
+        // verify the required parameter 'sku' is set
+        if ($sku === null || (is_array($sku) && count($sku) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $sku when calling createProductBySKUV1ProductSkuPost'
+            );
+        }
+
+        // verify the required parameter 'product' is set
+        if ($product === null || (is_array($product) && count($product) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $product when calling createProductBySKUV1ProductSkuPost'
+            );
+        }
+
+
+        $resourcePath = '/v1/product/{sku}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($sku !== null) {
+            $resourcePath = str_replace(
+                '{' . 'sku' . '}',
+                ObjectSerializer::toPathValue($sku),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($product)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($product));
+            } else {
+                $httpBody = $product;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**
@@ -486,6 +1150,353 @@ class ProductApi
     }
 
     /**
+     * Operation deleteProductBySKUV1ProductSkuDelete
+     *
+     * Delete Product By Sku
+     *
+     * @param  string $sku sku (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductBySKUV1ProductSkuDelete'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return bool|\OpenAPI\Client\Model\HTTPValidationError
+     */
+    public function deleteProductBySKUV1ProductSkuDelete($sku, string $contentType = self::contentTypes['deleteProductBySKUV1ProductSkuDelete'][0])
+    {
+        list($response) = $this->deleteProductBySKUV1ProductSkuDeleteWithHttpInfo($sku, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation deleteProductBySKUV1ProductSkuDeleteWithHttpInfo
+     *
+     * Delete Product By Sku
+     *
+     * @param  string $sku (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductBySKUV1ProductSkuDelete'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of bool|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteProductBySKUV1ProductSkuDeleteWithHttpInfo($sku, string $contentType = self::contentTypes['deleteProductBySKUV1ProductSkuDelete'][0])
+    {
+        $request = $this->deleteProductBySKUV1ProductSkuDeleteRequest($sku, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('bool' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('bool' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'bool', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'bool';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'bool',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteProductBySKUV1ProductSkuDeleteAsync
+     *
+     * Delete Product By Sku
+     *
+     * @param  string $sku (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductBySKUV1ProductSkuDelete'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteProductBySKUV1ProductSkuDeleteAsync($sku, string $contentType = self::contentTypes['deleteProductBySKUV1ProductSkuDelete'][0])
+    {
+        return $this->deleteProductBySKUV1ProductSkuDeleteAsyncWithHttpInfo($sku, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteProductBySKUV1ProductSkuDeleteAsyncWithHttpInfo
+     *
+     * Delete Product By Sku
+     *
+     * @param  string $sku (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductBySKUV1ProductSkuDelete'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteProductBySKUV1ProductSkuDeleteAsyncWithHttpInfo($sku, string $contentType = self::contentTypes['deleteProductBySKUV1ProductSkuDelete'][0])
+    {
+        $returnType = 'bool';
+        $request = $this->deleteProductBySKUV1ProductSkuDeleteRequest($sku, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteProductBySKUV1ProductSkuDelete'
+     *
+     * @param  string $sku (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductBySKUV1ProductSkuDelete'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteProductBySKUV1ProductSkuDeleteRequest($sku, string $contentType = self::contentTypes['deleteProductBySKUV1ProductSkuDelete'][0])
+    {
+
+        // verify the required parameter 'sku' is set
+        if ($sku === null || (is_array($sku) && count($sku) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $sku when calling deleteProductBySKUV1ProductSkuDelete'
+            );
+        }
+
+
+        $resourcePath = '/v1/product/{sku}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($sku !== null) {
+            $resourcePath = str_replace(
+                '{' . 'sku' . '}',
+                ObjectSerializer::toPathValue($sku),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation deleteProductCollectionV1ProductCollectionDelete
      *
      * Delete Product Collection
@@ -771,6 +1782,695 @@ class ProductApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deletesAllProductsFromCollectionV1ProductResetCollectionDelete
+     *
+     * Deletes All Products From Collection
+     *
+     * @param  bool $dry_run dry_run (optional, default to true)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllProductsFromCollectionV1ProductResetCollectionDelete'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError
+     */
+    public function deletesAllProductsFromCollectionV1ProductResetCollectionDelete($dry_run = true, string $contentType = self::contentTypes['deletesAllProductsFromCollectionV1ProductResetCollectionDelete'][0])
+    {
+        list($response) = $this->deletesAllProductsFromCollectionV1ProductResetCollectionDeleteWithHttpInfo($dry_run, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation deletesAllProductsFromCollectionV1ProductResetCollectionDeleteWithHttpInfo
+     *
+     * Deletes All Products From Collection
+     *
+     * @param  bool $dry_run (optional, default to true)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllProductsFromCollectionV1ProductResetCollectionDelete'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deletesAllProductsFromCollectionV1ProductResetCollectionDeleteWithHttpInfo($dry_run = true, string $contentType = self::contentTypes['deletesAllProductsFromCollectionV1ProductResetCollectionDelete'][0])
+    {
+        $request = $this->deletesAllProductsFromCollectionV1ProductResetCollectionDeleteRequest($dry_run, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('mixed' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('mixed' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'mixed', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'mixed';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deletesAllProductsFromCollectionV1ProductResetCollectionDeleteAsync
+     *
+     * Deletes All Products From Collection
+     *
+     * @param  bool $dry_run (optional, default to true)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllProductsFromCollectionV1ProductResetCollectionDelete'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deletesAllProductsFromCollectionV1ProductResetCollectionDeleteAsync($dry_run = true, string $contentType = self::contentTypes['deletesAllProductsFromCollectionV1ProductResetCollectionDelete'][0])
+    {
+        return $this->deletesAllProductsFromCollectionV1ProductResetCollectionDeleteAsyncWithHttpInfo($dry_run, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deletesAllProductsFromCollectionV1ProductResetCollectionDeleteAsyncWithHttpInfo
+     *
+     * Deletes All Products From Collection
+     *
+     * @param  bool $dry_run (optional, default to true)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllProductsFromCollectionV1ProductResetCollectionDelete'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deletesAllProductsFromCollectionV1ProductResetCollectionDeleteAsyncWithHttpInfo($dry_run = true, string $contentType = self::contentTypes['deletesAllProductsFromCollectionV1ProductResetCollectionDelete'][0])
+    {
+        $returnType = 'mixed';
+        $request = $this->deletesAllProductsFromCollectionV1ProductResetCollectionDeleteRequest($dry_run, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deletesAllProductsFromCollectionV1ProductResetCollectionDelete'
+     *
+     * @param  bool $dry_run (optional, default to true)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllProductsFromCollectionV1ProductResetCollectionDelete'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deletesAllProductsFromCollectionV1ProductResetCollectionDeleteRequest($dry_run = true, string $contentType = self::contentTypes['deletesAllProductsFromCollectionV1ProductResetCollectionDelete'][0])
+    {
+
+
+
+        $resourcePath = '/v1/product/reset-collection';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $dry_run,
+            'dry_run', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation gestProductBySKUV1ProductSkuGet
+     *
+     * Gest Product By Sku
+     *
+     * @param  string $sku sku (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['gestProductBySKUV1ProductSkuGet'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\Product|\OpenAPI\Client\Model\HTTPValidationError
+     */
+    public function gestProductBySKUV1ProductSkuGet($sku, string $contentType = self::contentTypes['gestProductBySKUV1ProductSkuGet'][0])
+    {
+        list($response) = $this->gestProductBySKUV1ProductSkuGetWithHttpInfo($sku, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation gestProductBySKUV1ProductSkuGetWithHttpInfo
+     *
+     * Gest Product By Sku
+     *
+     * @param  string $sku (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['gestProductBySKUV1ProductSkuGet'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\Product|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function gestProductBySKUV1ProductSkuGetWithHttpInfo($sku, string $contentType = self::contentTypes['gestProductBySKUV1ProductSkuGet'][0])
+    {
+        $request = $this->gestProductBySKUV1ProductSkuGetRequest($sku, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\Product' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\Product' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Product', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\Product';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\Product',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation gestProductBySKUV1ProductSkuGetAsync
+     *
+     * Gest Product By Sku
+     *
+     * @param  string $sku (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['gestProductBySKUV1ProductSkuGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function gestProductBySKUV1ProductSkuGetAsync($sku, string $contentType = self::contentTypes['gestProductBySKUV1ProductSkuGet'][0])
+    {
+        return $this->gestProductBySKUV1ProductSkuGetAsyncWithHttpInfo($sku, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation gestProductBySKUV1ProductSkuGetAsyncWithHttpInfo
+     *
+     * Gest Product By Sku
+     *
+     * @param  string $sku (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['gestProductBySKUV1ProductSkuGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function gestProductBySKUV1ProductSkuGetAsyncWithHttpInfo($sku, string $contentType = self::contentTypes['gestProductBySKUV1ProductSkuGet'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\Product';
+        $request = $this->gestProductBySKUV1ProductSkuGetRequest($sku, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'gestProductBySKUV1ProductSkuGet'
+     *
+     * @param  string $sku (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['gestProductBySKUV1ProductSkuGet'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function gestProductBySKUV1ProductSkuGetRequest($sku, string $contentType = self::contentTypes['gestProductBySKUV1ProductSkuGet'][0])
+    {
+
+        // verify the required parameter 'sku' is set
+        if ($sku === null || (is_array($sku) && count($sku) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $sku when calling gestProductBySKUV1ProductSkuGet'
+            );
+        }
+
+
+        $resourcePath = '/v1/product/{sku}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($sku !== null) {
+            $resourcePath = str_replace(
+                '{' . 'sku' . '}',
+                ObjectSerializer::toPathValue($sku),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -1070,38 +2770,38 @@ class ProductApi
     }
 
     /**
-     * Operation getProductCollectionV1ProductResetCollectionDelete
+     * Operation importMultipleProductsV1ProductPost
      *
-     * Get Product Collection
+     * Import Multiple Products
      *
-     * @param  bool $dry_run dry_run (optional, default to true)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductCollectionV1ProductResetCollectionDelete'] to see the possible values for this operation
+     * @param  \OpenAPI\Client\Model\Product[] $product product (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleProductsV1ProductPost'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return mixed|\OpenAPI\Client\Model\HTTPValidationError
      */
-    public function getProductCollectionV1ProductResetCollectionDelete($dry_run = true, string $contentType = self::contentTypes['getProductCollectionV1ProductResetCollectionDelete'][0])
+    public function importMultipleProductsV1ProductPost($product, string $contentType = self::contentTypes['importMultipleProductsV1ProductPost'][0])
     {
-        list($response) = $this->getProductCollectionV1ProductResetCollectionDeleteWithHttpInfo($dry_run, $contentType);
+        list($response) = $this->importMultipleProductsV1ProductPostWithHttpInfo($product, $contentType);
         return $response;
     }
 
     /**
-     * Operation getProductCollectionV1ProductResetCollectionDeleteWithHttpInfo
+     * Operation importMultipleProductsV1ProductPostWithHttpInfo
      *
-     * Get Product Collection
+     * Import Multiple Products
      *
-     * @param  bool $dry_run (optional, default to true)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductCollectionV1ProductResetCollectionDelete'] to see the possible values for this operation
+     * @param  \OpenAPI\Client\Model\Product[] $product (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleProductsV1ProductPost'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProductCollectionV1ProductResetCollectionDeleteWithHttpInfo($dry_run = true, string $contentType = self::contentTypes['getProductCollectionV1ProductResetCollectionDelete'][0])
+    public function importMultipleProductsV1ProductPostWithHttpInfo($product, string $contentType = self::contentTypes['importMultipleProductsV1ProductPost'][0])
     {
-        $request = $this->getProductCollectionV1ProductResetCollectionDeleteRequest($dry_run, $contentType);
+        $request = $this->importMultipleProductsV1ProductPostRequest($product, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1247,19 +2947,19 @@ class ProductApi
     }
 
     /**
-     * Operation getProductCollectionV1ProductResetCollectionDeleteAsync
+     * Operation importMultipleProductsV1ProductPostAsync
      *
-     * Get Product Collection
+     * Import Multiple Products
      *
-     * @param  bool $dry_run (optional, default to true)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductCollectionV1ProductResetCollectionDelete'] to see the possible values for this operation
+     * @param  \OpenAPI\Client\Model\Product[] $product (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleProductsV1ProductPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProductCollectionV1ProductResetCollectionDeleteAsync($dry_run = true, string $contentType = self::contentTypes['getProductCollectionV1ProductResetCollectionDelete'][0])
+    public function importMultipleProductsV1ProductPostAsync($product, string $contentType = self::contentTypes['importMultipleProductsV1ProductPost'][0])
     {
-        return $this->getProductCollectionV1ProductResetCollectionDeleteAsyncWithHttpInfo($dry_run, $contentType)
+        return $this->importMultipleProductsV1ProductPostAsyncWithHttpInfo($product, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1268,20 +2968,20 @@ class ProductApi
     }
 
     /**
-     * Operation getProductCollectionV1ProductResetCollectionDeleteAsyncWithHttpInfo
+     * Operation importMultipleProductsV1ProductPostAsyncWithHttpInfo
      *
-     * Get Product Collection
+     * Import Multiple Products
      *
-     * @param  bool $dry_run (optional, default to true)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductCollectionV1ProductResetCollectionDelete'] to see the possible values for this operation
+     * @param  \OpenAPI\Client\Model\Product[] $product (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleProductsV1ProductPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProductCollectionV1ProductResetCollectionDeleteAsyncWithHttpInfo($dry_run = true, string $contentType = self::contentTypes['getProductCollectionV1ProductResetCollectionDelete'][0])
+    public function importMultipleProductsV1ProductPostAsyncWithHttpInfo($product, string $contentType = self::contentTypes['importMultipleProductsV1ProductPost'][0])
     {
         $returnType = 'mixed';
-        $request = $this->getProductCollectionV1ProductResetCollectionDeleteRequest($dry_run, $contentType);
+        $request = $this->importMultipleProductsV1ProductPostRequest($product, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1320,727 +3020,26 @@ class ProductApi
     }
 
     /**
-     * Create request for operation 'getProductCollectionV1ProductResetCollectionDelete'
+     * Create request for operation 'importMultipleProductsV1ProductPost'
      *
-     * @param  bool $dry_run (optional, default to true)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductCollectionV1ProductResetCollectionDelete'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getProductCollectionV1ProductResetCollectionDeleteRequest($dry_run = true, string $contentType = self::contentTypes['getProductCollectionV1ProductResetCollectionDelete'][0])
-    {
-
-
-
-        $resourcePath = '/v1/product/reset-collection';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $dry_run,
-            'dry_run', // param base name
-            'boolean', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
-        if ($apiKey !== null) {
-            $headers['X-API-Key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'DELETE',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getProductV1ProductSkuGet
-     *
-     * Get Product
-     *
-     * @param  string $sku sku (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductV1ProductSkuGet'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Product|\OpenAPI\Client\Model\HTTPValidationError
-     */
-    public function getProductV1ProductSkuGet($sku, string $contentType = self::contentTypes['getProductV1ProductSkuGet'][0])
-    {
-        list($response) = $this->getProductV1ProductSkuGetWithHttpInfo($sku, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation getProductV1ProductSkuGetWithHttpInfo
-     *
-     * Get Product
-     *
-     * @param  string $sku (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductV1ProductSkuGet'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Product|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getProductV1ProductSkuGetWithHttpInfo($sku, string $contentType = self::contentTypes['getProductV1ProductSkuGet'][0])
-    {
-        $request = $this->getProductV1ProductSkuGetRequest($sku, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\OpenAPI\Client\Model\Product' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\Product' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Product', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\OpenAPI\Client\Model\Product';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Product',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getProductV1ProductSkuGetAsync
-     *
-     * Get Product
-     *
-     * @param  string $sku (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductV1ProductSkuGet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getProductV1ProductSkuGetAsync($sku, string $contentType = self::contentTypes['getProductV1ProductSkuGet'][0])
-    {
-        return $this->getProductV1ProductSkuGetAsyncWithHttpInfo($sku, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getProductV1ProductSkuGetAsyncWithHttpInfo
-     *
-     * Get Product
-     *
-     * @param  string $sku (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductV1ProductSkuGet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getProductV1ProductSkuGetAsyncWithHttpInfo($sku, string $contentType = self::contentTypes['getProductV1ProductSkuGet'][0])
-    {
-        $returnType = '\OpenAPI\Client\Model\Product';
-        $request = $this->getProductV1ProductSkuGetRequest($sku, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getProductV1ProductSkuGet'
-     *
-     * @param  string $sku (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductV1ProductSkuGet'] to see the possible values for this operation
+     * @param  \OpenAPI\Client\Model\Product[] $product (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleProductsV1ProductPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProductV1ProductSkuGetRequest($sku, string $contentType = self::contentTypes['getProductV1ProductSkuGet'][0])
+    public function importMultipleProductsV1ProductPostRequest($product, string $contentType = self::contentTypes['importMultipleProductsV1ProductPost'][0])
     {
-
-        // verify the required parameter 'sku' is set
-        if ($sku === null || (is_array($sku) && count($sku) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $sku when calling getProductV1ProductSkuGet'
-            );
-        }
-
-
-        $resourcePath = '/v1/product/{sku}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($sku !== null) {
-            $resourcePath = str_replace(
-                '{' . 'sku' . '}',
-                ObjectSerializer::toPathValue($sku),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
-        if ($apiKey !== null) {
-            $headers['X-API-Key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation ingestProductV1ProductSkuPost
-     *
-     * Ingest Product
-     *
-     * @param  string $sku sku (required)
-     * @param  \OpenAPI\Client\Model\Product $product product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingestProductV1ProductSkuPost'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Product|\OpenAPI\Client\Model\HTTPValidationError
-     */
-    public function ingestProductV1ProductSkuPost($sku, $product, string $contentType = self::contentTypes['ingestProductV1ProductSkuPost'][0])
-    {
-        list($response) = $this->ingestProductV1ProductSkuPostWithHttpInfo($sku, $product, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation ingestProductV1ProductSkuPostWithHttpInfo
-     *
-     * Ingest Product
-     *
-     * @param  string $sku (required)
-     * @param  \OpenAPI\Client\Model\Product $product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingestProductV1ProductSkuPost'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Product|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function ingestProductV1ProductSkuPostWithHttpInfo($sku, $product, string $contentType = self::contentTypes['ingestProductV1ProductSkuPost'][0])
-    {
-        $request = $this->ingestProductV1ProductSkuPostRequest($sku, $product, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\OpenAPI\Client\Model\Product' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\Product' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Product', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\OpenAPI\Client\Model\Product';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Product',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation ingestProductV1ProductSkuPostAsync
-     *
-     * Ingest Product
-     *
-     * @param  string $sku (required)
-     * @param  \OpenAPI\Client\Model\Product $product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingestProductV1ProductSkuPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function ingestProductV1ProductSkuPostAsync($sku, $product, string $contentType = self::contentTypes['ingestProductV1ProductSkuPost'][0])
-    {
-        return $this->ingestProductV1ProductSkuPostAsyncWithHttpInfo($sku, $product, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation ingestProductV1ProductSkuPostAsyncWithHttpInfo
-     *
-     * Ingest Product
-     *
-     * @param  string $sku (required)
-     * @param  \OpenAPI\Client\Model\Product $product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingestProductV1ProductSkuPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function ingestProductV1ProductSkuPostAsyncWithHttpInfo($sku, $product, string $contentType = self::contentTypes['ingestProductV1ProductSkuPost'][0])
-    {
-        $returnType = '\OpenAPI\Client\Model\Product';
-        $request = $this->ingestProductV1ProductSkuPostRequest($sku, $product, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'ingestProductV1ProductSkuPost'
-     *
-     * @param  string $sku (required)
-     * @param  \OpenAPI\Client\Model\Product $product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingestProductV1ProductSkuPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function ingestProductV1ProductSkuPostRequest($sku, $product, string $contentType = self::contentTypes['ingestProductV1ProductSkuPost'][0])
-    {
-
-        // verify the required parameter 'sku' is set
-        if ($sku === null || (is_array($sku) && count($sku) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $sku when calling ingestProductV1ProductSkuPost'
-            );
-        }
 
         // verify the required parameter 'product' is set
         if ($product === null || (is_array($product) && count($product) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $product when calling ingestProductV1ProductSkuPost'
+                'Missing the required parameter $product when calling importMultipleProductsV1ProductPost'
             );
         }
 
 
-        $resourcePath = '/v1/product/{sku}';
+        $resourcePath = '/v1/product';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2049,14 +3048,6 @@ class ProductApi
 
 
 
-        // path params
-        if ($sku !== null) {
-            $resourcePath = str_replace(
-                '{' . 'sku' . '}',
-                ObjectSerializer::toPathValue($sku),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2125,40 +3116,40 @@ class ProductApi
     }
 
     /**
-     * Operation ingestProductV1ProductSkuPut
+     * Operation updateProductBySKUV1ProductSkuPut
      *
-     * Ingest Product
+     * Update Product By Sku
      *
      * @param  string $sku sku (required)
      * @param  \OpenAPI\Client\Model\Product $product product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingestProductV1ProductSkuPut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductBySKUV1ProductSkuPut'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Product|\OpenAPI\Client\Model\HTTPValidationError
      */
-    public function ingestProductV1ProductSkuPut($sku, $product, string $contentType = self::contentTypes['ingestProductV1ProductSkuPut'][0])
+    public function updateProductBySKUV1ProductSkuPut($sku, $product, string $contentType = self::contentTypes['updateProductBySKUV1ProductSkuPut'][0])
     {
-        list($response) = $this->ingestProductV1ProductSkuPutWithHttpInfo($sku, $product, $contentType);
+        list($response) = $this->updateProductBySKUV1ProductSkuPutWithHttpInfo($sku, $product, $contentType);
         return $response;
     }
 
     /**
-     * Operation ingestProductV1ProductSkuPutWithHttpInfo
+     * Operation updateProductBySKUV1ProductSkuPutWithHttpInfo
      *
-     * Ingest Product
+     * Update Product By Sku
      *
      * @param  string $sku (required)
      * @param  \OpenAPI\Client\Model\Product $product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingestProductV1ProductSkuPut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductBySKUV1ProductSkuPut'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Product|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ingestProductV1ProductSkuPutWithHttpInfo($sku, $product, string $contentType = self::contentTypes['ingestProductV1ProductSkuPut'][0])
+    public function updateProductBySKUV1ProductSkuPutWithHttpInfo($sku, $product, string $contentType = self::contentTypes['updateProductBySKUV1ProductSkuPut'][0])
     {
-        $request = $this->ingestProductV1ProductSkuPutRequest($sku, $product, $contentType);
+        $request = $this->updateProductBySKUV1ProductSkuPutRequest($sku, $product, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2304,20 +3295,20 @@ class ProductApi
     }
 
     /**
-     * Operation ingestProductV1ProductSkuPutAsync
+     * Operation updateProductBySKUV1ProductSkuPutAsync
      *
-     * Ingest Product
+     * Update Product By Sku
      *
      * @param  string $sku (required)
      * @param  \OpenAPI\Client\Model\Product $product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingestProductV1ProductSkuPut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductBySKUV1ProductSkuPut'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ingestProductV1ProductSkuPutAsync($sku, $product, string $contentType = self::contentTypes['ingestProductV1ProductSkuPut'][0])
+    public function updateProductBySKUV1ProductSkuPutAsync($sku, $product, string $contentType = self::contentTypes['updateProductBySKUV1ProductSkuPut'][0])
     {
-        return $this->ingestProductV1ProductSkuPutAsyncWithHttpInfo($sku, $product, $contentType)
+        return $this->updateProductBySKUV1ProductSkuPutAsyncWithHttpInfo($sku, $product, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2326,21 +3317,21 @@ class ProductApi
     }
 
     /**
-     * Operation ingestProductV1ProductSkuPutAsyncWithHttpInfo
+     * Operation updateProductBySKUV1ProductSkuPutAsyncWithHttpInfo
      *
-     * Ingest Product
+     * Update Product By Sku
      *
      * @param  string $sku (required)
      * @param  \OpenAPI\Client\Model\Product $product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingestProductV1ProductSkuPut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductBySKUV1ProductSkuPut'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ingestProductV1ProductSkuPutAsyncWithHttpInfo($sku, $product, string $contentType = self::contentTypes['ingestProductV1ProductSkuPut'][0])
+    public function updateProductBySKUV1ProductSkuPutAsyncWithHttpInfo($sku, $product, string $contentType = self::contentTypes['updateProductBySKUV1ProductSkuPut'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Product';
-        $request = $this->ingestProductV1ProductSkuPutRequest($sku, $product, $contentType);
+        $request = $this->updateProductBySKUV1ProductSkuPutRequest($sku, $product, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2379,29 +3370,29 @@ class ProductApi
     }
 
     /**
-     * Create request for operation 'ingestProductV1ProductSkuPut'
+     * Create request for operation 'updateProductBySKUV1ProductSkuPut'
      *
      * @param  string $sku (required)
      * @param  \OpenAPI\Client\Model\Product $product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingestProductV1ProductSkuPut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductBySKUV1ProductSkuPut'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ingestProductV1ProductSkuPutRequest($sku, $product, string $contentType = self::contentTypes['ingestProductV1ProductSkuPut'][0])
+    public function updateProductBySKUV1ProductSkuPutRequest($sku, $product, string $contentType = self::contentTypes['updateProductBySKUV1ProductSkuPut'][0])
     {
 
         // verify the required parameter 'sku' is set
         if ($sku === null || (is_array($sku) && count($sku) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $sku when calling ingestProductV1ProductSkuPut'
+                'Missing the required parameter $sku when calling updateProductBySKUV1ProductSkuPut'
             );
         }
 
         // verify the required parameter 'product' is set
         if ($product === null || (is_array($product) && count($product) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $product when calling ingestProductV1ProductSkuPut'
+                'Missing the required parameter $product when calling updateProductBySKUV1ProductSkuPut'
             );
         }
 
@@ -2484,352 +3475,6 @@ class ProductApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'PUT',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation ingestProductsV1ProductPost
-     *
-     * Ingest Products
-     *
-     * @param  \OpenAPI\Client\Model\Product[] $product product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingestProductsV1ProductPost'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError
-     */
-    public function ingestProductsV1ProductPost($product, string $contentType = self::contentTypes['ingestProductsV1ProductPost'][0])
-    {
-        list($response) = $this->ingestProductsV1ProductPostWithHttpInfo($product, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation ingestProductsV1ProductPostWithHttpInfo
-     *
-     * Ingest Products
-     *
-     * @param  \OpenAPI\Client\Model\Product[] $product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingestProductsV1ProductPost'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function ingestProductsV1ProductPostWithHttpInfo($product, string $contentType = self::contentTypes['ingestProductsV1ProductPost'][0])
-    {
-        $request = $this->ingestProductsV1ProductPostRequest($product, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('mixed' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('mixed' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, 'mixed', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'mixed';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation ingestProductsV1ProductPostAsync
-     *
-     * Ingest Products
-     *
-     * @param  \OpenAPI\Client\Model\Product[] $product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingestProductsV1ProductPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function ingestProductsV1ProductPostAsync($product, string $contentType = self::contentTypes['ingestProductsV1ProductPost'][0])
-    {
-        return $this->ingestProductsV1ProductPostAsyncWithHttpInfo($product, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation ingestProductsV1ProductPostAsyncWithHttpInfo
-     *
-     * Ingest Products
-     *
-     * @param  \OpenAPI\Client\Model\Product[] $product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingestProductsV1ProductPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function ingestProductsV1ProductPostAsyncWithHttpInfo($product, string $contentType = self::contentTypes['ingestProductsV1ProductPost'][0])
-    {
-        $returnType = 'mixed';
-        $request = $this->ingestProductsV1ProductPostRequest($product, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'ingestProductsV1ProductPost'
-     *
-     * @param  \OpenAPI\Client\Model\Product[] $product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingestProductsV1ProductPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function ingestProductsV1ProductPostRequest($product, string $contentType = self::contentTypes['ingestProductsV1ProductPost'][0])
-    {
-
-        // verify the required parameter 'product' is set
-        if ($product === null || (is_array($product) && count($product) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $product when calling ingestProductsV1ProductPost'
-            );
-        }
-
-
-        $resourcePath = '/v1/product';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($product)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($product));
-            } else {
-                $httpBody = $product;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
-        if ($apiKey !== null) {
-            $headers['X-API-Key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
