@@ -24,5 +24,9 @@ Name | Type | Description | Notes
 **color** | **string** |  | [optional]
 **system_link** | **string** |  | [optional]
 **link** | **string** |  | [optional]
+**brand** | **string** |  | [optional]
+**model** | **string** |  | [optional]
+**gtin** | **string** |  | [optional]
+**condition** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

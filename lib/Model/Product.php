@@ -76,7 +76,11 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'size' => 'string',
         'color' => 'string',
         'system_link' => 'string',
-        'link' => 'string'
+        'link' => 'string',
+        'brand' => 'string',
+        'model' => 'string',
+        'gtin' => 'string',
+        'condition' => 'string'
     ];
 
     /**
@@ -106,7 +110,11 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'size' => null,
         'color' => null,
         'system_link' => null,
-        'link' => null
+        'link' => null,
+        'brand' => null,
+        'model' => null,
+        'gtin' => null,
+        'condition' => null
     ];
 
     /**
@@ -134,7 +142,11 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'size' => true,
         'color' => true,
         'system_link' => true,
-        'link' => true
+        'link' => true,
+        'brand' => true,
+        'model' => true,
+        'gtin' => true,
+        'condition' => true
     ];
 
     /**
@@ -242,7 +254,11 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'size' => 'size',
         'color' => 'color',
         'system_link' => 'system_link',
-        'link' => 'link'
+        'link' => 'link',
+        'brand' => 'brand',
+        'model' => 'model',
+        'gtin' => 'gtin',
+        'condition' => 'condition'
     ];
 
     /**
@@ -270,7 +286,11 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'size' => 'setSize',
         'color' => 'setColor',
         'system_link' => 'setSystemLink',
-        'link' => 'setLink'
+        'link' => 'setLink',
+        'brand' => 'setBrand',
+        'model' => 'setModel',
+        'gtin' => 'setGtin',
+        'condition' => 'setCondition'
     ];
 
     /**
@@ -298,7 +318,11 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'size' => 'getSize',
         'color' => 'getColor',
         'system_link' => 'getSystemLink',
-        'link' => 'getLink'
+        'link' => 'getLink',
+        'brand' => 'getBrand',
+        'model' => 'getModel',
+        'gtin' => 'getGtin',
+        'condition' => 'getCondition'
     ];
 
     /**
@@ -378,6 +402,10 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('color', $data ?? [], null);
         $this->setIfExists('system_link', $data ?? [], null);
         $this->setIfExists('link', $data ?? [], null);
+        $this->setIfExists('brand', $data ?? [], null);
+        $this->setIfExists('model', $data ?? [], null);
+        $this->setIfExists('gtin', $data ?? [], null);
+        $this->setIfExists('condition', $data ?? [], null);
     }
 
     /**
@@ -1061,6 +1089,142 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['link'] = $link;
+
+        return $this;
+    }
+
+    /**
+     * Gets brand
+     *
+     * @return string|null
+     */
+    public function getBrand()
+    {
+        return $this->container['brand'];
+    }
+
+    /**
+     * Sets brand
+     *
+     * @param string|null $brand brand
+     *
+     * @return self
+     */
+    public function setBrand($brand)
+    {
+        if (is_null($brand)) {
+            array_push($this->openAPINullablesSetToNull, 'brand');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('brand', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['brand'] = $brand;
+
+        return $this;
+    }
+
+    /**
+     * Gets model
+     *
+     * @return string|null
+     */
+    public function getModel()
+    {
+        return $this->container['model'];
+    }
+
+    /**
+     * Sets model
+     *
+     * @param string|null $model model
+     *
+     * @return self
+     */
+    public function setModel($model)
+    {
+        if (is_null($model)) {
+            array_push($this->openAPINullablesSetToNull, 'model');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('model', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['model'] = $model;
+
+        return $this;
+    }
+
+    /**
+     * Gets gtin
+     *
+     * @return string|null
+     */
+    public function getGtin()
+    {
+        return $this->container['gtin'];
+    }
+
+    /**
+     * Sets gtin
+     *
+     * @param string|null $gtin gtin
+     *
+     * @return self
+     */
+    public function setGtin($gtin)
+    {
+        if (is_null($gtin)) {
+            array_push($this->openAPINullablesSetToNull, 'gtin');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('gtin', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['gtin'] = $gtin;
+
+        return $this;
+    }
+
+    /**
+     * Gets condition
+     *
+     * @return string|null
+     */
+    public function getCondition()
+    {
+        return $this->container['condition'];
+    }
+
+    /**
+     * Sets condition
+     *
+     * @param string|null $condition condition
+     *
+     * @return self
+     */
+    public function setCondition($condition)
+    {
+        if (is_null($condition)) {
+            array_push($this->openAPINullablesSetToNull, 'condition');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('condition', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['condition'] = $condition;
 
         return $this;
     }
