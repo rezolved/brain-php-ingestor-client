@@ -81,6 +81,7 @@ Class | Method | HTTP request | Description
 *ProductApi* | [**checkIfProductCollectionExistsV1ProductCollectionExistsGet**](docs/Api/ProductApi.md#checkifproductcollectionexistsv1productcollectionexistsget) | **GET** /v1/product/collection-exists | Check If Product Collection Exists.
 *ProductApi* | [**createProductBySKUV1ProductSkuPost**](docs/Api/ProductApi.md#createproductbyskuv1productskupost) | **POST** /v1/product/{sku} | Create Product By Sku
 *ProductApi* | [**createProductCollectionV1ProductCollectionPost**](docs/Api/ProductApi.md#createproductcollectionv1productcollectionpost) | **POST** /v1/product/collection | Create Product Collection
+*ProductApi* | [**deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete**](docs/Api/ProductApi.md#deleteproductbyinternalidv1productbyinternalidinternaliddelete) | **DELETE** /v1/product/by-internal-id/{internal_id} | Delete Product By Internal Id
 *ProductApi* | [**deleteProductBySKUV1ProductSkuDelete**](docs/Api/ProductApi.md#deleteproductbyskuv1productskudelete) | **DELETE** /v1/product/{sku} | Delete Product By Sku
 *ProductApi* | [**deleteProductCollectionV1ProductCollectionDelete**](docs/Api/ProductApi.md#deleteproductcollectionv1productcollectiondelete) | **DELETE** /v1/product/collection | Delete Product Collection
 *ProductApi* | [**deletesAllProductsFromCollectionV1ProductResetCollectionDelete**](docs/Api/ProductApi.md#deletesallproductsfromcollectionv1productresetcollectiondelete) | **DELETE** /v1/product/reset-collection | Deletes All Products From Collection

@@ -75,7 +75,8 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'product_weight' => 'float',
         'size' => 'string',
         'color' => 'string',
-        'system_link' => 'string'
+        'system_link' => 'string',
+        'link' => 'string'
     ];
 
     /**
@@ -104,7 +105,8 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'product_weight' => null,
         'size' => null,
         'color' => null,
-        'system_link' => null
+        'system_link' => null,
+        'link' => null
     ];
 
     /**
@@ -131,7 +133,8 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'product_weight' => false,
         'size' => true,
         'color' => true,
-        'system_link' => true
+        'system_link' => true,
+        'link' => true
     ];
 
     /**
@@ -238,7 +241,8 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'product_weight' => 'product_weight',
         'size' => 'size',
         'color' => 'color',
-        'system_link' => 'system_link'
+        'system_link' => 'system_link',
+        'link' => 'link'
     ];
 
     /**
@@ -265,7 +269,8 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'product_weight' => 'setProductWeight',
         'size' => 'setSize',
         'color' => 'setColor',
-        'system_link' => 'setSystemLink'
+        'system_link' => 'setSystemLink',
+        'link' => 'setLink'
     ];
 
     /**
@@ -292,7 +297,8 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'product_weight' => 'getProductWeight',
         'size' => 'getSize',
         'color' => 'getColor',
-        'system_link' => 'getSystemLink'
+        'system_link' => 'getSystemLink',
+        'link' => 'getLink'
     ];
 
     /**
@@ -371,6 +377,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('size', $data ?? [], null);
         $this->setIfExists('color', $data ?? [], null);
         $this->setIfExists('system_link', $data ?? [], null);
+        $this->setIfExists('link', $data ?? [], null);
     }
 
     /**
@@ -1020,6 +1027,40 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['system_link'] = $system_link;
+
+        return $this;
+    }
+
+    /**
+     * Gets link
+     *
+     * @return string|null
+     */
+    public function getLink()
+    {
+        return $this->container['link'];
+    }
+
+    /**
+     * Sets link
+     *
+     * @param string|null $link link
+     *
+     * @return self
+     */
+    public function setLink($link)
+    {
+        if (is_null($link)) {
+            array_push($this->openAPINullablesSetToNull, 'link');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('link', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['link'] = $link;
 
         return $this;
     }

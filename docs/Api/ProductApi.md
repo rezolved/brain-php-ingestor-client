@@ -7,6 +7,7 @@ All URIs are relative to /luma, except if the operation defines another base pat
 | [**checkIfProductCollectionExistsV1ProductCollectionExistsGet()**](ProductApi.md#checkIfProductCollectionExistsV1ProductCollectionExistsGet) | **GET** /v1/product/collection-exists | Check If Product Collection Exists. |
 | [**createProductBySKUV1ProductSkuPost()**](ProductApi.md#createProductBySKUV1ProductSkuPost) | **POST** /v1/product/{sku} | Create Product By Sku |
 | [**createProductCollectionV1ProductCollectionPost()**](ProductApi.md#createProductCollectionV1ProductCollectionPost) | **POST** /v1/product/collection | Create Product Collection |
+| [**deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete()**](ProductApi.md#deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete) | **DELETE** /v1/product/by-internal-id/{internal_id} | Delete Product By Internal Id |
 | [**deleteProductBySKUV1ProductSkuDelete()**](ProductApi.md#deleteProductBySKUV1ProductSkuDelete) | **DELETE** /v1/product/{sku} | Delete Product By Sku |
 | [**deleteProductCollectionV1ProductCollectionDelete()**](ProductApi.md#deleteProductCollectionV1ProductCollectionDelete) | **DELETE** /v1/product/collection | Delete Product Collection |
 | [**deletesAllProductsFromCollectionV1ProductResetCollectionDelete()**](ProductApi.md#deletesAllProductsFromCollectionV1ProductResetCollectionDelete) | **DELETE** /v1/product/reset-collection | Deletes All Products From Collection |
@@ -187,6 +188,68 @@ try {
 ### Return type
 
 **mixed**
+
+### Authorization
+
+[APIKeyHeader](../../README.md#APIKeyHeader)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete()`
+
+```php
+deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete($internal_id): bool
+```
+
+Delete Product By Internal Id
+
+Delete product by internal_id
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: APIKeyHeader
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\ProductApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$internal_id = 56; // int
+
+try {
+    $result = $apiInstance->deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete($internal_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProductApi->deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **internal_id** | **int**|  | |
+
+### Return type
+
+**bool**
 
 ### Authorization
 
