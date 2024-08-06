@@ -80,6 +80,9 @@ class ProductApi
         'createProductCollectionV1ProductCollectionPost' => [
             'application/json',
         ],
+        'deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete' => [
+            'application/json',
+        ],
         'deleteProductBySKUV1ProductSkuDelete' => [
             'application/json',
         ],
@@ -1143,6 +1146,353 @@ class ProductApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete
+     *
+     * Delete Product By Internal Id
+     *
+     * @param  int $internal_id internal_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return bool|\OpenAPI\Client\Model\HTTPValidationError
+     */
+    public function deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete($internal_id, string $contentType = self::contentTypes['deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete'][0])
+    {
+        list($response) = $this->deleteProductByInternalIdV1ProductByInternalIdInternalIdDeleteWithHttpInfo($internal_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation deleteProductByInternalIdV1ProductByInternalIdInternalIdDeleteWithHttpInfo
+     *
+     * Delete Product By Internal Id
+     *
+     * @param  int $internal_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of bool|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteProductByInternalIdV1ProductByInternalIdInternalIdDeleteWithHttpInfo($internal_id, string $contentType = self::contentTypes['deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete'][0])
+    {
+        $request = $this->deleteProductByInternalIdV1ProductByInternalIdInternalIdDeleteRequest($internal_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('bool' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('bool' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'bool', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'bool';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'bool',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteProductByInternalIdV1ProductByInternalIdInternalIdDeleteAsync
+     *
+     * Delete Product By Internal Id
+     *
+     * @param  int $internal_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteProductByInternalIdV1ProductByInternalIdInternalIdDeleteAsync($internal_id, string $contentType = self::contentTypes['deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete'][0])
+    {
+        return $this->deleteProductByInternalIdV1ProductByInternalIdInternalIdDeleteAsyncWithHttpInfo($internal_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteProductByInternalIdV1ProductByInternalIdInternalIdDeleteAsyncWithHttpInfo
+     *
+     * Delete Product By Internal Id
+     *
+     * @param  int $internal_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteProductByInternalIdV1ProductByInternalIdInternalIdDeleteAsyncWithHttpInfo($internal_id, string $contentType = self::contentTypes['deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete'][0])
+    {
+        $returnType = 'bool';
+        $request = $this->deleteProductByInternalIdV1ProductByInternalIdInternalIdDeleteRequest($internal_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete'
+     *
+     * @param  int $internal_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteProductByInternalIdV1ProductByInternalIdInternalIdDeleteRequest($internal_id, string $contentType = self::contentTypes['deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete'][0])
+    {
+
+        // verify the required parameter 'internal_id' is set
+        if ($internal_id === null || (is_array($internal_id) && count($internal_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $internal_id when calling deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete'
+            );
+        }
+
+
+        $resourcePath = '/v1/product/by-internal-id/{internal_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($internal_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'internal_id' . '}',
+                ObjectSerializer::toPathValue($internal_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
