@@ -76,7 +76,12 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'size' => 'string',
         'color' => 'string',
         'system_link' => 'string',
-        'link' => 'string'
+        'link' => 'string',
+        'brand' => 'string',
+        'model' => 'string',
+        'gtin' => 'string',
+        'condition' => 'string',
+        'adult' => 'string'
     ];
 
     /**
@@ -106,7 +111,12 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'size' => null,
         'color' => null,
         'system_link' => null,
-        'link' => null
+        'link' => null,
+        'brand' => null,
+        'model' => null,
+        'gtin' => null,
+        'condition' => null,
+        'adult' => null
     ];
 
     /**
@@ -123,18 +133,23 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'availability' => false,
         'price' => false,
         'currency' => false,
-        'item_group_id' => true,
-        'title' => true,
-        'description' => true,
-        'gender' => true,
-        'image_link' => true,
-        'material' => true,
-        'pattern' => true,
+        'item_group_id' => false,
+        'title' => false,
+        'description' => false,
+        'gender' => false,
+        'image_link' => false,
+        'material' => false,
+        'pattern' => false,
         'product_weight' => false,
-        'size' => true,
-        'color' => true,
-        'system_link' => true,
-        'link' => true
+        'size' => false,
+        'color' => false,
+        'system_link' => false,
+        'link' => false,
+        'brand' => false,
+        'model' => false,
+        'gtin' => false,
+        'condition' => false,
+        'adult' => false
     ];
 
     /**
@@ -242,7 +257,12 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'size' => 'size',
         'color' => 'color',
         'system_link' => 'system_link',
-        'link' => 'link'
+        'link' => 'link',
+        'brand' => 'brand',
+        'model' => 'model',
+        'gtin' => 'gtin',
+        'condition' => 'condition',
+        'adult' => 'adult'
     ];
 
     /**
@@ -270,7 +290,12 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'size' => 'setSize',
         'color' => 'setColor',
         'system_link' => 'setSystemLink',
-        'link' => 'setLink'
+        'link' => 'setLink',
+        'brand' => 'setBrand',
+        'model' => 'setModel',
+        'gtin' => 'setGtin',
+        'condition' => 'setCondition',
+        'adult' => 'setAdult'
     ];
 
     /**
@@ -298,7 +323,12 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'size' => 'getSize',
         'color' => 'getColor',
         'system_link' => 'getSystemLink',
-        'link' => 'getLink'
+        'link' => 'getLink',
+        'brand' => 'getBrand',
+        'model' => 'getModel',
+        'gtin' => 'getGtin',
+        'condition' => 'getCondition',
+        'adult' => 'getAdult'
     ];
 
     /**
@@ -366,18 +396,23 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('availability', $data ?? [], null);
         $this->setIfExists('price', $data ?? [], 0.0);
         $this->setIfExists('currency', $data ?? [], null);
-        $this->setIfExists('item_group_id', $data ?? [], null);
-        $this->setIfExists('title', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('gender', $data ?? [], null);
-        $this->setIfExists('image_link', $data ?? [], null);
-        $this->setIfExists('material', $data ?? [], null);
-        $this->setIfExists('pattern', $data ?? [], null);
+        $this->setIfExists('item_group_id', $data ?? [], '');
+        $this->setIfExists('title', $data ?? [], '');
+        $this->setIfExists('description', $data ?? [], '');
+        $this->setIfExists('gender', $data ?? [], '');
+        $this->setIfExists('image_link', $data ?? [], '');
+        $this->setIfExists('material', $data ?? [], '');
+        $this->setIfExists('pattern', $data ?? [], '');
         $this->setIfExists('product_weight', $data ?? [], 0.0);
-        $this->setIfExists('size', $data ?? [], null);
-        $this->setIfExists('color', $data ?? [], null);
-        $this->setIfExists('system_link', $data ?? [], null);
-        $this->setIfExists('link', $data ?? [], null);
+        $this->setIfExists('size', $data ?? [], '');
+        $this->setIfExists('color', $data ?? [], '');
+        $this->setIfExists('system_link', $data ?? [], '');
+        $this->setIfExists('link', $data ?? [], '');
+        $this->setIfExists('brand', $data ?? [], '');
+        $this->setIfExists('model', $data ?? [], '');
+        $this->setIfExists('gtin', $data ?? [], '');
+        $this->setIfExists('condition', $data ?? [], '');
+        $this->setIfExists('adult', $data ?? [], '');
     }
 
     /**
@@ -684,14 +719,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setItemGroupId($item_group_id)
     {
         if (is_null($item_group_id)) {
-            array_push($this->openAPINullablesSetToNull, 'item_group_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('item_group_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable item_group_id cannot be null');
         }
         $this->container['item_group_id'] = $item_group_id;
 
@@ -718,14 +746,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setTitle($title)
     {
         if (is_null($title)) {
-            array_push($this->openAPINullablesSetToNull, 'title');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('title', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable title cannot be null');
         }
         $this->container['title'] = $title;
 
@@ -752,14 +773,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDescription($description)
     {
         if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
         $this->container['description'] = $description;
 
@@ -786,14 +800,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setGender($gender)
     {
         if (is_null($gender)) {
-            array_push($this->openAPINullablesSetToNull, 'gender');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('gender', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable gender cannot be null');
         }
         $this->container['gender'] = $gender;
 
@@ -820,14 +827,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setImageLink($image_link)
     {
         if (is_null($image_link)) {
-            array_push($this->openAPINullablesSetToNull, 'image_link');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('image_link', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable image_link cannot be null');
         }
         $this->container['image_link'] = $image_link;
 
@@ -854,14 +854,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setMaterial($material)
     {
         if (is_null($material)) {
-            array_push($this->openAPINullablesSetToNull, 'material');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('material', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable material cannot be null');
         }
         $this->container['material'] = $material;
 
@@ -888,14 +881,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPattern($pattern)
     {
         if (is_null($pattern)) {
-            array_push($this->openAPINullablesSetToNull, 'pattern');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('pattern', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable pattern cannot be null');
         }
         $this->container['pattern'] = $pattern;
 
@@ -949,14 +935,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSize($size)
     {
         if (is_null($size)) {
-            array_push($this->openAPINullablesSetToNull, 'size');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('size', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable size cannot be null');
         }
         $this->container['size'] = $size;
 
@@ -983,14 +962,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setColor($color)
     {
         if (is_null($color)) {
-            array_push($this->openAPINullablesSetToNull, 'color');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('color', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable color cannot be null');
         }
         $this->container['color'] = $color;
 
@@ -1017,14 +989,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSystemLink($system_link)
     {
         if (is_null($system_link)) {
-            array_push($this->openAPINullablesSetToNull, 'system_link');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('system_link', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable system_link cannot be null');
         }
         $this->container['system_link'] = $system_link;
 
@@ -1051,16 +1016,144 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setLink($link)
     {
         if (is_null($link)) {
-            array_push($this->openAPINullablesSetToNull, 'link');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('link', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable link cannot be null');
         }
         $this->container['link'] = $link;
+
+        return $this;
+    }
+
+    /**
+     * Gets brand
+     *
+     * @return string|null
+     */
+    public function getBrand()
+    {
+        return $this->container['brand'];
+    }
+
+    /**
+     * Sets brand
+     *
+     * @param string|null $brand brand
+     *
+     * @return self
+     */
+    public function setBrand($brand)
+    {
+        if (is_null($brand)) {
+            throw new \InvalidArgumentException('non-nullable brand cannot be null');
+        }
+        $this->container['brand'] = $brand;
+
+        return $this;
+    }
+
+    /**
+     * Gets model
+     *
+     * @return string|null
+     */
+    public function getModel()
+    {
+        return $this->container['model'];
+    }
+
+    /**
+     * Sets model
+     *
+     * @param string|null $model model
+     *
+     * @return self
+     */
+    public function setModel($model)
+    {
+        if (is_null($model)) {
+            throw new \InvalidArgumentException('non-nullable model cannot be null');
+        }
+        $this->container['model'] = $model;
+
+        return $this;
+    }
+
+    /**
+     * Gets gtin
+     *
+     * @return string|null
+     */
+    public function getGtin()
+    {
+        return $this->container['gtin'];
+    }
+
+    /**
+     * Sets gtin
+     *
+     * @param string|null $gtin gtin
+     *
+     * @return self
+     */
+    public function setGtin($gtin)
+    {
+        if (is_null($gtin)) {
+            throw new \InvalidArgumentException('non-nullable gtin cannot be null');
+        }
+        $this->container['gtin'] = $gtin;
+
+        return $this;
+    }
+
+    /**
+     * Gets condition
+     *
+     * @return string|null
+     */
+    public function getCondition()
+    {
+        return $this->container['condition'];
+    }
+
+    /**
+     * Sets condition
+     *
+     * @param string|null $condition condition
+     *
+     * @return self
+     */
+    public function setCondition($condition)
+    {
+        if (is_null($condition)) {
+            throw new \InvalidArgumentException('non-nullable condition cannot be null');
+        }
+        $this->container['condition'] = $condition;
+
+        return $this;
+    }
+
+    /**
+     * Gets adult
+     *
+     * @return string|null
+     */
+    public function getAdult()
+    {
+        return $this->container['adult'];
+    }
+
+    /**
+     * Sets adult
+     *
+     * @param string|null $adult adult
+     *
+     * @return self
+     */
+    public function setAdult($adult)
+    {
+        if (is_null($adult)) {
+            throw new \InvalidArgumentException('non-nullable adult cannot be null');
+        }
+        $this->container['adult'] = $adult;
 
         return $this;
     }
