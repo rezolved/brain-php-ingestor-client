@@ -55,7 +55,7 @@ $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\DefaultApi(
+$apiInstance = new OpenAPI\Client\Api\ContentApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -63,10 +63,10 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
 );
 
 try {
-    $result = $apiInstance->healthCheckV1HealthGet();
+    $result = $apiInstance->checkIfContentCollectionExistsV1ContentCollectionExistsGet();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->healthCheckV1HealthGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ContentApi->checkIfContentCollectionExistsV1ContentCollectionExistsGet: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -77,7 +77,29 @@ All URIs are relative to */luma*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*ContentApi* | [**checkIfContentCollectionExistsV1ContentCollectionExistsGet**](docs/Api/ContentApi.md#checkifcontentcollectionexistsv1contentcollectionexistsget) | **GET** /v1/content/collection-exists | Check If Content Collection Exists.
+*ContentApi* | [**createContentByTitleV1ContentTitlePost**](docs/Api/ContentApi.md#createcontentbytitlev1contenttitlepost) | **POST** /v1/content/{title} | Create Content By Title
+*ContentApi* | [**createContentCollectionV1ContentCollectionPost**](docs/Api/ContentApi.md#createcontentcollectionv1contentcollectionpost) | **POST** /v1/content/collection | Create Content Collection
+*ContentApi* | [**deleteContentByInternalIdV1ContentByInternalIdInternalIdDelete**](docs/Api/ContentApi.md#deletecontentbyinternalidv1contentbyinternalidinternaliddelete) | **DELETE** /v1/content/by-internal-id/{internal_id} | Delete Content By Internal Id
+*ContentApi* | [**deleteContentByTitleV1ContentTitleDelete**](docs/Api/ContentApi.md#deletecontentbytitlev1contenttitledelete) | **DELETE** /v1/content/{title} | Delete Content By Title
+*ContentApi* | [**deleteContentCollectionV1ContentCollectionDelete**](docs/Api/ContentApi.md#deletecontentcollectionv1contentcollectiondelete) | **DELETE** /v1/content/collection | Delete Content Collection
+*ContentApi* | [**deletesAllContentFromCollectionV1ContentResetCollectionDelete**](docs/Api/ContentApi.md#deletesallcontentfromcollectionv1contentresetcollectiondelete) | **DELETE** /v1/content/reset-collection | Deletes All Content From Collection
+*ContentApi* | [**gestContentByTitleV1ContentTitleGet**](docs/Api/ContentApi.md#gestcontentbytitlev1contenttitleget) | **GET** /v1/content/{title} | Gest Content By Title
+*ContentApi* | [**getAllContentsV1ContentGet**](docs/Api/ContentApi.md#getallcontentsv1contentget) | **GET** /v1/content | Get All Contents
+*ContentApi* | [**importMultipleContentsV1ContentPost**](docs/Api/ContentApi.md#importmultiplecontentsv1contentpost) | **POST** /v1/content | Import Multiple Contents
+*ContentApi* | [**updateContentByTitleV1ContentTitlePut**](docs/Api/ContentApi.md#updatecontentbytitlev1contenttitleput) | **PUT** /v1/content/{title} | Update Content By Title
 *DefaultApi* | [**healthCheckV1HealthGet**](docs/Api/DefaultApi.md#healthcheckv1healthget) | **GET** /v1/health | Health Check
+*FaqApi* | [**checkIfFAQCollectionExistsV1FaqCollectionExistsGet**](docs/Api/FaqApi.md#checkiffaqcollectionexistsv1faqcollectionexistsget) | **GET** /v1/faq/collection-exists | Check If Faq Collection Exists.
+*FaqApi* | [**createFAQByQuestionV1FaqQuestionPost**](docs/Api/FaqApi.md#createfaqbyquestionv1faqquestionpost) | **POST** /v1/faq/{question} | Create Faq By Question
+*FaqApi* | [**createFAQCollectionV1FaqCollectionPost**](docs/Api/FaqApi.md#createfaqcollectionv1faqcollectionpost) | **POST** /v1/faq/collection | Create Faq Collection
+*FaqApi* | [**deleteFAQByInternalIdV1FaqByInternalIdInternalIdDelete**](docs/Api/FaqApi.md#deletefaqbyinternalidv1faqbyinternalidinternaliddelete) | **DELETE** /v1/faq/by-internal-id/{internal_id} | Delete Faq By Internal Id
+*FaqApi* | [**deleteFAQByQuestionV1FaqQuestionDelete**](docs/Api/FaqApi.md#deletefaqbyquestionv1faqquestiondelete) | **DELETE** /v1/faq/{question} | Delete Faq By Question
+*FaqApi* | [**deleteFAQCollectionV1FaqCollectionDelete**](docs/Api/FaqApi.md#deletefaqcollectionv1faqcollectiondelete) | **DELETE** /v1/faq/collection | Delete Faq Collection
+*FaqApi* | [**deletesAllFAQFromCollectionV1FaqResetCollectionDelete**](docs/Api/FaqApi.md#deletesallfaqfromcollectionv1faqresetcollectiondelete) | **DELETE** /v1/faq/reset-collection | Deletes All Faq From Collection
+*FaqApi* | [**gestFAQByQuestionV1FaqQuestionGet**](docs/Api/FaqApi.md#gestfaqbyquestionv1faqquestionget) | **GET** /v1/faq/{question} | Gest Faq By Question
+*FaqApi* | [**getAllFAQsV1FaqGet**](docs/Api/FaqApi.md#getallfaqsv1faqget) | **GET** /v1/faq | Get All Faqs
+*FaqApi* | [**importMultipleFAQsV1FaqPost**](docs/Api/FaqApi.md#importmultiplefaqsv1faqpost) | **POST** /v1/faq | Import Multiple Faqs
+*FaqApi* | [**updateFAQByQuestionV1FaqQuestionPut**](docs/Api/FaqApi.md#updatefaqbyquestionv1faqquestionput) | **PUT** /v1/faq/{question} | Update Faq By Question
 *ProductApi* | [**checkIfProductCollectionExistsV1ProductCollectionExistsGet**](docs/Api/ProductApi.md#checkifproductcollectionexistsv1productcollectionexistsget) | **GET** /v1/product/collection-exists | Check If Product Collection Exists.
 *ProductApi* | [**createProductBySKUV1ProductSkuPost**](docs/Api/ProductApi.md#createproductbyskuv1productskupost) | **POST** /v1/product/{sku} | Create Product By Sku
 *ProductApi* | [**createProductCollectionV1ProductCollectionPost**](docs/Api/ProductApi.md#createproductcollectionv1productcollectionpost) | **POST** /v1/product/collection | Create Product Collection
@@ -92,6 +114,8 @@ Class | Method | HTTP request | Description
 
 ## Models
 
+- [Content](docs/Model/Content.md)
+- [Faq](docs/Model/Faq.md)
 - [HTTPValidationError](docs/Model/HTTPValidationError.md)
 - [Product](docs/Model/Product.md)
 - [ProductAvailability](docs/Model/ProductAvailability.md)
