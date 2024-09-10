@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **question** | **string** |  |
 **answer** | **string** |  |
 **text** | **string** |  |
-**internal_id** | **int** |  |
+**internal_id** | **int** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

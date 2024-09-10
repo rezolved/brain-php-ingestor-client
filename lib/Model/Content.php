@@ -89,7 +89,7 @@ class Content implements ModelInterface, ArrayAccess, \JsonSerializable
         'title' => false,
         'content' => false,
         'file_path' => true,
-        'internal_id' => false
+        'internal_id' => true
     ];
 
     /**
@@ -308,9 +308,6 @@ class Content implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['content'] === null) {
             $invalidProperties[] = "'content' can't be null";
         }
-        if ($this->container['internal_id'] === null) {
-            $invalidProperties[] = "'internal_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -451,7 +448,7 @@ class Content implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets internal_id
      *
-     * @return int
+     * @return int|null
      */
     public function getInternalId()
     {
@@ -461,14 +458,21 @@ class Content implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets internal_id
      *
-     * @param int $internal_id internal_id
+     * @param int|null $internal_id internal_id
      *
      * @return self
      */
     public function setInternalId($internal_id)
     {
         if (is_null($internal_id)) {
-            throw new \InvalidArgumentException('non-nullable internal_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'internal_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('internal_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['internal_id'] = $internal_id;
 

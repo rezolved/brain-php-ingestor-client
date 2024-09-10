@@ -81,7 +81,9 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'model' => 'string',
         'gtin' => 'string',
         'condition' => 'string',
-        'adult' => 'string'
+        'adult' => 'string',
+        'review_summaries' => 'string',
+        'average_rating' => 'float'
     ];
 
     /**
@@ -116,7 +118,9 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'model' => null,
         'gtin' => null,
         'condition' => null,
-        'adult' => null
+        'adult' => null,
+        'review_summaries' => null,
+        'average_rating' => null
     ];
 
     /**
@@ -129,7 +133,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'sku' => false,
         'sku_id' => true,
         'product_category' => false,
-        'internal_id' => false,
+        'internal_id' => true,
         'availability' => false,
         'price' => false,
         'currency' => false,
@@ -149,7 +153,9 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'model' => false,
         'gtin' => false,
         'condition' => false,
-        'adult' => false
+        'adult' => false,
+        'review_summaries' => false,
+        'average_rating' => false
     ];
 
     /**
@@ -262,7 +268,9 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'model' => 'model',
         'gtin' => 'gtin',
         'condition' => 'condition',
-        'adult' => 'adult'
+        'adult' => 'adult',
+        'review_summaries' => 'review_summaries',
+        'average_rating' => 'average_rating'
     ];
 
     /**
@@ -295,7 +303,9 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'model' => 'setModel',
         'gtin' => 'setGtin',
         'condition' => 'setCondition',
-        'adult' => 'setAdult'
+        'adult' => 'setAdult',
+        'review_summaries' => 'setReviewSummaries',
+        'average_rating' => 'setAverageRating'
     ];
 
     /**
@@ -328,7 +338,9 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         'model' => 'getModel',
         'gtin' => 'getGtin',
         'condition' => 'getCondition',
-        'adult' => 'getAdult'
+        'adult' => 'getAdult',
+        'review_summaries' => 'getReviewSummaries',
+        'average_rating' => 'getAverageRating'
     ];
 
     /**
@@ -394,7 +406,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('product_category', $data ?? [], '');
         $this->setIfExists('internal_id', $data ?? [], null);
         $this->setIfExists('availability', $data ?? [], null);
-        $this->setIfExists('price', $data ?? [], 0.0);
+        $this->setIfExists('price', $data ?? [], 0);
         $this->setIfExists('currency', $data ?? [], null);
         $this->setIfExists('item_group_id', $data ?? [], '');
         $this->setIfExists('title', $data ?? [], '');
@@ -403,7 +415,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('image_link', $data ?? [], '');
         $this->setIfExists('material', $data ?? [], '');
         $this->setIfExists('pattern', $data ?? [], '');
-        $this->setIfExists('product_weight', $data ?? [], 0.0);
+        $this->setIfExists('product_weight', $data ?? [], 0);
         $this->setIfExists('size', $data ?? [], '');
         $this->setIfExists('color', $data ?? [], '');
         $this->setIfExists('system_link', $data ?? [], '');
@@ -413,6 +425,8 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('gtin', $data ?? [], '');
         $this->setIfExists('condition', $data ?? [], '');
         $this->setIfExists('adult', $data ?? [], '');
+        $this->setIfExists('review_summaries', $data ?? [], '');
+        $this->setIfExists('average_rating', $data ?? [], 0.0);
     }
 
     /**
@@ -444,9 +458,6 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if ($this->container['sku'] === null) {
             $invalidProperties[] = "'sku' can't be null";
-        }
-        if ($this->container['internal_id'] === null) {
-            $invalidProperties[] = "'internal_id' can't be null";
         }
         if ($this->container['availability'] === null) {
             $invalidProperties[] = "'availability' can't be null";
@@ -594,7 +605,7 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets internal_id
      *
-     * @return int
+     * @return int|null
      */
     public function getInternalId()
     {
@@ -604,14 +615,21 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets internal_id
      *
-     * @param int $internal_id internal_id
+     * @param int|null $internal_id internal_id
      *
      * @return self
      */
     public function setInternalId($internal_id)
     {
         if (is_null($internal_id)) {
-            throw new \InvalidArgumentException('non-nullable internal_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'internal_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('internal_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['internal_id'] = $internal_id;
 
@@ -1154,6 +1172,60 @@ class Product implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable adult cannot be null');
         }
         $this->container['adult'] = $adult;
+
+        return $this;
+    }
+
+    /**
+     * Gets review_summaries
+     *
+     * @return string|null
+     */
+    public function getReviewSummaries()
+    {
+        return $this->container['review_summaries'];
+    }
+
+    /**
+     * Sets review_summaries
+     *
+     * @param string|null $review_summaries review_summaries
+     *
+     * @return self
+     */
+    public function setReviewSummaries($review_summaries)
+    {
+        if (is_null($review_summaries)) {
+            throw new \InvalidArgumentException('non-nullable review_summaries cannot be null');
+        }
+        $this->container['review_summaries'] = $review_summaries;
+
+        return $this;
+    }
+
+    /**
+     * Gets average_rating
+     *
+     * @return float|null
+     */
+    public function getAverageRating()
+    {
+        return $this->container['average_rating'];
+    }
+
+    /**
+     * Sets average_rating
+     *
+     * @param float|null $average_rating average_rating
+     *
+     * @return self
+     */
+    public function setAverageRating($average_rating)
+    {
+        if (is_null($average_rating)) {
+            throw new \InvalidArgumentException('non-nullable average_rating cannot be null');
+        }
+        $this->container['average_rating'] = $average_rating;
 
         return $this;
     }

@@ -32,7 +32,3 @@ lib/Model/ValidationError.php
 lib/Model/ValidationErrorLocInner.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/ContentApiTest.php
-test/Api/FaqApiTest.php
-test/Model/ContentTest.php
-test/Model/FaqTest.php

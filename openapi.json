@@ -1507,15 +1507,22 @@
             "default": ""
           },
           "internal_id": {
-            "type": "integer",
-            "title": "Internal Id"
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Internal Id",
+            "default": 0
           }
         },
         "type": "object",
         "required": [
           "title",
-          "content",
-          "internal_id"
+          "content"
         ],
         "title": "Content"
       },
@@ -1546,16 +1553,23 @@
             "title": "Text"
           },
           "internal_id": {
-            "type": "integer",
-            "title": "Internal Id"
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Internal Id",
+            "default": 0
           }
         },
         "type": "object",
         "required": [
           "question",
           "answer",
-          "text",
-          "internal_id"
+          "text"
         ],
         "title": "Faq"
       },
@@ -1607,8 +1621,16 @@
             "default": ""
           },
           "internal_id": {
-            "type": "integer",
-            "title": "Internal Id"
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Internal Id",
+            "default": 0
           },
           "availability": {
             "$ref": "#/components/schemas/ProductAvailability"
@@ -1616,7 +1638,7 @@
           "price": {
             "type": "number",
             "title": "Price",
-            "default": 0.0
+            "default": 0
           },
           "currency": {
             "type": "string",
@@ -1660,7 +1682,7 @@
           "product_weight": {
             "type": "number",
             "title": "Product Weight",
-            "default": 0.0
+            "default": 0
           },
           "size": {
             "type": "string",
@@ -1706,12 +1728,21 @@
             "type": "string",
             "title": "Adult",
             "default": ""
+          },
+          "review_summaries": {
+            "type": "string",
+            "title": "Review Summaries",
+            "default": ""
+          },
+          "average_rating": {
+            "type": "number",
+            "title": "Average Rating",
+            "default": 0.0
           }
         },
         "type": "object",
         "required": [
           "sku",
-          "internal_id",
           "availability",
           "currency"
         ],
