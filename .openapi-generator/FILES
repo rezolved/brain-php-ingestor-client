@@ -36,5 +36,3 @@ lib/Model/ValidationError.php
 lib/Model/ValidationErrorLocInner.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/ReviewsApiTest.php
-test/Model/ReviewTest.php

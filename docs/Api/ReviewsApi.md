@@ -11,6 +11,7 @@ All URIs are relative to /luma, except if the operation defines another base pat
 | [**deleteReviewsByProductSKUV1ReviewsSkuDelete()**](ReviewsApi.md#deleteReviewsByProductSKUV1ReviewsSkuDelete) | **DELETE** /v1/reviews/{sku} | Delete Reviews By Product Sku |
 | [**getAllReviewsV1ReviewsGet()**](ReviewsApi.md#getAllReviewsV1ReviewsGet) | **GET** /v1/reviews | Get All Reviews |
 | [**getReviewsBySKUV1ReviewsSkuGet()**](ReviewsApi.md#getReviewsBySKUV1ReviewsSkuGet) | **GET** /v1/reviews/{sku} | Get Reviews By Sku |
+| [**importMultipleReviewsV1ReviewsImportPost()**](ReviewsApi.md#importMultipleReviewsV1ReviewsImportPost) | **POST** /v1/reviews/import | Import Multiple Reviews |
 
 
 ## `checkIfProductReviewSchemaExistsV1ReviewsIsSchemaExistsGet()`
@@ -429,6 +430,68 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `importMultipleReviewsV1ReviewsImportPost()`
+
+```php
+importMultipleReviewsV1ReviewsImportPost($review): bool
+```
+
+Import Multiple Reviews
+
+Import multiple reviews data. Better to cleanup reviews for specific product sku and then add multiple reviews.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: APIKeyHeader
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReviewsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$review = array(new \OpenAPI\Client\Model\Review()); // \OpenAPI\Client\Model\Review[]
+
+try {
+    $result = $apiInstance->importMultipleReviewsV1ReviewsImportPost($review);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReviewsApi->importMultipleReviewsV1ReviewsImportPost: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **review** | [**\OpenAPI\Client\Model\Review[]**](../Model/Review.md)|  | |
+
+### Return type
+
+**bool**
+
+### Authorization
+
+[APIKeyHeader](../../README.md#APIKeyHeader)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

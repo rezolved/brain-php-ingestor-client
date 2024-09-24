@@ -118,6 +118,7 @@ Class | Method | HTTP request | Description
 *ReviewsApi* | [**deleteReviewsByProductSKUV1ReviewsSkuDelete**](docs/Api/ReviewsApi.md#deletereviewsbyproductskuv1reviewsskudelete) | **DELETE** /v1/reviews/{sku} | Delete Reviews By Product Sku
 *ReviewsApi* | [**getAllReviewsV1ReviewsGet**](docs/Api/ReviewsApi.md#getallreviewsv1reviewsget) | **GET** /v1/reviews | Get All Reviews
 *ReviewsApi* | [**getReviewsBySKUV1ReviewsSkuGet**](docs/Api/ReviewsApi.md#getreviewsbyskuv1reviewsskuget) | **GET** /v1/reviews/{sku} | Get Reviews By Sku
+*ReviewsApi* | [**importMultipleReviewsV1ReviewsImportPost**](docs/Api/ReviewsApi.md#importmultiplereviewsv1reviewsimportpost) | **POST** /v1/reviews/import | Import Multiple Reviews
 
 ## Models
 
