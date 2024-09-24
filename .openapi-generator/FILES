@@ -7,11 +7,13 @@ docs/Api/ContentApi.md
 docs/Api/DefaultApi.md
 docs/Api/FaqApi.md
 docs/Api/ProductApi.md
+docs/Api/ReviewsApi.md
 docs/Model/Content.md
 docs/Model/Faq.md
 docs/Model/HTTPValidationError.md
 docs/Model/Product.md
 docs/Model/ProductAvailability.md
+docs/Model/Review.md
 docs/Model/ValidationError.md
 docs/Model/ValidationErrorLocInner.md
 git_push.sh
@@ -19,6 +21,7 @@ lib/Api/ContentApi.php
 lib/Api/DefaultApi.php
 lib/Api/FaqApi.php
 lib/Api/ProductApi.php
+lib/Api/ReviewsApi.php
 lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php
@@ -28,7 +31,10 @@ lib/Model/HTTPValidationError.php
 lib/Model/ModelInterface.php
 lib/Model/Product.php
 lib/Model/ProductAvailability.php
+lib/Model/Review.php
 lib/Model/ValidationError.php
 lib/Model/ValidationErrorLocInner.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/ReviewsApiTest.php
+test/Model/ReviewTest.php
