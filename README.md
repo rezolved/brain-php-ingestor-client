@@ -111,6 +111,13 @@ Class | Method | HTTP request | Description
 *ProductApi* | [**getAllProductsV1ProductGet**](docs/Api/ProductApi.md#getallproductsv1productget) | **GET** /v1/product | Get All Products
 *ProductApi* | [**importMultipleProductsV1ProductPost**](docs/Api/ProductApi.md#importmultipleproductsv1productpost) | **POST** /v1/product | Import Multiple Products
 *ProductApi* | [**updateProductBySKUV1ProductSkuPut**](docs/Api/ProductApi.md#updateproductbyskuv1productskuput) | **PUT** /v1/product/{sku} | Update Product By Sku
+*ReviewsApi* | [**checkIfProductReviewSchemaExistsV1ReviewsIsSchemaExistsGet**](docs/Api/ReviewsApi.md#checkifproductreviewschemaexistsv1reviewsisschemaexistsget) | **GET** /v1/reviews/is-schema-exists | Check If Product Review Schema Exists
+*ReviewsApi* | [**createOneReviewBySKUV1ReviewsPost**](docs/Api/ReviewsApi.md#createonereviewbyskuv1reviewspost) | **POST** /v1/reviews | Create One Review By Sku
+*ReviewsApi* | [**createSchemaAndProductReviewTableV1ReviewsSchemaPost**](docs/Api/ReviewsApi.md#createschemaandproductreviewtablev1reviewsschemapost) | **POST** /v1/reviews/schema | Create Schema And Product Review Table
+*ReviewsApi* | [**deleteAllReviewsV1ReviewsDelete**](docs/Api/ReviewsApi.md#deleteallreviewsv1reviewsdelete) | **DELETE** /v1/reviews/ | Delete All Reviews
+*ReviewsApi* | [**deleteReviewsByProductSKUV1ReviewsSkuDelete**](docs/Api/ReviewsApi.md#deletereviewsbyproductskuv1reviewsskudelete) | **DELETE** /v1/reviews/{sku} | Delete Reviews By Product Sku
+*ReviewsApi* | [**getAllReviewsV1ReviewsGet**](docs/Api/ReviewsApi.md#getallreviewsv1reviewsget) | **GET** /v1/reviews | Get All Reviews
+*ReviewsApi* | [**getReviewsBySKUV1ReviewsSkuGet**](docs/Api/ReviewsApi.md#getreviewsbyskuv1reviewsskuget) | **GET** /v1/reviews/{sku} | Get Reviews By Sku
 
 ## Models
 
@@ -119,6 +126,7 @@ Class | Method | HTTP request | Description
 - [HTTPValidationError](docs/Model/HTTPValidationError.md)
 - [Product](docs/Model/Product.md)
 - [ProductAvailability](docs/Model/ProductAvailability.md)
+- [Review](docs/Model/Review.md)
 - [ValidationError](docs/Model/ValidationError.md)
 - [ValidationErrorLocInner](docs/Model/ValidationErrorLocInner.md)
 
