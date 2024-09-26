@@ -61,7 +61,8 @@ class Review implements ModelInterface, ArrayAccess, \JsonSerializable
         'title' => 'string',
         'detail' => 'string',
         'product_name' => 'string',
-        'rating' => 'int'
+        'rating' => 'int',
+        'internal_id' => 'int'
     ];
 
     /**
@@ -76,7 +77,8 @@ class Review implements ModelInterface, ArrayAccess, \JsonSerializable
         'title' => null,
         'detail' => null,
         'product_name' => null,
-        'rating' => null
+        'rating' => null,
+        'internal_id' => null
     ];
 
     /**
@@ -89,7 +91,8 @@ class Review implements ModelInterface, ArrayAccess, \JsonSerializable
         'title' => false,
         'detail' => false,
         'product_name' => false,
-        'rating' => false
+        'rating' => false,
+        'internal_id' => false
     ];
 
     /**
@@ -182,7 +185,8 @@ class Review implements ModelInterface, ArrayAccess, \JsonSerializable
         'title' => 'title',
         'detail' => 'detail',
         'product_name' => 'product_name',
-        'rating' => 'rating'
+        'rating' => 'rating',
+        'internal_id' => 'internal_id'
     ];
 
     /**
@@ -195,7 +199,8 @@ class Review implements ModelInterface, ArrayAccess, \JsonSerializable
         'title' => 'setTitle',
         'detail' => 'setDetail',
         'product_name' => 'setProductName',
-        'rating' => 'setRating'
+        'rating' => 'setRating',
+        'internal_id' => 'setInternalId'
     ];
 
     /**
@@ -208,7 +213,8 @@ class Review implements ModelInterface, ArrayAccess, \JsonSerializable
         'title' => 'getTitle',
         'detail' => 'getDetail',
         'product_name' => 'getProductName',
-        'rating' => 'getRating'
+        'rating' => 'getRating',
+        'internal_id' => 'getInternalId'
     ];
 
     /**
@@ -273,6 +279,7 @@ class Review implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('detail', $data ?? [], null);
         $this->setIfExists('product_name', $data ?? [], null);
         $this->setIfExists('rating', $data ?? [], null);
+        $this->setIfExists('internal_id', $data ?? [], null);
     }
 
     /**
@@ -316,6 +323,9 @@ class Review implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['rating'] === null) {
             $invalidProperties[] = "'rating' can't be null";
+        }
+        if ($this->container['internal_id'] === null) {
+            $invalidProperties[] = "'internal_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -463,6 +473,33 @@ class Review implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable rating cannot be null');
         }
         $this->container['rating'] = $rating;
+
+        return $this;
+    }
+
+    /**
+     * Gets internal_id
+     *
+     * @return int
+     */
+    public function getInternalId()
+    {
+        return $this->container['internal_id'];
+    }
+
+    /**
+     * Sets internal_id
+     *
+     * @param int $internal_id internal_id
+     *
+     * @return self
+     */
+    public function setInternalId($internal_id)
+    {
+        if (is_null($internal_id)) {
+            throw new \InvalidArgumentException('non-nullable internal_id cannot be null');
+        }
+        $this->container['internal_id'] = $internal_id;
 
         return $this;
     }
