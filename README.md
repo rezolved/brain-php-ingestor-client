@@ -116,6 +116,7 @@ Class | Method | HTTP request | Description
 *ReviewsApi* | [**createSchemaAndProductReviewTableV1ReviewsSchemaPost**](docs/Api/ReviewsApi.md#createschemaandproductreviewtablev1reviewsschemapost) | **POST** /v1/reviews/schema | Create Schema And Product Review Table
 *ReviewsApi* | [**deleteAllReviewsV1ReviewsDelete**](docs/Api/ReviewsApi.md#deleteallreviewsv1reviewsdelete) | **DELETE** /v1/reviews/ | Delete All Reviews
 *ReviewsApi* | [**deleteReviewsByProductSKUV1ReviewsSkuDelete**](docs/Api/ReviewsApi.md#deletereviewsbyproductskuv1reviewsskudelete) | **DELETE** /v1/reviews/{sku} | Delete Reviews By Product Sku
+*ReviewsApi* | [**deleteSingleReviewByInternalIdV1ReviewsByInternalIdInternalIdDelete**](docs/Api/ReviewsApi.md#deletesinglereviewbyinternalidv1reviewsbyinternalidinternaliddelete) | **DELETE** /v1/reviews/by-internal-id/{internal_id} | Delete Single Review By Internal Id
 *ReviewsApi* | [**getAllReviewsV1ReviewsGet**](docs/Api/ReviewsApi.md#getallreviewsv1reviewsget) | **GET** /v1/reviews | Get All Reviews
 *ReviewsApi* | [**getReviewsBySKUV1ReviewsSkuGet**](docs/Api/ReviewsApi.md#getreviewsbyskuv1reviewsskuget) | **GET** /v1/reviews/{sku} | Get Reviews By Sku
 *ReviewsApi* | [**importMultipleReviewsV1ReviewsImportPost**](docs/Api/ReviewsApi.md#importmultiplereviewsv1reviewsimportpost) | **POST** /v1/reviews/import | Import Multiple Reviews

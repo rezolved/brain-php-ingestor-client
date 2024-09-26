@@ -9,6 +9,7 @@ All URIs are relative to /luma, except if the operation defines another base pat
 | [**createSchemaAndProductReviewTableV1ReviewsSchemaPost()**](ReviewsApi.md#createSchemaAndProductReviewTableV1ReviewsSchemaPost) | **POST** /v1/reviews/schema | Create Schema And Product Review Table |
 | [**deleteAllReviewsV1ReviewsDelete()**](ReviewsApi.md#deleteAllReviewsV1ReviewsDelete) | **DELETE** /v1/reviews/ | Delete All Reviews |
 | [**deleteReviewsByProductSKUV1ReviewsSkuDelete()**](ReviewsApi.md#deleteReviewsByProductSKUV1ReviewsSkuDelete) | **DELETE** /v1/reviews/{sku} | Delete Reviews By Product Sku |
+| [**deleteSingleReviewByInternalIdV1ReviewsByInternalIdInternalIdDelete()**](ReviewsApi.md#deleteSingleReviewByInternalIdV1ReviewsByInternalIdInternalIdDelete) | **DELETE** /v1/reviews/by-internal-id/{internal_id} | Delete Single Review By Internal Id |
 | [**getAllReviewsV1ReviewsGet()**](ReviewsApi.md#getAllReviewsV1ReviewsGet) | **GET** /v1/reviews | Get All Reviews |
 | [**getReviewsBySKUV1ReviewsSkuGet()**](ReviewsApi.md#getReviewsBySKUV1ReviewsSkuGet) | **GET** /v1/reviews/{sku} | Get Reviews By Sku |
 | [**importMultipleReviewsV1ReviewsImportPost()**](ReviewsApi.md#importMultipleReviewsV1ReviewsImportPost) | **POST** /v1/reviews/import | Import Multiple Reviews |
@@ -297,6 +298,68 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **sku** | **string**|  | |
+
+### Return type
+
+**bool**
+
+### Authorization
+
+[APIKeyHeader](../../README.md#APIKeyHeader)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteSingleReviewByInternalIdV1ReviewsByInternalIdInternalIdDelete()`
+
+```php
+deleteSingleReviewByInternalIdV1ReviewsByInternalIdInternalIdDelete($internal_id): bool
+```
+
+Delete Single Review By Internal Id
+
+Delete single review by internal_id
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: APIKeyHeader
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\ReviewsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$internal_id = 56; // int
+
+try {
+    $result = $apiInstance->deleteSingleReviewByInternalIdV1ReviewsByInternalIdInternalIdDelete($internal_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReviewsApi->deleteSingleReviewByInternalIdV1ReviewsByInternalIdInternalIdDelete: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **internal_id** | **int**|  | |
 
 ### Return type
 
