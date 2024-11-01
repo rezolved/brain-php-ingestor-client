@@ -4,23 +4,24 @@ All URIs are relative to /luma, except if the operation defines another base pat
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**checkIfFAQCollectionExistsV1FaqCollectionExistsGet()**](FaqApi.md#checkIfFAQCollectionExistsV1FaqCollectionExistsGet) | **GET** /v1/faq/collection-exists | Check If Faq Collection Exists. |
-| [**createFAQByQuestionV1FaqQuestionPost()**](FaqApi.md#createFAQByQuestionV1FaqQuestionPost) | **POST** /v1/faq/{question} | Create Faq By Question |
-| [**createFAQCollectionV1FaqCollectionPost()**](FaqApi.md#createFAQCollectionV1FaqCollectionPost) | **POST** /v1/faq/collection | Create Faq Collection |
-| [**deleteFAQByInternalIdV1FaqByInternalIdInternalIdDelete()**](FaqApi.md#deleteFAQByInternalIdV1FaqByInternalIdInternalIdDelete) | **DELETE** /v1/faq/by-internal-id/{internal_id} | Delete Faq By Internal Id |
-| [**deleteFAQByQuestionV1FaqQuestionDelete()**](FaqApi.md#deleteFAQByQuestionV1FaqQuestionDelete) | **DELETE** /v1/faq/{question} | Delete Faq By Question |
-| [**deleteFAQCollectionV1FaqCollectionDelete()**](FaqApi.md#deleteFAQCollectionV1FaqCollectionDelete) | **DELETE** /v1/faq/collection | Delete Faq Collection |
-| [**deletesAllFAQFromCollectionV1FaqResetCollectionDelete()**](FaqApi.md#deletesAllFAQFromCollectionV1FaqResetCollectionDelete) | **DELETE** /v1/faq/reset-collection | Deletes All Faq From Collection |
-| [**gestFAQByQuestionV1FaqQuestionGet()**](FaqApi.md#gestFAQByQuestionV1FaqQuestionGet) | **GET** /v1/faq/{question} | Gest Faq By Question |
-| [**getAllFAQsV1FaqGet()**](FaqApi.md#getAllFAQsV1FaqGet) | **GET** /v1/faq | Get All Faqs |
-| [**importMultipleFAQsV1FaqPost()**](FaqApi.md#importMultipleFAQsV1FaqPost) | **POST** /v1/faq | Import Multiple Faqs |
-| [**updateFAQByQuestionV1FaqQuestionPut()**](FaqApi.md#updateFAQByQuestionV1FaqQuestionPut) | **PUT** /v1/faq/{question} | Update Faq By Question |
+| [**checkIfFAQCollectionExistsV1FaqsCollectionExistsGet()**](FaqApi.md#checkIfFAQCollectionExistsV1FaqsCollectionExistsGet) | **GET** /v1/faqs/collection-exists | Check If Faq Collection Exists. |
+| [**createFAQByQuestionV1FaqsQuestionPost()**](FaqApi.md#createFAQByQuestionV1FaqsQuestionPost) | **POST** /v1/faqs/{question} | Create Faq By Question |
+| [**createFAQCollectionV1FaqsCollectionPost()**](FaqApi.md#createFAQCollectionV1FaqsCollectionPost) | **POST** /v1/faqs/collection | Create Faq Collection |
+| [**deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDelete()**](FaqApi.md#deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDelete) | **DELETE** /v1/faqs/by-internal-id/{internal_id} | Delete Faq By Internal Id |
+| [**deleteFAQByQuestionV1FaqsQuestionDelete()**](FaqApi.md#deleteFAQByQuestionV1FaqsQuestionDelete) | **DELETE** /v1/faqs/{question} | Delete Faq By Question |
+| [**deleteFAQCollectionV1FaqsCollectionDelete()**](FaqApi.md#deleteFAQCollectionV1FaqsCollectionDelete) | **DELETE** /v1/faqs/collection | Delete Faq Collection |
+| [**deletesAllFAQFromCollectionV1FaqsResetCollectionDelete()**](FaqApi.md#deletesAllFAQFromCollectionV1FaqsResetCollectionDelete) | **DELETE** /v1/faqs/reset-collection | Deletes All Faq From Collection |
+| [**getAllFAQsV1FaqsGet()**](FaqApi.md#getAllFAQsV1FaqsGet) | **GET** /v1/faqs | Get All Faqs |
+| [**getFAQByQuestionV1FaqsQuestionGet()**](FaqApi.md#getFAQByQuestionV1FaqsQuestionGet) | **GET** /v1/faqs/{question} | Get Faq By Question |
+| [**importMultipleFAQsV1FaqsPost()**](FaqApi.md#importMultipleFAQsV1FaqsPost) | **POST** /v1/faqs | Import Multiple Faqs |
+| [**updateFAQByQuestionV1FaqsQuestionPut()**](FaqApi.md#updateFAQByQuestionV1FaqsQuestionPut) | **PUT** /v1/faqs/{question} | Update Faq By Question |
+| [**uploadFilesIntoGCSV1FaqsUploadPost()**](FaqApi.md#uploadFilesIntoGCSV1FaqsUploadPost) | **POST** /v1/faqs/upload | Upload Files Into Gcs |
 
 
-## `checkIfFAQCollectionExistsV1FaqCollectionExistsGet()`
+## `checkIfFAQCollectionExistsV1FaqsCollectionExistsGet()`
 
 ```php
-checkIfFAQCollectionExistsV1FaqCollectionExistsGet(): mixed
+checkIfFAQCollectionExistsV1FaqsCollectionExistsGet(): mixed
 ```
 
 Check If Faq Collection Exists.
@@ -48,10 +49,10 @@ $apiInstance = new OpenAPI\Client\Api\FaqApi(
 );
 
 try {
-    $result = $apiInstance->checkIfFAQCollectionExistsV1FaqCollectionExistsGet();
+    $result = $apiInstance->checkIfFAQCollectionExistsV1FaqsCollectionExistsGet();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FaqApi->checkIfFAQCollectionExistsV1FaqCollectionExistsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FaqApi->checkIfFAQCollectionExistsV1FaqsCollectionExistsGet: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -76,10 +77,10 @@ This endpoint does not need any parameter.
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `createFAQByQuestionV1FaqQuestionPost()`
+## `createFAQByQuestionV1FaqsQuestionPost()`
 
 ```php
-createFAQByQuestionV1FaqQuestionPost($question, $faq): \OpenAPI\Client\Model\Faq
+createFAQByQuestionV1FaqsQuestionPost($question, $faq): \OpenAPI\Client\Model\Faq
 ```
 
 Create Faq By Question
@@ -109,10 +110,10 @@ $question = 'question_example'; // string
 $faq = new \OpenAPI\Client\Model\Faq(); // \OpenAPI\Client\Model\Faq
 
 try {
-    $result = $apiInstance->createFAQByQuestionV1FaqQuestionPost($question, $faq);
+    $result = $apiInstance->createFAQByQuestionV1FaqsQuestionPost($question, $faq);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FaqApi->createFAQByQuestionV1FaqQuestionPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FaqApi->createFAQByQuestionV1FaqsQuestionPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -140,10 +141,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `createFAQCollectionV1FaqCollectionPost()`
+## `createFAQCollectionV1FaqsCollectionPost()`
 
 ```php
-createFAQCollectionV1FaqCollectionPost($delete_existing_collection): mixed
+createFAQCollectionV1FaqsCollectionPost($delete_existing_collection): mixed
 ```
 
 Create Faq Collection
@@ -172,10 +173,10 @@ $apiInstance = new OpenAPI\Client\Api\FaqApi(
 $delete_existing_collection = false; // bool
 
 try {
-    $result = $apiInstance->createFAQCollectionV1FaqCollectionPost($delete_existing_collection);
+    $result = $apiInstance->createFAQCollectionV1FaqsCollectionPost($delete_existing_collection);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FaqApi->createFAQCollectionV1FaqCollectionPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FaqApi->createFAQCollectionV1FaqsCollectionPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -202,10 +203,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deleteFAQByInternalIdV1FaqByInternalIdInternalIdDelete()`
+## `deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDelete()`
 
 ```php
-deleteFAQByInternalIdV1FaqByInternalIdInternalIdDelete($internal_id): bool
+deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDelete($internal_id): bool
 ```
 
 Delete Faq By Internal Id
@@ -234,10 +235,10 @@ $apiInstance = new OpenAPI\Client\Api\FaqApi(
 $internal_id = 56; // int
 
 try {
-    $result = $apiInstance->deleteFAQByInternalIdV1FaqByInternalIdInternalIdDelete($internal_id);
+    $result = $apiInstance->deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDelete($internal_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FaqApi->deleteFAQByInternalIdV1FaqByInternalIdInternalIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FaqApi->deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDelete: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -264,10 +265,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deleteFAQByQuestionV1FaqQuestionDelete()`
+## `deleteFAQByQuestionV1FaqsQuestionDelete()`
 
 ```php
-deleteFAQByQuestionV1FaqQuestionDelete($question): bool
+deleteFAQByQuestionV1FaqsQuestionDelete($question): bool
 ```
 
 Delete Faq By Question
@@ -296,10 +297,10 @@ $apiInstance = new OpenAPI\Client\Api\FaqApi(
 $question = 'question_example'; // string
 
 try {
-    $result = $apiInstance->deleteFAQByQuestionV1FaqQuestionDelete($question);
+    $result = $apiInstance->deleteFAQByQuestionV1FaqsQuestionDelete($question);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FaqApi->deleteFAQByQuestionV1FaqQuestionDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FaqApi->deleteFAQByQuestionV1FaqsQuestionDelete: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -326,10 +327,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deleteFAQCollectionV1FaqCollectionDelete()`
+## `deleteFAQCollectionV1FaqsCollectionDelete()`
 
 ```php
-deleteFAQCollectionV1FaqCollectionDelete(): bool
+deleteFAQCollectionV1FaqsCollectionDelete(): bool
 ```
 
 Delete Faq Collection
@@ -357,10 +358,10 @@ $apiInstance = new OpenAPI\Client\Api\FaqApi(
 );
 
 try {
-    $result = $apiInstance->deleteFAQCollectionV1FaqCollectionDelete();
+    $result = $apiInstance->deleteFAQCollectionV1FaqsCollectionDelete();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FaqApi->deleteFAQCollectionV1FaqCollectionDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FaqApi->deleteFAQCollectionV1FaqsCollectionDelete: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -385,10 +386,10 @@ This endpoint does not need any parameter.
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deletesAllFAQFromCollectionV1FaqResetCollectionDelete()`
+## `deletesAllFAQFromCollectionV1FaqsResetCollectionDelete()`
 
 ```php
-deletesAllFAQFromCollectionV1FaqResetCollectionDelete($dry_run): mixed
+deletesAllFAQFromCollectionV1FaqsResetCollectionDelete($dry_run): mixed
 ```
 
 Deletes All Faq From Collection
@@ -417,10 +418,10 @@ $apiInstance = new OpenAPI\Client\Api\FaqApi(
 $dry_run = true; // bool
 
 try {
-    $result = $apiInstance->deletesAllFAQFromCollectionV1FaqResetCollectionDelete($dry_run);
+    $result = $apiInstance->deletesAllFAQFromCollectionV1FaqsResetCollectionDelete($dry_run);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FaqApi->deletesAllFAQFromCollectionV1FaqResetCollectionDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FaqApi->deletesAllFAQFromCollectionV1FaqsResetCollectionDelete: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -447,13 +448,72 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `gestFAQByQuestionV1FaqQuestionGet()`
+## `getAllFAQsV1FaqsGet()`
 
 ```php
-gestFAQByQuestionV1FaqQuestionGet($question): \OpenAPI\Client\Model\Faq
+getAllFAQsV1FaqsGet(): \OpenAPI\Client\Model\Faq[]
 ```
 
-Gest Faq By Question
+Get All Faqs
+
+Returns All FAQs. If collection has a large number of FAQs                 response may take long time
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: APIKeyHeader
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\FaqApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->getAllFAQsV1FaqsGet();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FaqApi->getAllFAQsV1FaqsGet: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\OpenAPI\Client\Model\Faq[]**](../Model/Faq.md)
+
+### Authorization
+
+[APIKeyHeader](../../README.md#APIKeyHeader)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getFAQByQuestionV1FaqsQuestionGet()`
+
+```php
+getFAQByQuestionV1FaqsQuestionGet($question): \OpenAPI\Client\Model\Faq
+```
+
+Get Faq By Question
 
 Get FAQ by question
 
@@ -479,10 +539,10 @@ $apiInstance = new OpenAPI\Client\Api\FaqApi(
 $question = 'question_example'; // string
 
 try {
-    $result = $apiInstance->gestFAQByQuestionV1FaqQuestionGet($question);
+    $result = $apiInstance->getFAQByQuestionV1FaqsQuestionGet($question);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FaqApi->gestFAQByQuestionV1FaqQuestionGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FaqApi->getFAQByQuestionV1FaqsQuestionGet: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -509,69 +569,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getAllFAQsV1FaqGet()`
+## `importMultipleFAQsV1FaqsPost()`
 
 ```php
-getAllFAQsV1FaqGet(): \OpenAPI\Client\Model\Faq[]
-```
-
-Get All Faqs
-
-Returns All FAQs. If collection has a large number of FAQs, response may take long time
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: APIKeyHeader
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\FaqApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-
-try {
-    $result = $apiInstance->getAllFAQsV1FaqGet();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling FaqApi->getAllFAQsV1FaqGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**\OpenAPI\Client\Model\Faq[]**](../Model/Faq.md)
-
-### Authorization
-
-[APIKeyHeader](../../README.md#APIKeyHeader)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `importMultipleFAQsV1FaqPost()`
-
-```php
-importMultipleFAQsV1FaqPost($faq): mixed
+importMultipleFAQsV1FaqsPost($faq): \OpenAPI\Client\Model\Faq[]
 ```
 
 Import Multiple Faqs
@@ -600,10 +601,10 @@ $apiInstance = new OpenAPI\Client\Api\FaqApi(
 $faq = array(new \OpenAPI\Client\Model\Faq()); // \OpenAPI\Client\Model\Faq[]
 
 try {
-    $result = $apiInstance->importMultipleFAQsV1FaqPost($faq);
+    $result = $apiInstance->importMultipleFAQsV1FaqsPost($faq);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FaqApi->importMultipleFAQsV1FaqPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FaqApi->importMultipleFAQsV1FaqsPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -615,7 +616,7 @@ try {
 
 ### Return type
 
-**mixed**
+[**\OpenAPI\Client\Model\Faq[]**](../Model/Faq.md)
 
 ### Authorization
 
@@ -630,10 +631,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `updateFAQByQuestionV1FaqQuestionPut()`
+## `updateFAQByQuestionV1FaqsQuestionPut()`
 
 ```php
-updateFAQByQuestionV1FaqQuestionPut($question, $faq): \OpenAPI\Client\Model\Faq
+updateFAQByQuestionV1FaqsQuestionPut($question, $faq): \OpenAPI\Client\Model\Faq
 ```
 
 Update Faq By Question
@@ -663,10 +664,10 @@ $question = 'question_example'; // string
 $faq = new \OpenAPI\Client\Model\Faq(); // \OpenAPI\Client\Model\Faq
 
 try {
-    $result = $apiInstance->updateFAQByQuestionV1FaqQuestionPut($question, $faq);
+    $result = $apiInstance->updateFAQByQuestionV1FaqsQuestionPut($question, $faq);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FaqApi->updateFAQByQuestionV1FaqQuestionPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FaqApi->updateFAQByQuestionV1FaqsQuestionPut: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -688,6 +689,68 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `uploadFilesIntoGCSV1FaqsUploadPost()`
+
+```php
+uploadFilesIntoGCSV1FaqsUploadPost($file): object
+```
+
+Upload Files Into Gcs
+
+Upload files into Google Storage.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: APIKeyHeader
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\FaqApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$file = "/path/to/file.txt"; // \SplFileObject
+
+try {
+    $result = $apiInstance->uploadFilesIntoGCSV1FaqsUploadPost($file);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FaqApi->uploadFilesIntoGCSV1FaqsUploadPost: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **file** | **\SplFileObject****\SplFileObject**|  | |
+
+### Return type
+
+**object**
+
+### Authorization
+
+[APIKeyHeader](../../README.md#APIKeyHeader)
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

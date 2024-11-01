@@ -5,7 +5,7 @@ All URIs are relative to /luma, except if the operation defines another base pat
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**checkIfProductReviewSchemaExistsV1ReviewsIsSchemaExistsGet()**](ReviewsApi.md#checkIfProductReviewSchemaExistsV1ReviewsIsSchemaExistsGet) | **GET** /v1/reviews/is-schema-exists | Check If Product Review Schema Exists |
-| [**createOneReviewBySKUV1ReviewsPost()**](ReviewsApi.md#createOneReviewBySKUV1ReviewsPost) | **POST** /v1/reviews | Create One Review By Sku |
+| [**createOneReviewV1ReviewsPost()**](ReviewsApi.md#createOneReviewV1ReviewsPost) | **POST** /v1/reviews | Create One Review |
 | [**createSchemaAndProductReviewTableV1ReviewsSchemaPost()**](ReviewsApi.md#createSchemaAndProductReviewTableV1ReviewsSchemaPost) | **POST** /v1/reviews/schema | Create Schema And Product Review Table |
 | [**deleteAllReviewsV1ReviewsDelete()**](ReviewsApi.md#deleteAllReviewsV1ReviewsDelete) | **DELETE** /v1/reviews/ | Delete All Reviews |
 | [**deleteReviewsByProductSKUV1ReviewsSkuDelete()**](ReviewsApi.md#deleteReviewsByProductSKUV1ReviewsSkuDelete) | **DELETE** /v1/reviews/{sku} | Delete Reviews By Product Sku |
@@ -74,15 +74,15 @@ This endpoint does not need any parameter.
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `createOneReviewBySKUV1ReviewsPost()`
+## `createOneReviewV1ReviewsPost()`
 
 ```php
-createOneReviewBySKUV1ReviewsPost($review): string
+createOneReviewV1ReviewsPost($review): string
 ```
 
-Create One Review By Sku
+Create One Review
 
-Create One Review by SKU
+Create One Review
 
 ### Example
 
@@ -106,10 +106,10 @@ $apiInstance = new OpenAPI\Client\Api\ReviewsApi(
 $review = new \OpenAPI\Client\Model\Review(); // \OpenAPI\Client\Model\Review
 
 try {
-    $result = $apiInstance->createOneReviewBySKUV1ReviewsPost($review);
+    $result = $apiInstance->createOneReviewV1ReviewsPost($review);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ReviewsApi->createOneReviewBySKUV1ReviewsPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ReviewsApi->createOneReviewV1ReviewsPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

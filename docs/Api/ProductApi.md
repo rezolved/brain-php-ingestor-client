@@ -4,23 +4,24 @@ All URIs are relative to /luma, except if the operation defines another base pat
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**checkIfProductCollectionExistsV1ProductCollectionExistsGet()**](ProductApi.md#checkIfProductCollectionExistsV1ProductCollectionExistsGet) | **GET** /v1/product/collection-exists | Check If Product Collection Exists. |
-| [**createProductBySKUV1ProductSkuPost()**](ProductApi.md#createProductBySKUV1ProductSkuPost) | **POST** /v1/product/{sku} | Create Product By Sku |
-| [**createProductCollectionV1ProductCollectionPost()**](ProductApi.md#createProductCollectionV1ProductCollectionPost) | **POST** /v1/product/collection | Create Product Collection |
-| [**deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete()**](ProductApi.md#deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete) | **DELETE** /v1/product/by-internal-id/{internal_id} | Delete Product By Internal Id |
-| [**deleteProductBySKUV1ProductSkuDelete()**](ProductApi.md#deleteProductBySKUV1ProductSkuDelete) | **DELETE** /v1/product/{sku} | Delete Product By Sku |
-| [**deleteProductCollectionV1ProductCollectionDelete()**](ProductApi.md#deleteProductCollectionV1ProductCollectionDelete) | **DELETE** /v1/product/collection | Delete Product Collection |
-| [**deletesAllProductsFromCollectionV1ProductResetCollectionDelete()**](ProductApi.md#deletesAllProductsFromCollectionV1ProductResetCollectionDelete) | **DELETE** /v1/product/reset-collection | Deletes All Products From Collection |
-| [**gestProductBySKUV1ProductSkuGet()**](ProductApi.md#gestProductBySKUV1ProductSkuGet) | **GET** /v1/product/{sku} | Gest Product By Sku |
-| [**getAllProductsV1ProductGet()**](ProductApi.md#getAllProductsV1ProductGet) | **GET** /v1/product | Get All Products |
-| [**importMultipleProductsV1ProductPost()**](ProductApi.md#importMultipleProductsV1ProductPost) | **POST** /v1/product | Import Multiple Products |
-| [**updateProductBySKUV1ProductSkuPut()**](ProductApi.md#updateProductBySKUV1ProductSkuPut) | **PUT** /v1/product/{sku} | Update Product By Sku |
+| [**checkIfProductCollectionExistsV1ProductsCollectionExistsGet()**](ProductApi.md#checkIfProductCollectionExistsV1ProductsCollectionExistsGet) | **GET** /v1/products/collection-exists | Check If Product Collection Exists. |
+| [**createProductBySKUV1ProductsSkuPost()**](ProductApi.md#createProductBySKUV1ProductsSkuPost) | **POST** /v1/products/{sku} | Create Product By Sku |
+| [**createProductCollectionV1ProductsCollectionPost()**](ProductApi.md#createProductCollectionV1ProductsCollectionPost) | **POST** /v1/products/collection | Create Product Collection |
+| [**deleteProductByInternalIdV1ProductsByInternalIdInternalIdDelete()**](ProductApi.md#deleteProductByInternalIdV1ProductsByInternalIdInternalIdDelete) | **DELETE** /v1/products/by-internal-id/{internal_id} | Delete Product By Internal Id |
+| [**deleteProductBySKUV1ProductsSkuDelete()**](ProductApi.md#deleteProductBySKUV1ProductsSkuDelete) | **DELETE** /v1/products/{sku} | Delete Product By Sku |
+| [**deleteProductCollectionV1ProductsCollectionDelete()**](ProductApi.md#deleteProductCollectionV1ProductsCollectionDelete) | **DELETE** /v1/products/collection | Delete Product Collection |
+| [**deletesAllProductsFromCollectionV1ProductsResetCollectionDelete()**](ProductApi.md#deletesAllProductsFromCollectionV1ProductsResetCollectionDelete) | **DELETE** /v1/products/reset-collection | Deletes All Products From Collection |
+| [**gestProductBySKUV1ProductsSkuGet()**](ProductApi.md#gestProductBySKUV1ProductsSkuGet) | **GET** /v1/products/{sku} | Gest Product By Sku |
+| [**getAllProductsV1ProductsGet()**](ProductApi.md#getAllProductsV1ProductsGet) | **GET** /v1/products | Get All Products |
+| [**importMultipleProductsV1ProductsPost()**](ProductApi.md#importMultipleProductsV1ProductsPost) | **POST** /v1/products | Import Multiple Products |
+| [**updateProductBySKUV1ProductsSkuPut()**](ProductApi.md#updateProductBySKUV1ProductsSkuPut) | **PUT** /v1/products/{sku} | Update Product By Sku |
+| [**uploadFilesIntoGCSV1ProductsUploadPost()**](ProductApi.md#uploadFilesIntoGCSV1ProductsUploadPost) | **POST** /v1/products/upload | Upload Files Into Gcs |
 
 
-## `checkIfProductCollectionExistsV1ProductCollectionExistsGet()`
+## `checkIfProductCollectionExistsV1ProductsCollectionExistsGet()`
 
 ```php
-checkIfProductCollectionExistsV1ProductCollectionExistsGet(): mixed
+checkIfProductCollectionExistsV1ProductsCollectionExistsGet(): mixed
 ```
 
 Check If Product Collection Exists.
@@ -48,10 +49,10 @@ $apiInstance = new OpenAPI\Client\Api\ProductApi(
 );
 
 try {
-    $result = $apiInstance->checkIfProductCollectionExistsV1ProductCollectionExistsGet();
+    $result = $apiInstance->checkIfProductCollectionExistsV1ProductsCollectionExistsGet();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProductApi->checkIfProductCollectionExistsV1ProductCollectionExistsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProductApi->checkIfProductCollectionExistsV1ProductsCollectionExistsGet: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -76,10 +77,10 @@ This endpoint does not need any parameter.
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `createProductBySKUV1ProductSkuPost()`
+## `createProductBySKUV1ProductsSkuPost()`
 
 ```php
-createProductBySKUV1ProductSkuPost($sku, $product): \OpenAPI\Client\Model\Product
+createProductBySKUV1ProductsSkuPost($sku, $product): \OpenAPI\Client\Model\Product
 ```
 
 Create Product By Sku
@@ -109,10 +110,10 @@ $sku = 'sku_example'; // string
 $product = new \OpenAPI\Client\Model\Product(); // \OpenAPI\Client\Model\Product
 
 try {
-    $result = $apiInstance->createProductBySKUV1ProductSkuPost($sku, $product);
+    $result = $apiInstance->createProductBySKUV1ProductsSkuPost($sku, $product);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProductApi->createProductBySKUV1ProductSkuPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProductApi->createProductBySKUV1ProductsSkuPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -140,10 +141,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `createProductCollectionV1ProductCollectionPost()`
+## `createProductCollectionV1ProductsCollectionPost()`
 
 ```php
-createProductCollectionV1ProductCollectionPost($delete_existing_collection): mixed
+createProductCollectionV1ProductsCollectionPost($delete_existing_collection): mixed
 ```
 
 Create Product Collection
@@ -172,10 +173,10 @@ $apiInstance = new OpenAPI\Client\Api\ProductApi(
 $delete_existing_collection = false; // bool
 
 try {
-    $result = $apiInstance->createProductCollectionV1ProductCollectionPost($delete_existing_collection);
+    $result = $apiInstance->createProductCollectionV1ProductsCollectionPost($delete_existing_collection);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProductApi->createProductCollectionV1ProductCollectionPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProductApi->createProductCollectionV1ProductsCollectionPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -202,10 +203,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete()`
+## `deleteProductByInternalIdV1ProductsByInternalIdInternalIdDelete()`
 
 ```php
-deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete($internal_id): bool
+deleteProductByInternalIdV1ProductsByInternalIdInternalIdDelete($internal_id): bool
 ```
 
 Delete Product By Internal Id
@@ -234,10 +235,10 @@ $apiInstance = new OpenAPI\Client\Api\ProductApi(
 $internal_id = 56; // int
 
 try {
-    $result = $apiInstance->deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete($internal_id);
+    $result = $apiInstance->deleteProductByInternalIdV1ProductsByInternalIdInternalIdDelete($internal_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProductApi->deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProductApi->deleteProductByInternalIdV1ProductsByInternalIdInternalIdDelete: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -264,10 +265,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deleteProductBySKUV1ProductSkuDelete()`
+## `deleteProductBySKUV1ProductsSkuDelete()`
 
 ```php
-deleteProductBySKUV1ProductSkuDelete($sku): bool
+deleteProductBySKUV1ProductsSkuDelete($sku): bool
 ```
 
 Delete Product By Sku
@@ -296,10 +297,10 @@ $apiInstance = new OpenAPI\Client\Api\ProductApi(
 $sku = 'sku_example'; // string
 
 try {
-    $result = $apiInstance->deleteProductBySKUV1ProductSkuDelete($sku);
+    $result = $apiInstance->deleteProductBySKUV1ProductsSkuDelete($sku);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProductApi->deleteProductBySKUV1ProductSkuDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProductApi->deleteProductBySKUV1ProductsSkuDelete: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -326,10 +327,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deleteProductCollectionV1ProductCollectionDelete()`
+## `deleteProductCollectionV1ProductsCollectionDelete()`
 
 ```php
-deleteProductCollectionV1ProductCollectionDelete(): bool
+deleteProductCollectionV1ProductsCollectionDelete(): bool
 ```
 
 Delete Product Collection
@@ -357,10 +358,10 @@ $apiInstance = new OpenAPI\Client\Api\ProductApi(
 );
 
 try {
-    $result = $apiInstance->deleteProductCollectionV1ProductCollectionDelete();
+    $result = $apiInstance->deleteProductCollectionV1ProductsCollectionDelete();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProductApi->deleteProductCollectionV1ProductCollectionDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProductApi->deleteProductCollectionV1ProductsCollectionDelete: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -385,10 +386,10 @@ This endpoint does not need any parameter.
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deletesAllProductsFromCollectionV1ProductResetCollectionDelete()`
+## `deletesAllProductsFromCollectionV1ProductsResetCollectionDelete()`
 
 ```php
-deletesAllProductsFromCollectionV1ProductResetCollectionDelete($dry_run): mixed
+deletesAllProductsFromCollectionV1ProductsResetCollectionDelete($dry_run): mixed
 ```
 
 Deletes All Products From Collection
@@ -417,10 +418,10 @@ $apiInstance = new OpenAPI\Client\Api\ProductApi(
 $dry_run = true; // bool
 
 try {
-    $result = $apiInstance->deletesAllProductsFromCollectionV1ProductResetCollectionDelete($dry_run);
+    $result = $apiInstance->deletesAllProductsFromCollectionV1ProductsResetCollectionDelete($dry_run);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProductApi->deletesAllProductsFromCollectionV1ProductResetCollectionDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProductApi->deletesAllProductsFromCollectionV1ProductsResetCollectionDelete: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -447,10 +448,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `gestProductBySKUV1ProductSkuGet()`
+## `gestProductBySKUV1ProductsSkuGet()`
 
 ```php
-gestProductBySKUV1ProductSkuGet($sku): \OpenAPI\Client\Model\Product
+gestProductBySKUV1ProductsSkuGet($sku): \OpenAPI\Client\Model\Product
 ```
 
 Gest Product By Sku
@@ -479,10 +480,10 @@ $apiInstance = new OpenAPI\Client\Api\ProductApi(
 $sku = 'sku_example'; // string
 
 try {
-    $result = $apiInstance->gestProductBySKUV1ProductSkuGet($sku);
+    $result = $apiInstance->gestProductBySKUV1ProductsSkuGet($sku);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProductApi->gestProductBySKUV1ProductSkuGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProductApi->gestProductBySKUV1ProductsSkuGet: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -509,10 +510,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getAllProductsV1ProductGet()`
+## `getAllProductsV1ProductsGet()`
 
 ```php
-getAllProductsV1ProductGet(): \OpenAPI\Client\Model\Product[]
+getAllProductsV1ProductsGet(): \OpenAPI\Client\Model\Product[]
 ```
 
 Get All Products
@@ -540,10 +541,10 @@ $apiInstance = new OpenAPI\Client\Api\ProductApi(
 );
 
 try {
-    $result = $apiInstance->getAllProductsV1ProductGet();
+    $result = $apiInstance->getAllProductsV1ProductsGet();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProductApi->getAllProductsV1ProductGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProductApi->getAllProductsV1ProductsGet: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -568,10 +569,10 @@ This endpoint does not need any parameter.
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `importMultipleProductsV1ProductPost()`
+## `importMultipleProductsV1ProductsPost()`
 
 ```php
-importMultipleProductsV1ProductPost($product): mixed
+importMultipleProductsV1ProductsPost($product): mixed
 ```
 
 Import Multiple Products
@@ -600,10 +601,10 @@ $apiInstance = new OpenAPI\Client\Api\ProductApi(
 $product = array(new \OpenAPI\Client\Model\Product()); // \OpenAPI\Client\Model\Product[]
 
 try {
-    $result = $apiInstance->importMultipleProductsV1ProductPost($product);
+    $result = $apiInstance->importMultipleProductsV1ProductsPost($product);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProductApi->importMultipleProductsV1ProductPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProductApi->importMultipleProductsV1ProductsPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -630,10 +631,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `updateProductBySKUV1ProductSkuPut()`
+## `updateProductBySKUV1ProductsSkuPut()`
 
 ```php
-updateProductBySKUV1ProductSkuPut($sku, $product): \OpenAPI\Client\Model\Product
+updateProductBySKUV1ProductsSkuPut($sku, $product): \OpenAPI\Client\Model\Product
 ```
 
 Update Product By Sku
@@ -663,10 +664,10 @@ $sku = 'sku_example'; // string
 $product = new \OpenAPI\Client\Model\Product(); // \OpenAPI\Client\Model\Product
 
 try {
-    $result = $apiInstance->updateProductBySKUV1ProductSkuPut($sku, $product);
+    $result = $apiInstance->updateProductBySKUV1ProductsSkuPut($sku, $product);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProductApi->updateProductBySKUV1ProductSkuPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProductApi->updateProductBySKUV1ProductsSkuPut: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -688,6 +689,68 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `uploadFilesIntoGCSV1ProductsUploadPost()`
+
+```php
+uploadFilesIntoGCSV1ProductsUploadPost($file): object
+```
+
+Upload Files Into Gcs
+
+Upload files into Google Storage.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: APIKeyHeader
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\ProductApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$file = "/path/to/file.txt"; // \SplFileObject
+
+try {
+    $result = $apiInstance->uploadFilesIntoGCSV1ProductsUploadPost($file);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProductApi->uploadFilesIntoGCSV1ProductsUploadPost: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **file** | **\SplFileObject****\SplFileObject**|  | |
+
+### Return type
+
+**object**
+
+### Authorization
+
+[APIKeyHeader](../../README.md#APIKeyHeader)
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
