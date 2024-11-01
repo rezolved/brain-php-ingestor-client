@@ -74,7 +74,7 @@ class ReviewsApi
         'checkIfProductReviewSchemaExistsV1ReviewsIsSchemaExistsGet' => [
             'application/json',
         ],
-        'createOneReviewBySKUV1ReviewsPost' => [
+        'createOneReviewV1ReviewsPost' => [
             'application/json',
         ],
         'createSchemaAndProductReviewTableV1ReviewsSchemaPost' => [
@@ -439,38 +439,38 @@ class ReviewsApi
     }
 
     /**
-     * Operation createOneReviewBySKUV1ReviewsPost
+     * Operation createOneReviewV1ReviewsPost
      *
-     * Create One Review By Sku
+     * Create One Review
      *
      * @param  \OpenAPI\Client\Model\Review $review review (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOneReviewBySKUV1ReviewsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOneReviewV1ReviewsPost'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return string|\OpenAPI\Client\Model\HTTPValidationError
      */
-    public function createOneReviewBySKUV1ReviewsPost($review, string $contentType = self::contentTypes['createOneReviewBySKUV1ReviewsPost'][0])
+    public function createOneReviewV1ReviewsPost($review, string $contentType = self::contentTypes['createOneReviewV1ReviewsPost'][0])
     {
-        list($response) = $this->createOneReviewBySKUV1ReviewsPostWithHttpInfo($review, $contentType);
+        list($response) = $this->createOneReviewV1ReviewsPostWithHttpInfo($review, $contentType);
         return $response;
     }
 
     /**
-     * Operation createOneReviewBySKUV1ReviewsPostWithHttpInfo
+     * Operation createOneReviewV1ReviewsPostWithHttpInfo
      *
-     * Create One Review By Sku
+     * Create One Review
      *
      * @param  \OpenAPI\Client\Model\Review $review (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOneReviewBySKUV1ReviewsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOneReviewV1ReviewsPost'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of string|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createOneReviewBySKUV1ReviewsPostWithHttpInfo($review, string $contentType = self::contentTypes['createOneReviewBySKUV1ReviewsPost'][0])
+    public function createOneReviewV1ReviewsPostWithHttpInfo($review, string $contentType = self::contentTypes['createOneReviewV1ReviewsPost'][0])
     {
-        $request = $this->createOneReviewBySKUV1ReviewsPostRequest($review, $contentType);
+        $request = $this->createOneReviewV1ReviewsPostRequest($review, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -616,19 +616,19 @@ class ReviewsApi
     }
 
     /**
-     * Operation createOneReviewBySKUV1ReviewsPostAsync
+     * Operation createOneReviewV1ReviewsPostAsync
      *
-     * Create One Review By Sku
+     * Create One Review
      *
      * @param  \OpenAPI\Client\Model\Review $review (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOneReviewBySKUV1ReviewsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOneReviewV1ReviewsPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOneReviewBySKUV1ReviewsPostAsync($review, string $contentType = self::contentTypes['createOneReviewBySKUV1ReviewsPost'][0])
+    public function createOneReviewV1ReviewsPostAsync($review, string $contentType = self::contentTypes['createOneReviewV1ReviewsPost'][0])
     {
-        return $this->createOneReviewBySKUV1ReviewsPostAsyncWithHttpInfo($review, $contentType)
+        return $this->createOneReviewV1ReviewsPostAsyncWithHttpInfo($review, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -637,20 +637,20 @@ class ReviewsApi
     }
 
     /**
-     * Operation createOneReviewBySKUV1ReviewsPostAsyncWithHttpInfo
+     * Operation createOneReviewV1ReviewsPostAsyncWithHttpInfo
      *
-     * Create One Review By Sku
+     * Create One Review
      *
      * @param  \OpenAPI\Client\Model\Review $review (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOneReviewBySKUV1ReviewsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOneReviewV1ReviewsPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOneReviewBySKUV1ReviewsPostAsyncWithHttpInfo($review, string $contentType = self::contentTypes['createOneReviewBySKUV1ReviewsPost'][0])
+    public function createOneReviewV1ReviewsPostAsyncWithHttpInfo($review, string $contentType = self::contentTypes['createOneReviewV1ReviewsPost'][0])
     {
         $returnType = 'string';
-        $request = $this->createOneReviewBySKUV1ReviewsPostRequest($review, $contentType);
+        $request = $this->createOneReviewV1ReviewsPostRequest($review, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -689,21 +689,21 @@ class ReviewsApi
     }
 
     /**
-     * Create request for operation 'createOneReviewBySKUV1ReviewsPost'
+     * Create request for operation 'createOneReviewV1ReviewsPost'
      *
      * @param  \OpenAPI\Client\Model\Review $review (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOneReviewBySKUV1ReviewsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOneReviewV1ReviewsPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createOneReviewBySKUV1ReviewsPostRequest($review, string $contentType = self::contentTypes['createOneReviewBySKUV1ReviewsPost'][0])
+    public function createOneReviewV1ReviewsPostRequest($review, string $contentType = self::contentTypes['createOneReviewV1ReviewsPost'][0])
     {
 
         // verify the required parameter 'review' is set
         if ($review === null || (is_array($review) && count($review) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $review when calling createOneReviewBySKUV1ReviewsPost'
+                'Missing the required parameter $review when calling createOneReviewV1ReviewsPost'
             );
         }
 

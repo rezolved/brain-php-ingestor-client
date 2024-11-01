@@ -71,38 +71,41 @@ class ProductApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'checkIfProductCollectionExistsV1ProductCollectionExistsGet' => [
+        'checkIfProductCollectionExistsV1ProductsCollectionExistsGet' => [
             'application/json',
         ],
-        'createProductBySKUV1ProductSkuPost' => [
+        'createProductBySKUV1ProductsSkuPost' => [
             'application/json',
         ],
-        'createProductCollectionV1ProductCollectionPost' => [
+        'createProductCollectionV1ProductsCollectionPost' => [
             'application/json',
         ],
-        'deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete' => [
+        'deleteProductByInternalIdV1ProductsByInternalIdInternalIdDelete' => [
             'application/json',
         ],
-        'deleteProductBySKUV1ProductSkuDelete' => [
+        'deleteProductBySKUV1ProductsSkuDelete' => [
             'application/json',
         ],
-        'deleteProductCollectionV1ProductCollectionDelete' => [
+        'deleteProductCollectionV1ProductsCollectionDelete' => [
             'application/json',
         ],
-        'deletesAllProductsFromCollectionV1ProductResetCollectionDelete' => [
+        'deletesAllProductsFromCollectionV1ProductsResetCollectionDelete' => [
             'application/json',
         ],
-        'gestProductBySKUV1ProductSkuGet' => [
+        'gestProductBySKUV1ProductsSkuGet' => [
             'application/json',
         ],
-        'getAllProductsV1ProductGet' => [
+        'getAllProductsV1ProductsGet' => [
             'application/json',
         ],
-        'importMultipleProductsV1ProductPost' => [
+        'importMultipleProductsV1ProductsPost' => [
             'application/json',
         ],
-        'updateProductBySKUV1ProductSkuPut' => [
+        'updateProductBySKUV1ProductsSkuPut' => [
             'application/json',
+        ],
+        'uploadFilesIntoGCSV1ProductsUploadPost' => [
+            'multipart/form-data',
         ],
     ];
 
@@ -153,36 +156,36 @@ class ProductApi
     }
 
     /**
-     * Operation checkIfProductCollectionExistsV1ProductCollectionExistsGet
+     * Operation checkIfProductCollectionExistsV1ProductsCollectionExistsGet
      *
      * Check If Product Collection Exists.
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfProductCollectionExistsV1ProductCollectionExistsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfProductCollectionExistsV1ProductsCollectionExistsGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return mixed
      */
-    public function checkIfProductCollectionExistsV1ProductCollectionExistsGet(string $contentType = self::contentTypes['checkIfProductCollectionExistsV1ProductCollectionExistsGet'][0])
+    public function checkIfProductCollectionExistsV1ProductsCollectionExistsGet(string $contentType = self::contentTypes['checkIfProductCollectionExistsV1ProductsCollectionExistsGet'][0])
     {
-        list($response) = $this->checkIfProductCollectionExistsV1ProductCollectionExistsGetWithHttpInfo($contentType);
+        list($response) = $this->checkIfProductCollectionExistsV1ProductsCollectionExistsGetWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation checkIfProductCollectionExistsV1ProductCollectionExistsGetWithHttpInfo
+     * Operation checkIfProductCollectionExistsV1ProductsCollectionExistsGetWithHttpInfo
      *
      * Check If Product Collection Exists.
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfProductCollectionExistsV1ProductCollectionExistsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfProductCollectionExistsV1ProductsCollectionExistsGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of mixed, HTTP status code, HTTP response headers (array of strings)
      */
-    public function checkIfProductCollectionExistsV1ProductCollectionExistsGetWithHttpInfo(string $contentType = self::contentTypes['checkIfProductCollectionExistsV1ProductCollectionExistsGet'][0])
+    public function checkIfProductCollectionExistsV1ProductsCollectionExistsGetWithHttpInfo(string $contentType = self::contentTypes['checkIfProductCollectionExistsV1ProductsCollectionExistsGet'][0])
     {
-        $request = $this->checkIfProductCollectionExistsV1ProductCollectionExistsGetRequest($contentType);
+        $request = $this->checkIfProductCollectionExistsV1ProductsCollectionExistsGetRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -293,18 +296,18 @@ class ProductApi
     }
 
     /**
-     * Operation checkIfProductCollectionExistsV1ProductCollectionExistsGetAsync
+     * Operation checkIfProductCollectionExistsV1ProductsCollectionExistsGetAsync
      *
      * Check If Product Collection Exists.
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfProductCollectionExistsV1ProductCollectionExistsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfProductCollectionExistsV1ProductsCollectionExistsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function checkIfProductCollectionExistsV1ProductCollectionExistsGetAsync(string $contentType = self::contentTypes['checkIfProductCollectionExistsV1ProductCollectionExistsGet'][0])
+    public function checkIfProductCollectionExistsV1ProductsCollectionExistsGetAsync(string $contentType = self::contentTypes['checkIfProductCollectionExistsV1ProductsCollectionExistsGet'][0])
     {
-        return $this->checkIfProductCollectionExistsV1ProductCollectionExistsGetAsyncWithHttpInfo($contentType)
+        return $this->checkIfProductCollectionExistsV1ProductsCollectionExistsGetAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -313,19 +316,19 @@ class ProductApi
     }
 
     /**
-     * Operation checkIfProductCollectionExistsV1ProductCollectionExistsGetAsyncWithHttpInfo
+     * Operation checkIfProductCollectionExistsV1ProductsCollectionExistsGetAsyncWithHttpInfo
      *
      * Check If Product Collection Exists.
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfProductCollectionExistsV1ProductCollectionExistsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfProductCollectionExistsV1ProductsCollectionExistsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function checkIfProductCollectionExistsV1ProductCollectionExistsGetAsyncWithHttpInfo(string $contentType = self::contentTypes['checkIfProductCollectionExistsV1ProductCollectionExistsGet'][0])
+    public function checkIfProductCollectionExistsV1ProductsCollectionExistsGetAsyncWithHttpInfo(string $contentType = self::contentTypes['checkIfProductCollectionExistsV1ProductsCollectionExistsGet'][0])
     {
         $returnType = 'mixed';
-        $request = $this->checkIfProductCollectionExistsV1ProductCollectionExistsGetRequest($contentType);
+        $request = $this->checkIfProductCollectionExistsV1ProductsCollectionExistsGetRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -364,18 +367,18 @@ class ProductApi
     }
 
     /**
-     * Create request for operation 'checkIfProductCollectionExistsV1ProductCollectionExistsGet'
+     * Create request for operation 'checkIfProductCollectionExistsV1ProductsCollectionExistsGet'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfProductCollectionExistsV1ProductCollectionExistsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfProductCollectionExistsV1ProductsCollectionExistsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function checkIfProductCollectionExistsV1ProductCollectionExistsGetRequest(string $contentType = self::contentTypes['checkIfProductCollectionExistsV1ProductCollectionExistsGet'][0])
+    public function checkIfProductCollectionExistsV1ProductsCollectionExistsGetRequest(string $contentType = self::contentTypes['checkIfProductCollectionExistsV1ProductsCollectionExistsGet'][0])
     {
 
 
-        $resourcePath = '/v1/product/collection-exists';
+        $resourcePath = '/v1/products/collection-exists';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -445,40 +448,40 @@ class ProductApi
     }
 
     /**
-     * Operation createProductBySKUV1ProductSkuPost
+     * Operation createProductBySKUV1ProductsSkuPost
      *
      * Create Product By Sku
      *
      * @param  string $sku sku (required)
      * @param  \OpenAPI\Client\Model\Product $product product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductBySKUV1ProductSkuPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductBySKUV1ProductsSkuPost'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Product|\OpenAPI\Client\Model\HTTPValidationError
      */
-    public function createProductBySKUV1ProductSkuPost($sku, $product, string $contentType = self::contentTypes['createProductBySKUV1ProductSkuPost'][0])
+    public function createProductBySKUV1ProductsSkuPost($sku, $product, string $contentType = self::contentTypes['createProductBySKUV1ProductsSkuPost'][0])
     {
-        list($response) = $this->createProductBySKUV1ProductSkuPostWithHttpInfo($sku, $product, $contentType);
+        list($response) = $this->createProductBySKUV1ProductsSkuPostWithHttpInfo($sku, $product, $contentType);
         return $response;
     }
 
     /**
-     * Operation createProductBySKUV1ProductSkuPostWithHttpInfo
+     * Operation createProductBySKUV1ProductsSkuPostWithHttpInfo
      *
      * Create Product By Sku
      *
      * @param  string $sku (required)
      * @param  \OpenAPI\Client\Model\Product $product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductBySKUV1ProductSkuPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductBySKUV1ProductsSkuPost'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Product|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createProductBySKUV1ProductSkuPostWithHttpInfo($sku, $product, string $contentType = self::contentTypes['createProductBySKUV1ProductSkuPost'][0])
+    public function createProductBySKUV1ProductsSkuPostWithHttpInfo($sku, $product, string $contentType = self::contentTypes['createProductBySKUV1ProductsSkuPost'][0])
     {
-        $request = $this->createProductBySKUV1ProductSkuPostRequest($sku, $product, $contentType);
+        $request = $this->createProductBySKUV1ProductsSkuPostRequest($sku, $product, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -624,20 +627,20 @@ class ProductApi
     }
 
     /**
-     * Operation createProductBySKUV1ProductSkuPostAsync
+     * Operation createProductBySKUV1ProductsSkuPostAsync
      *
      * Create Product By Sku
      *
      * @param  string $sku (required)
      * @param  \OpenAPI\Client\Model\Product $product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductBySKUV1ProductSkuPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductBySKUV1ProductsSkuPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createProductBySKUV1ProductSkuPostAsync($sku, $product, string $contentType = self::contentTypes['createProductBySKUV1ProductSkuPost'][0])
+    public function createProductBySKUV1ProductsSkuPostAsync($sku, $product, string $contentType = self::contentTypes['createProductBySKUV1ProductsSkuPost'][0])
     {
-        return $this->createProductBySKUV1ProductSkuPostAsyncWithHttpInfo($sku, $product, $contentType)
+        return $this->createProductBySKUV1ProductsSkuPostAsyncWithHttpInfo($sku, $product, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -646,21 +649,21 @@ class ProductApi
     }
 
     /**
-     * Operation createProductBySKUV1ProductSkuPostAsyncWithHttpInfo
+     * Operation createProductBySKUV1ProductsSkuPostAsyncWithHttpInfo
      *
      * Create Product By Sku
      *
      * @param  string $sku (required)
      * @param  \OpenAPI\Client\Model\Product $product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductBySKUV1ProductSkuPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductBySKUV1ProductsSkuPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createProductBySKUV1ProductSkuPostAsyncWithHttpInfo($sku, $product, string $contentType = self::contentTypes['createProductBySKUV1ProductSkuPost'][0])
+    public function createProductBySKUV1ProductsSkuPostAsyncWithHttpInfo($sku, $product, string $contentType = self::contentTypes['createProductBySKUV1ProductsSkuPost'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Product';
-        $request = $this->createProductBySKUV1ProductSkuPostRequest($sku, $product, $contentType);
+        $request = $this->createProductBySKUV1ProductsSkuPostRequest($sku, $product, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -699,34 +702,34 @@ class ProductApi
     }
 
     /**
-     * Create request for operation 'createProductBySKUV1ProductSkuPost'
+     * Create request for operation 'createProductBySKUV1ProductsSkuPost'
      *
      * @param  string $sku (required)
      * @param  \OpenAPI\Client\Model\Product $product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductBySKUV1ProductSkuPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductBySKUV1ProductsSkuPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createProductBySKUV1ProductSkuPostRequest($sku, $product, string $contentType = self::contentTypes['createProductBySKUV1ProductSkuPost'][0])
+    public function createProductBySKUV1ProductsSkuPostRequest($sku, $product, string $contentType = self::contentTypes['createProductBySKUV1ProductsSkuPost'][0])
     {
 
         // verify the required parameter 'sku' is set
         if ($sku === null || (is_array($sku) && count($sku) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $sku when calling createProductBySKUV1ProductSkuPost'
+                'Missing the required parameter $sku when calling createProductBySKUV1ProductsSkuPost'
             );
         }
 
         // verify the required parameter 'product' is set
         if ($product === null || (is_array($product) && count($product) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $product when calling createProductBySKUV1ProductSkuPost'
+                'Missing the required parameter $product when calling createProductBySKUV1ProductsSkuPost'
             );
         }
 
 
-        $resourcePath = '/v1/product/{sku}';
+        $resourcePath = '/v1/products/{sku}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -811,38 +814,38 @@ class ProductApi
     }
 
     /**
-     * Operation createProductCollectionV1ProductCollectionPost
+     * Operation createProductCollectionV1ProductsCollectionPost
      *
      * Create Product Collection
      *
      * @param  bool $delete_existing_collection delete_existing_collection (optional, default to false)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductCollectionV1ProductCollectionPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductCollectionV1ProductsCollectionPost'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return mixed|\OpenAPI\Client\Model\HTTPValidationError
      */
-    public function createProductCollectionV1ProductCollectionPost($delete_existing_collection = false, string $contentType = self::contentTypes['createProductCollectionV1ProductCollectionPost'][0])
+    public function createProductCollectionV1ProductsCollectionPost($delete_existing_collection = false, string $contentType = self::contentTypes['createProductCollectionV1ProductsCollectionPost'][0])
     {
-        list($response) = $this->createProductCollectionV1ProductCollectionPostWithHttpInfo($delete_existing_collection, $contentType);
+        list($response) = $this->createProductCollectionV1ProductsCollectionPostWithHttpInfo($delete_existing_collection, $contentType);
         return $response;
     }
 
     /**
-     * Operation createProductCollectionV1ProductCollectionPostWithHttpInfo
+     * Operation createProductCollectionV1ProductsCollectionPostWithHttpInfo
      *
      * Create Product Collection
      *
      * @param  bool $delete_existing_collection (optional, default to false)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductCollectionV1ProductCollectionPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductCollectionV1ProductsCollectionPost'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createProductCollectionV1ProductCollectionPostWithHttpInfo($delete_existing_collection = false, string $contentType = self::contentTypes['createProductCollectionV1ProductCollectionPost'][0])
+    public function createProductCollectionV1ProductsCollectionPostWithHttpInfo($delete_existing_collection = false, string $contentType = self::contentTypes['createProductCollectionV1ProductsCollectionPost'][0])
     {
-        $request = $this->createProductCollectionV1ProductCollectionPostRequest($delete_existing_collection, $contentType);
+        $request = $this->createProductCollectionV1ProductsCollectionPostRequest($delete_existing_collection, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -988,19 +991,19 @@ class ProductApi
     }
 
     /**
-     * Operation createProductCollectionV1ProductCollectionPostAsync
+     * Operation createProductCollectionV1ProductsCollectionPostAsync
      *
      * Create Product Collection
      *
      * @param  bool $delete_existing_collection (optional, default to false)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductCollectionV1ProductCollectionPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductCollectionV1ProductsCollectionPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createProductCollectionV1ProductCollectionPostAsync($delete_existing_collection = false, string $contentType = self::contentTypes['createProductCollectionV1ProductCollectionPost'][0])
+    public function createProductCollectionV1ProductsCollectionPostAsync($delete_existing_collection = false, string $contentType = self::contentTypes['createProductCollectionV1ProductsCollectionPost'][0])
     {
-        return $this->createProductCollectionV1ProductCollectionPostAsyncWithHttpInfo($delete_existing_collection, $contentType)
+        return $this->createProductCollectionV1ProductsCollectionPostAsyncWithHttpInfo($delete_existing_collection, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1009,20 +1012,20 @@ class ProductApi
     }
 
     /**
-     * Operation createProductCollectionV1ProductCollectionPostAsyncWithHttpInfo
+     * Operation createProductCollectionV1ProductsCollectionPostAsyncWithHttpInfo
      *
      * Create Product Collection
      *
      * @param  bool $delete_existing_collection (optional, default to false)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductCollectionV1ProductCollectionPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductCollectionV1ProductsCollectionPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createProductCollectionV1ProductCollectionPostAsyncWithHttpInfo($delete_existing_collection = false, string $contentType = self::contentTypes['createProductCollectionV1ProductCollectionPost'][0])
+    public function createProductCollectionV1ProductsCollectionPostAsyncWithHttpInfo($delete_existing_collection = false, string $contentType = self::contentTypes['createProductCollectionV1ProductsCollectionPost'][0])
     {
         $returnType = 'mixed';
-        $request = $this->createProductCollectionV1ProductCollectionPostRequest($delete_existing_collection, $contentType);
+        $request = $this->createProductCollectionV1ProductsCollectionPostRequest($delete_existing_collection, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1061,20 +1064,20 @@ class ProductApi
     }
 
     /**
-     * Create request for operation 'createProductCollectionV1ProductCollectionPost'
+     * Create request for operation 'createProductCollectionV1ProductsCollectionPost'
      *
      * @param  bool $delete_existing_collection (optional, default to false)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductCollectionV1ProductCollectionPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProductCollectionV1ProductsCollectionPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createProductCollectionV1ProductCollectionPostRequest($delete_existing_collection = false, string $contentType = self::contentTypes['createProductCollectionV1ProductCollectionPost'][0])
+    public function createProductCollectionV1ProductsCollectionPostRequest($delete_existing_collection = false, string $contentType = self::contentTypes['createProductCollectionV1ProductsCollectionPost'][0])
     {
 
 
 
-        $resourcePath = '/v1/product/collection';
+        $resourcePath = '/v1/products/collection';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1153,38 +1156,38 @@ class ProductApi
     }
 
     /**
-     * Operation deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete
+     * Operation deleteProductByInternalIdV1ProductsByInternalIdInternalIdDelete
      *
      * Delete Product By Internal Id
      *
      * @param  int $internal_id internal_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductByInternalIdV1ProductsByInternalIdInternalIdDelete'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return bool|\OpenAPI\Client\Model\HTTPValidationError
      */
-    public function deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete($internal_id, string $contentType = self::contentTypes['deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete'][0])
+    public function deleteProductByInternalIdV1ProductsByInternalIdInternalIdDelete($internal_id, string $contentType = self::contentTypes['deleteProductByInternalIdV1ProductsByInternalIdInternalIdDelete'][0])
     {
-        list($response) = $this->deleteProductByInternalIdV1ProductByInternalIdInternalIdDeleteWithHttpInfo($internal_id, $contentType);
+        list($response) = $this->deleteProductByInternalIdV1ProductsByInternalIdInternalIdDeleteWithHttpInfo($internal_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation deleteProductByInternalIdV1ProductByInternalIdInternalIdDeleteWithHttpInfo
+     * Operation deleteProductByInternalIdV1ProductsByInternalIdInternalIdDeleteWithHttpInfo
      *
      * Delete Product By Internal Id
      *
      * @param  int $internal_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductByInternalIdV1ProductsByInternalIdInternalIdDelete'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of bool|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteProductByInternalIdV1ProductByInternalIdInternalIdDeleteWithHttpInfo($internal_id, string $contentType = self::contentTypes['deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete'][0])
+    public function deleteProductByInternalIdV1ProductsByInternalIdInternalIdDeleteWithHttpInfo($internal_id, string $contentType = self::contentTypes['deleteProductByInternalIdV1ProductsByInternalIdInternalIdDelete'][0])
     {
-        $request = $this->deleteProductByInternalIdV1ProductByInternalIdInternalIdDeleteRequest($internal_id, $contentType);
+        $request = $this->deleteProductByInternalIdV1ProductsByInternalIdInternalIdDeleteRequest($internal_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1330,19 +1333,19 @@ class ProductApi
     }
 
     /**
-     * Operation deleteProductByInternalIdV1ProductByInternalIdInternalIdDeleteAsync
+     * Operation deleteProductByInternalIdV1ProductsByInternalIdInternalIdDeleteAsync
      *
      * Delete Product By Internal Id
      *
      * @param  int $internal_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductByInternalIdV1ProductsByInternalIdInternalIdDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteProductByInternalIdV1ProductByInternalIdInternalIdDeleteAsync($internal_id, string $contentType = self::contentTypes['deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete'][0])
+    public function deleteProductByInternalIdV1ProductsByInternalIdInternalIdDeleteAsync($internal_id, string $contentType = self::contentTypes['deleteProductByInternalIdV1ProductsByInternalIdInternalIdDelete'][0])
     {
-        return $this->deleteProductByInternalIdV1ProductByInternalIdInternalIdDeleteAsyncWithHttpInfo($internal_id, $contentType)
+        return $this->deleteProductByInternalIdV1ProductsByInternalIdInternalIdDeleteAsyncWithHttpInfo($internal_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1351,20 +1354,20 @@ class ProductApi
     }
 
     /**
-     * Operation deleteProductByInternalIdV1ProductByInternalIdInternalIdDeleteAsyncWithHttpInfo
+     * Operation deleteProductByInternalIdV1ProductsByInternalIdInternalIdDeleteAsyncWithHttpInfo
      *
      * Delete Product By Internal Id
      *
      * @param  int $internal_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductByInternalIdV1ProductsByInternalIdInternalIdDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteProductByInternalIdV1ProductByInternalIdInternalIdDeleteAsyncWithHttpInfo($internal_id, string $contentType = self::contentTypes['deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete'][0])
+    public function deleteProductByInternalIdV1ProductsByInternalIdInternalIdDeleteAsyncWithHttpInfo($internal_id, string $contentType = self::contentTypes['deleteProductByInternalIdV1ProductsByInternalIdInternalIdDelete'][0])
     {
         $returnType = 'bool';
-        $request = $this->deleteProductByInternalIdV1ProductByInternalIdInternalIdDeleteRequest($internal_id, $contentType);
+        $request = $this->deleteProductByInternalIdV1ProductsByInternalIdInternalIdDeleteRequest($internal_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1403,26 +1406,26 @@ class ProductApi
     }
 
     /**
-     * Create request for operation 'deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete'
+     * Create request for operation 'deleteProductByInternalIdV1ProductsByInternalIdInternalIdDelete'
      *
      * @param  int $internal_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductByInternalIdV1ProductsByInternalIdInternalIdDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteProductByInternalIdV1ProductByInternalIdInternalIdDeleteRequest($internal_id, string $contentType = self::contentTypes['deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete'][0])
+    public function deleteProductByInternalIdV1ProductsByInternalIdInternalIdDeleteRequest($internal_id, string $contentType = self::contentTypes['deleteProductByInternalIdV1ProductsByInternalIdInternalIdDelete'][0])
     {
 
         // verify the required parameter 'internal_id' is set
         if ($internal_id === null || (is_array($internal_id) && count($internal_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $internal_id when calling deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete'
+                'Missing the required parameter $internal_id when calling deleteProductByInternalIdV1ProductsByInternalIdInternalIdDelete'
             );
         }
 
 
-        $resourcePath = '/v1/product/by-internal-id/{internal_id}';
+        $resourcePath = '/v1/products/by-internal-id/{internal_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1500,38 +1503,38 @@ class ProductApi
     }
 
     /**
-     * Operation deleteProductBySKUV1ProductSkuDelete
+     * Operation deleteProductBySKUV1ProductsSkuDelete
      *
      * Delete Product By Sku
      *
      * @param  string $sku sku (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductBySKUV1ProductSkuDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductBySKUV1ProductsSkuDelete'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return bool|\OpenAPI\Client\Model\HTTPValidationError
      */
-    public function deleteProductBySKUV1ProductSkuDelete($sku, string $contentType = self::contentTypes['deleteProductBySKUV1ProductSkuDelete'][0])
+    public function deleteProductBySKUV1ProductsSkuDelete($sku, string $contentType = self::contentTypes['deleteProductBySKUV1ProductsSkuDelete'][0])
     {
-        list($response) = $this->deleteProductBySKUV1ProductSkuDeleteWithHttpInfo($sku, $contentType);
+        list($response) = $this->deleteProductBySKUV1ProductsSkuDeleteWithHttpInfo($sku, $contentType);
         return $response;
     }
 
     /**
-     * Operation deleteProductBySKUV1ProductSkuDeleteWithHttpInfo
+     * Operation deleteProductBySKUV1ProductsSkuDeleteWithHttpInfo
      *
      * Delete Product By Sku
      *
      * @param  string $sku (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductBySKUV1ProductSkuDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductBySKUV1ProductsSkuDelete'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of bool|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteProductBySKUV1ProductSkuDeleteWithHttpInfo($sku, string $contentType = self::contentTypes['deleteProductBySKUV1ProductSkuDelete'][0])
+    public function deleteProductBySKUV1ProductsSkuDeleteWithHttpInfo($sku, string $contentType = self::contentTypes['deleteProductBySKUV1ProductsSkuDelete'][0])
     {
-        $request = $this->deleteProductBySKUV1ProductSkuDeleteRequest($sku, $contentType);
+        $request = $this->deleteProductBySKUV1ProductsSkuDeleteRequest($sku, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1677,19 +1680,19 @@ class ProductApi
     }
 
     /**
-     * Operation deleteProductBySKUV1ProductSkuDeleteAsync
+     * Operation deleteProductBySKUV1ProductsSkuDeleteAsync
      *
      * Delete Product By Sku
      *
      * @param  string $sku (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductBySKUV1ProductSkuDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductBySKUV1ProductsSkuDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteProductBySKUV1ProductSkuDeleteAsync($sku, string $contentType = self::contentTypes['deleteProductBySKUV1ProductSkuDelete'][0])
+    public function deleteProductBySKUV1ProductsSkuDeleteAsync($sku, string $contentType = self::contentTypes['deleteProductBySKUV1ProductsSkuDelete'][0])
     {
-        return $this->deleteProductBySKUV1ProductSkuDeleteAsyncWithHttpInfo($sku, $contentType)
+        return $this->deleteProductBySKUV1ProductsSkuDeleteAsyncWithHttpInfo($sku, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1698,20 +1701,20 @@ class ProductApi
     }
 
     /**
-     * Operation deleteProductBySKUV1ProductSkuDeleteAsyncWithHttpInfo
+     * Operation deleteProductBySKUV1ProductsSkuDeleteAsyncWithHttpInfo
      *
      * Delete Product By Sku
      *
      * @param  string $sku (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductBySKUV1ProductSkuDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductBySKUV1ProductsSkuDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteProductBySKUV1ProductSkuDeleteAsyncWithHttpInfo($sku, string $contentType = self::contentTypes['deleteProductBySKUV1ProductSkuDelete'][0])
+    public function deleteProductBySKUV1ProductsSkuDeleteAsyncWithHttpInfo($sku, string $contentType = self::contentTypes['deleteProductBySKUV1ProductsSkuDelete'][0])
     {
         $returnType = 'bool';
-        $request = $this->deleteProductBySKUV1ProductSkuDeleteRequest($sku, $contentType);
+        $request = $this->deleteProductBySKUV1ProductsSkuDeleteRequest($sku, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1750,26 +1753,26 @@ class ProductApi
     }
 
     /**
-     * Create request for operation 'deleteProductBySKUV1ProductSkuDelete'
+     * Create request for operation 'deleteProductBySKUV1ProductsSkuDelete'
      *
      * @param  string $sku (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductBySKUV1ProductSkuDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductBySKUV1ProductsSkuDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteProductBySKUV1ProductSkuDeleteRequest($sku, string $contentType = self::contentTypes['deleteProductBySKUV1ProductSkuDelete'][0])
+    public function deleteProductBySKUV1ProductsSkuDeleteRequest($sku, string $contentType = self::contentTypes['deleteProductBySKUV1ProductsSkuDelete'][0])
     {
 
         // verify the required parameter 'sku' is set
         if ($sku === null || (is_array($sku) && count($sku) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $sku when calling deleteProductBySKUV1ProductSkuDelete'
+                'Missing the required parameter $sku when calling deleteProductBySKUV1ProductsSkuDelete'
             );
         }
 
 
-        $resourcePath = '/v1/product/{sku}';
+        $resourcePath = '/v1/products/{sku}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1847,36 +1850,36 @@ class ProductApi
     }
 
     /**
-     * Operation deleteProductCollectionV1ProductCollectionDelete
+     * Operation deleteProductCollectionV1ProductsCollectionDelete
      *
      * Delete Product Collection
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductCollectionV1ProductCollectionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductCollectionV1ProductsCollectionDelete'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return bool
      */
-    public function deleteProductCollectionV1ProductCollectionDelete(string $contentType = self::contentTypes['deleteProductCollectionV1ProductCollectionDelete'][0])
+    public function deleteProductCollectionV1ProductsCollectionDelete(string $contentType = self::contentTypes['deleteProductCollectionV1ProductsCollectionDelete'][0])
     {
-        list($response) = $this->deleteProductCollectionV1ProductCollectionDeleteWithHttpInfo($contentType);
+        list($response) = $this->deleteProductCollectionV1ProductsCollectionDeleteWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation deleteProductCollectionV1ProductCollectionDeleteWithHttpInfo
+     * Operation deleteProductCollectionV1ProductsCollectionDeleteWithHttpInfo
      *
      * Delete Product Collection
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductCollectionV1ProductCollectionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductCollectionV1ProductsCollectionDelete'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of bool, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteProductCollectionV1ProductCollectionDeleteWithHttpInfo(string $contentType = self::contentTypes['deleteProductCollectionV1ProductCollectionDelete'][0])
+    public function deleteProductCollectionV1ProductsCollectionDeleteWithHttpInfo(string $contentType = self::contentTypes['deleteProductCollectionV1ProductsCollectionDelete'][0])
     {
-        $request = $this->deleteProductCollectionV1ProductCollectionDeleteRequest($contentType);
+        $request = $this->deleteProductCollectionV1ProductsCollectionDeleteRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1987,18 +1990,18 @@ class ProductApi
     }
 
     /**
-     * Operation deleteProductCollectionV1ProductCollectionDeleteAsync
+     * Operation deleteProductCollectionV1ProductsCollectionDeleteAsync
      *
      * Delete Product Collection
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductCollectionV1ProductCollectionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductCollectionV1ProductsCollectionDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteProductCollectionV1ProductCollectionDeleteAsync(string $contentType = self::contentTypes['deleteProductCollectionV1ProductCollectionDelete'][0])
+    public function deleteProductCollectionV1ProductsCollectionDeleteAsync(string $contentType = self::contentTypes['deleteProductCollectionV1ProductsCollectionDelete'][0])
     {
-        return $this->deleteProductCollectionV1ProductCollectionDeleteAsyncWithHttpInfo($contentType)
+        return $this->deleteProductCollectionV1ProductsCollectionDeleteAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2007,19 +2010,19 @@ class ProductApi
     }
 
     /**
-     * Operation deleteProductCollectionV1ProductCollectionDeleteAsyncWithHttpInfo
+     * Operation deleteProductCollectionV1ProductsCollectionDeleteAsyncWithHttpInfo
      *
      * Delete Product Collection
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductCollectionV1ProductCollectionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductCollectionV1ProductsCollectionDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteProductCollectionV1ProductCollectionDeleteAsyncWithHttpInfo(string $contentType = self::contentTypes['deleteProductCollectionV1ProductCollectionDelete'][0])
+    public function deleteProductCollectionV1ProductsCollectionDeleteAsyncWithHttpInfo(string $contentType = self::contentTypes['deleteProductCollectionV1ProductsCollectionDelete'][0])
     {
         $returnType = 'bool';
-        $request = $this->deleteProductCollectionV1ProductCollectionDeleteRequest($contentType);
+        $request = $this->deleteProductCollectionV1ProductsCollectionDeleteRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2058,18 +2061,18 @@ class ProductApi
     }
 
     /**
-     * Create request for operation 'deleteProductCollectionV1ProductCollectionDelete'
+     * Create request for operation 'deleteProductCollectionV1ProductsCollectionDelete'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductCollectionV1ProductCollectionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProductCollectionV1ProductsCollectionDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteProductCollectionV1ProductCollectionDeleteRequest(string $contentType = self::contentTypes['deleteProductCollectionV1ProductCollectionDelete'][0])
+    public function deleteProductCollectionV1ProductsCollectionDeleteRequest(string $contentType = self::contentTypes['deleteProductCollectionV1ProductsCollectionDelete'][0])
     {
 
 
-        $resourcePath = '/v1/product/collection';
+        $resourcePath = '/v1/products/collection';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2139,38 +2142,38 @@ class ProductApi
     }
 
     /**
-     * Operation deletesAllProductsFromCollectionV1ProductResetCollectionDelete
+     * Operation deletesAllProductsFromCollectionV1ProductsResetCollectionDelete
      *
      * Deletes All Products From Collection
      *
      * @param  bool $dry_run dry_run (optional, default to true)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllProductsFromCollectionV1ProductResetCollectionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllProductsFromCollectionV1ProductsResetCollectionDelete'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return mixed|\OpenAPI\Client\Model\HTTPValidationError
      */
-    public function deletesAllProductsFromCollectionV1ProductResetCollectionDelete($dry_run = true, string $contentType = self::contentTypes['deletesAllProductsFromCollectionV1ProductResetCollectionDelete'][0])
+    public function deletesAllProductsFromCollectionV1ProductsResetCollectionDelete($dry_run = true, string $contentType = self::contentTypes['deletesAllProductsFromCollectionV1ProductsResetCollectionDelete'][0])
     {
-        list($response) = $this->deletesAllProductsFromCollectionV1ProductResetCollectionDeleteWithHttpInfo($dry_run, $contentType);
+        list($response) = $this->deletesAllProductsFromCollectionV1ProductsResetCollectionDeleteWithHttpInfo($dry_run, $contentType);
         return $response;
     }
 
     /**
-     * Operation deletesAllProductsFromCollectionV1ProductResetCollectionDeleteWithHttpInfo
+     * Operation deletesAllProductsFromCollectionV1ProductsResetCollectionDeleteWithHttpInfo
      *
      * Deletes All Products From Collection
      *
      * @param  bool $dry_run (optional, default to true)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllProductsFromCollectionV1ProductResetCollectionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllProductsFromCollectionV1ProductsResetCollectionDelete'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deletesAllProductsFromCollectionV1ProductResetCollectionDeleteWithHttpInfo($dry_run = true, string $contentType = self::contentTypes['deletesAllProductsFromCollectionV1ProductResetCollectionDelete'][0])
+    public function deletesAllProductsFromCollectionV1ProductsResetCollectionDeleteWithHttpInfo($dry_run = true, string $contentType = self::contentTypes['deletesAllProductsFromCollectionV1ProductsResetCollectionDelete'][0])
     {
-        $request = $this->deletesAllProductsFromCollectionV1ProductResetCollectionDeleteRequest($dry_run, $contentType);
+        $request = $this->deletesAllProductsFromCollectionV1ProductsResetCollectionDeleteRequest($dry_run, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2316,19 +2319,19 @@ class ProductApi
     }
 
     /**
-     * Operation deletesAllProductsFromCollectionV1ProductResetCollectionDeleteAsync
+     * Operation deletesAllProductsFromCollectionV1ProductsResetCollectionDeleteAsync
      *
      * Deletes All Products From Collection
      *
      * @param  bool $dry_run (optional, default to true)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllProductsFromCollectionV1ProductResetCollectionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllProductsFromCollectionV1ProductsResetCollectionDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deletesAllProductsFromCollectionV1ProductResetCollectionDeleteAsync($dry_run = true, string $contentType = self::contentTypes['deletesAllProductsFromCollectionV1ProductResetCollectionDelete'][0])
+    public function deletesAllProductsFromCollectionV1ProductsResetCollectionDeleteAsync($dry_run = true, string $contentType = self::contentTypes['deletesAllProductsFromCollectionV1ProductsResetCollectionDelete'][0])
     {
-        return $this->deletesAllProductsFromCollectionV1ProductResetCollectionDeleteAsyncWithHttpInfo($dry_run, $contentType)
+        return $this->deletesAllProductsFromCollectionV1ProductsResetCollectionDeleteAsyncWithHttpInfo($dry_run, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2337,20 +2340,20 @@ class ProductApi
     }
 
     /**
-     * Operation deletesAllProductsFromCollectionV1ProductResetCollectionDeleteAsyncWithHttpInfo
+     * Operation deletesAllProductsFromCollectionV1ProductsResetCollectionDeleteAsyncWithHttpInfo
      *
      * Deletes All Products From Collection
      *
      * @param  bool $dry_run (optional, default to true)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllProductsFromCollectionV1ProductResetCollectionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllProductsFromCollectionV1ProductsResetCollectionDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deletesAllProductsFromCollectionV1ProductResetCollectionDeleteAsyncWithHttpInfo($dry_run = true, string $contentType = self::contentTypes['deletesAllProductsFromCollectionV1ProductResetCollectionDelete'][0])
+    public function deletesAllProductsFromCollectionV1ProductsResetCollectionDeleteAsyncWithHttpInfo($dry_run = true, string $contentType = self::contentTypes['deletesAllProductsFromCollectionV1ProductsResetCollectionDelete'][0])
     {
         $returnType = 'mixed';
-        $request = $this->deletesAllProductsFromCollectionV1ProductResetCollectionDeleteRequest($dry_run, $contentType);
+        $request = $this->deletesAllProductsFromCollectionV1ProductsResetCollectionDeleteRequest($dry_run, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2389,20 +2392,20 @@ class ProductApi
     }
 
     /**
-     * Create request for operation 'deletesAllProductsFromCollectionV1ProductResetCollectionDelete'
+     * Create request for operation 'deletesAllProductsFromCollectionV1ProductsResetCollectionDelete'
      *
      * @param  bool $dry_run (optional, default to true)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllProductsFromCollectionV1ProductResetCollectionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllProductsFromCollectionV1ProductsResetCollectionDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deletesAllProductsFromCollectionV1ProductResetCollectionDeleteRequest($dry_run = true, string $contentType = self::contentTypes['deletesAllProductsFromCollectionV1ProductResetCollectionDelete'][0])
+    public function deletesAllProductsFromCollectionV1ProductsResetCollectionDeleteRequest($dry_run = true, string $contentType = self::contentTypes['deletesAllProductsFromCollectionV1ProductsResetCollectionDelete'][0])
     {
 
 
 
-        $resourcePath = '/v1/product/reset-collection';
+        $resourcePath = '/v1/products/reset-collection';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2481,38 +2484,38 @@ class ProductApi
     }
 
     /**
-     * Operation gestProductBySKUV1ProductSkuGet
+     * Operation gestProductBySKUV1ProductsSkuGet
      *
      * Gest Product By Sku
      *
      * @param  string $sku sku (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['gestProductBySKUV1ProductSkuGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['gestProductBySKUV1ProductsSkuGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Product|\OpenAPI\Client\Model\HTTPValidationError
      */
-    public function gestProductBySKUV1ProductSkuGet($sku, string $contentType = self::contentTypes['gestProductBySKUV1ProductSkuGet'][0])
+    public function gestProductBySKUV1ProductsSkuGet($sku, string $contentType = self::contentTypes['gestProductBySKUV1ProductsSkuGet'][0])
     {
-        list($response) = $this->gestProductBySKUV1ProductSkuGetWithHttpInfo($sku, $contentType);
+        list($response) = $this->gestProductBySKUV1ProductsSkuGetWithHttpInfo($sku, $contentType);
         return $response;
     }
 
     /**
-     * Operation gestProductBySKUV1ProductSkuGetWithHttpInfo
+     * Operation gestProductBySKUV1ProductsSkuGetWithHttpInfo
      *
      * Gest Product By Sku
      *
      * @param  string $sku (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['gestProductBySKUV1ProductSkuGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['gestProductBySKUV1ProductsSkuGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Product|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gestProductBySKUV1ProductSkuGetWithHttpInfo($sku, string $contentType = self::contentTypes['gestProductBySKUV1ProductSkuGet'][0])
+    public function gestProductBySKUV1ProductsSkuGetWithHttpInfo($sku, string $contentType = self::contentTypes['gestProductBySKUV1ProductsSkuGet'][0])
     {
-        $request = $this->gestProductBySKUV1ProductSkuGetRequest($sku, $contentType);
+        $request = $this->gestProductBySKUV1ProductsSkuGetRequest($sku, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2658,19 +2661,19 @@ class ProductApi
     }
 
     /**
-     * Operation gestProductBySKUV1ProductSkuGetAsync
+     * Operation gestProductBySKUV1ProductsSkuGetAsync
      *
      * Gest Product By Sku
      *
      * @param  string $sku (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['gestProductBySKUV1ProductSkuGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['gestProductBySKUV1ProductsSkuGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gestProductBySKUV1ProductSkuGetAsync($sku, string $contentType = self::contentTypes['gestProductBySKUV1ProductSkuGet'][0])
+    public function gestProductBySKUV1ProductsSkuGetAsync($sku, string $contentType = self::contentTypes['gestProductBySKUV1ProductsSkuGet'][0])
     {
-        return $this->gestProductBySKUV1ProductSkuGetAsyncWithHttpInfo($sku, $contentType)
+        return $this->gestProductBySKUV1ProductsSkuGetAsyncWithHttpInfo($sku, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2679,20 +2682,20 @@ class ProductApi
     }
 
     /**
-     * Operation gestProductBySKUV1ProductSkuGetAsyncWithHttpInfo
+     * Operation gestProductBySKUV1ProductsSkuGetAsyncWithHttpInfo
      *
      * Gest Product By Sku
      *
      * @param  string $sku (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['gestProductBySKUV1ProductSkuGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['gestProductBySKUV1ProductsSkuGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gestProductBySKUV1ProductSkuGetAsyncWithHttpInfo($sku, string $contentType = self::contentTypes['gestProductBySKUV1ProductSkuGet'][0])
+    public function gestProductBySKUV1ProductsSkuGetAsyncWithHttpInfo($sku, string $contentType = self::contentTypes['gestProductBySKUV1ProductsSkuGet'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Product';
-        $request = $this->gestProductBySKUV1ProductSkuGetRequest($sku, $contentType);
+        $request = $this->gestProductBySKUV1ProductsSkuGetRequest($sku, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2731,26 +2734,26 @@ class ProductApi
     }
 
     /**
-     * Create request for operation 'gestProductBySKUV1ProductSkuGet'
+     * Create request for operation 'gestProductBySKUV1ProductsSkuGet'
      *
      * @param  string $sku (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['gestProductBySKUV1ProductSkuGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['gestProductBySKUV1ProductsSkuGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gestProductBySKUV1ProductSkuGetRequest($sku, string $contentType = self::contentTypes['gestProductBySKUV1ProductSkuGet'][0])
+    public function gestProductBySKUV1ProductsSkuGetRequest($sku, string $contentType = self::contentTypes['gestProductBySKUV1ProductsSkuGet'][0])
     {
 
         // verify the required parameter 'sku' is set
         if ($sku === null || (is_array($sku) && count($sku) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $sku when calling gestProductBySKUV1ProductSkuGet'
+                'Missing the required parameter $sku when calling gestProductBySKUV1ProductsSkuGet'
             );
         }
 
 
-        $resourcePath = '/v1/product/{sku}';
+        $resourcePath = '/v1/products/{sku}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2828,36 +2831,36 @@ class ProductApi
     }
 
     /**
-     * Operation getAllProductsV1ProductGet
+     * Operation getAllProductsV1ProductsGet
      *
      * Get All Products
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllProductsV1ProductGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllProductsV1ProductsGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Product[]
      */
-    public function getAllProductsV1ProductGet(string $contentType = self::contentTypes['getAllProductsV1ProductGet'][0])
+    public function getAllProductsV1ProductsGet(string $contentType = self::contentTypes['getAllProductsV1ProductsGet'][0])
     {
-        list($response) = $this->getAllProductsV1ProductGetWithHttpInfo($contentType);
+        list($response) = $this->getAllProductsV1ProductsGetWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation getAllProductsV1ProductGetWithHttpInfo
+     * Operation getAllProductsV1ProductsGetWithHttpInfo
      *
      * Get All Products
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllProductsV1ProductGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllProductsV1ProductsGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Product[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAllProductsV1ProductGetWithHttpInfo(string $contentType = self::contentTypes['getAllProductsV1ProductGet'][0])
+    public function getAllProductsV1ProductsGetWithHttpInfo(string $contentType = self::contentTypes['getAllProductsV1ProductsGet'][0])
     {
-        $request = $this->getAllProductsV1ProductGetRequest($contentType);
+        $request = $this->getAllProductsV1ProductsGetRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2968,18 +2971,18 @@ class ProductApi
     }
 
     /**
-     * Operation getAllProductsV1ProductGetAsync
+     * Operation getAllProductsV1ProductsGetAsync
      *
      * Get All Products
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllProductsV1ProductGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllProductsV1ProductsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllProductsV1ProductGetAsync(string $contentType = self::contentTypes['getAllProductsV1ProductGet'][0])
+    public function getAllProductsV1ProductsGetAsync(string $contentType = self::contentTypes['getAllProductsV1ProductsGet'][0])
     {
-        return $this->getAllProductsV1ProductGetAsyncWithHttpInfo($contentType)
+        return $this->getAllProductsV1ProductsGetAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2988,19 +2991,19 @@ class ProductApi
     }
 
     /**
-     * Operation getAllProductsV1ProductGetAsyncWithHttpInfo
+     * Operation getAllProductsV1ProductsGetAsyncWithHttpInfo
      *
      * Get All Products
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllProductsV1ProductGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllProductsV1ProductsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllProductsV1ProductGetAsyncWithHttpInfo(string $contentType = self::contentTypes['getAllProductsV1ProductGet'][0])
+    public function getAllProductsV1ProductsGetAsyncWithHttpInfo(string $contentType = self::contentTypes['getAllProductsV1ProductsGet'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Product[]';
-        $request = $this->getAllProductsV1ProductGetRequest($contentType);
+        $request = $this->getAllProductsV1ProductsGetRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3039,18 +3042,18 @@ class ProductApi
     }
 
     /**
-     * Create request for operation 'getAllProductsV1ProductGet'
+     * Create request for operation 'getAllProductsV1ProductsGet'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllProductsV1ProductGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllProductsV1ProductsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAllProductsV1ProductGetRequest(string $contentType = self::contentTypes['getAllProductsV1ProductGet'][0])
+    public function getAllProductsV1ProductsGetRequest(string $contentType = self::contentTypes['getAllProductsV1ProductsGet'][0])
     {
 
 
-        $resourcePath = '/v1/product';
+        $resourcePath = '/v1/products';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3120,38 +3123,38 @@ class ProductApi
     }
 
     /**
-     * Operation importMultipleProductsV1ProductPost
+     * Operation importMultipleProductsV1ProductsPost
      *
      * Import Multiple Products
      *
      * @param  \OpenAPI\Client\Model\Product[] $product product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleProductsV1ProductPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleProductsV1ProductsPost'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return mixed|\OpenAPI\Client\Model\HTTPValidationError
      */
-    public function importMultipleProductsV1ProductPost($product, string $contentType = self::contentTypes['importMultipleProductsV1ProductPost'][0])
+    public function importMultipleProductsV1ProductsPost($product, string $contentType = self::contentTypes['importMultipleProductsV1ProductsPost'][0])
     {
-        list($response) = $this->importMultipleProductsV1ProductPostWithHttpInfo($product, $contentType);
+        list($response) = $this->importMultipleProductsV1ProductsPostWithHttpInfo($product, $contentType);
         return $response;
     }
 
     /**
-     * Operation importMultipleProductsV1ProductPostWithHttpInfo
+     * Operation importMultipleProductsV1ProductsPostWithHttpInfo
      *
      * Import Multiple Products
      *
      * @param  \OpenAPI\Client\Model\Product[] $product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleProductsV1ProductPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleProductsV1ProductsPost'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function importMultipleProductsV1ProductPostWithHttpInfo($product, string $contentType = self::contentTypes['importMultipleProductsV1ProductPost'][0])
+    public function importMultipleProductsV1ProductsPostWithHttpInfo($product, string $contentType = self::contentTypes['importMultipleProductsV1ProductsPost'][0])
     {
-        $request = $this->importMultipleProductsV1ProductPostRequest($product, $contentType);
+        $request = $this->importMultipleProductsV1ProductsPostRequest($product, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3297,19 +3300,19 @@ class ProductApi
     }
 
     /**
-     * Operation importMultipleProductsV1ProductPostAsync
+     * Operation importMultipleProductsV1ProductsPostAsync
      *
      * Import Multiple Products
      *
      * @param  \OpenAPI\Client\Model\Product[] $product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleProductsV1ProductPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleProductsV1ProductsPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importMultipleProductsV1ProductPostAsync($product, string $contentType = self::contentTypes['importMultipleProductsV1ProductPost'][0])
+    public function importMultipleProductsV1ProductsPostAsync($product, string $contentType = self::contentTypes['importMultipleProductsV1ProductsPost'][0])
     {
-        return $this->importMultipleProductsV1ProductPostAsyncWithHttpInfo($product, $contentType)
+        return $this->importMultipleProductsV1ProductsPostAsyncWithHttpInfo($product, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3318,20 +3321,20 @@ class ProductApi
     }
 
     /**
-     * Operation importMultipleProductsV1ProductPostAsyncWithHttpInfo
+     * Operation importMultipleProductsV1ProductsPostAsyncWithHttpInfo
      *
      * Import Multiple Products
      *
      * @param  \OpenAPI\Client\Model\Product[] $product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleProductsV1ProductPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleProductsV1ProductsPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function importMultipleProductsV1ProductPostAsyncWithHttpInfo($product, string $contentType = self::contentTypes['importMultipleProductsV1ProductPost'][0])
+    public function importMultipleProductsV1ProductsPostAsyncWithHttpInfo($product, string $contentType = self::contentTypes['importMultipleProductsV1ProductsPost'][0])
     {
         $returnType = 'mixed';
-        $request = $this->importMultipleProductsV1ProductPostRequest($product, $contentType);
+        $request = $this->importMultipleProductsV1ProductsPostRequest($product, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3370,26 +3373,26 @@ class ProductApi
     }
 
     /**
-     * Create request for operation 'importMultipleProductsV1ProductPost'
+     * Create request for operation 'importMultipleProductsV1ProductsPost'
      *
      * @param  \OpenAPI\Client\Model\Product[] $product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleProductsV1ProductPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleProductsV1ProductsPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function importMultipleProductsV1ProductPostRequest($product, string $contentType = self::contentTypes['importMultipleProductsV1ProductPost'][0])
+    public function importMultipleProductsV1ProductsPostRequest($product, string $contentType = self::contentTypes['importMultipleProductsV1ProductsPost'][0])
     {
 
         // verify the required parameter 'product' is set
         if ($product === null || (is_array($product) && count($product) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $product when calling importMultipleProductsV1ProductPost'
+                'Missing the required parameter $product when calling importMultipleProductsV1ProductsPost'
             );
         }
 
 
-        $resourcePath = '/v1/product';
+        $resourcePath = '/v1/products';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3466,40 +3469,40 @@ class ProductApi
     }
 
     /**
-     * Operation updateProductBySKUV1ProductSkuPut
+     * Operation updateProductBySKUV1ProductsSkuPut
      *
      * Update Product By Sku
      *
      * @param  string $sku sku (required)
      * @param  \OpenAPI\Client\Model\Product $product product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductBySKUV1ProductSkuPut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductBySKUV1ProductsSkuPut'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Product|\OpenAPI\Client\Model\HTTPValidationError
      */
-    public function updateProductBySKUV1ProductSkuPut($sku, $product, string $contentType = self::contentTypes['updateProductBySKUV1ProductSkuPut'][0])
+    public function updateProductBySKUV1ProductsSkuPut($sku, $product, string $contentType = self::contentTypes['updateProductBySKUV1ProductsSkuPut'][0])
     {
-        list($response) = $this->updateProductBySKUV1ProductSkuPutWithHttpInfo($sku, $product, $contentType);
+        list($response) = $this->updateProductBySKUV1ProductsSkuPutWithHttpInfo($sku, $product, $contentType);
         return $response;
     }
 
     /**
-     * Operation updateProductBySKUV1ProductSkuPutWithHttpInfo
+     * Operation updateProductBySKUV1ProductsSkuPutWithHttpInfo
      *
      * Update Product By Sku
      *
      * @param  string $sku (required)
      * @param  \OpenAPI\Client\Model\Product $product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductBySKUV1ProductSkuPut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductBySKUV1ProductsSkuPut'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Product|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateProductBySKUV1ProductSkuPutWithHttpInfo($sku, $product, string $contentType = self::contentTypes['updateProductBySKUV1ProductSkuPut'][0])
+    public function updateProductBySKUV1ProductsSkuPutWithHttpInfo($sku, $product, string $contentType = self::contentTypes['updateProductBySKUV1ProductsSkuPut'][0])
     {
-        $request = $this->updateProductBySKUV1ProductSkuPutRequest($sku, $product, $contentType);
+        $request = $this->updateProductBySKUV1ProductsSkuPutRequest($sku, $product, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3645,20 +3648,20 @@ class ProductApi
     }
 
     /**
-     * Operation updateProductBySKUV1ProductSkuPutAsync
+     * Operation updateProductBySKUV1ProductsSkuPutAsync
      *
      * Update Product By Sku
      *
      * @param  string $sku (required)
      * @param  \OpenAPI\Client\Model\Product $product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductBySKUV1ProductSkuPut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductBySKUV1ProductsSkuPut'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateProductBySKUV1ProductSkuPutAsync($sku, $product, string $contentType = self::contentTypes['updateProductBySKUV1ProductSkuPut'][0])
+    public function updateProductBySKUV1ProductsSkuPutAsync($sku, $product, string $contentType = self::contentTypes['updateProductBySKUV1ProductsSkuPut'][0])
     {
-        return $this->updateProductBySKUV1ProductSkuPutAsyncWithHttpInfo($sku, $product, $contentType)
+        return $this->updateProductBySKUV1ProductsSkuPutAsyncWithHttpInfo($sku, $product, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3667,21 +3670,21 @@ class ProductApi
     }
 
     /**
-     * Operation updateProductBySKUV1ProductSkuPutAsyncWithHttpInfo
+     * Operation updateProductBySKUV1ProductsSkuPutAsyncWithHttpInfo
      *
      * Update Product By Sku
      *
      * @param  string $sku (required)
      * @param  \OpenAPI\Client\Model\Product $product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductBySKUV1ProductSkuPut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductBySKUV1ProductsSkuPut'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateProductBySKUV1ProductSkuPutAsyncWithHttpInfo($sku, $product, string $contentType = self::contentTypes['updateProductBySKUV1ProductSkuPut'][0])
+    public function updateProductBySKUV1ProductsSkuPutAsyncWithHttpInfo($sku, $product, string $contentType = self::contentTypes['updateProductBySKUV1ProductsSkuPut'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Product';
-        $request = $this->updateProductBySKUV1ProductSkuPutRequest($sku, $product, $contentType);
+        $request = $this->updateProductBySKUV1ProductsSkuPutRequest($sku, $product, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3720,34 +3723,34 @@ class ProductApi
     }
 
     /**
-     * Create request for operation 'updateProductBySKUV1ProductSkuPut'
+     * Create request for operation 'updateProductBySKUV1ProductsSkuPut'
      *
      * @param  string $sku (required)
      * @param  \OpenAPI\Client\Model\Product $product (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductBySKUV1ProductSkuPut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProductBySKUV1ProductsSkuPut'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateProductBySKUV1ProductSkuPutRequest($sku, $product, string $contentType = self::contentTypes['updateProductBySKUV1ProductSkuPut'][0])
+    public function updateProductBySKUV1ProductsSkuPutRequest($sku, $product, string $contentType = self::contentTypes['updateProductBySKUV1ProductsSkuPut'][0])
     {
 
         // verify the required parameter 'sku' is set
         if ($sku === null || (is_array($sku) && count($sku) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $sku when calling updateProductBySKUV1ProductSkuPut'
+                'Missing the required parameter $sku when calling updateProductBySKUV1ProductsSkuPut'
             );
         }
 
         // verify the required parameter 'product' is set
         if ($product === null || (is_array($product) && count($product) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $product when calling updateProductBySKUV1ProductSkuPut'
+                'Missing the required parameter $product when calling updateProductBySKUV1ProductsSkuPut'
             );
         }
 
 
-        $resourcePath = '/v1/product/{sku}';
+        $resourcePath = '/v1/products/{sku}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3825,6 +3828,357 @@ class ProductApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation uploadFilesIntoGCSV1ProductsUploadPost
+     *
+     * Upload Files Into Gcs
+     *
+     * @param  \SplFileObject $file file (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFilesIntoGCSV1ProductsUploadPost'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return object|\OpenAPI\Client\Model\HTTPValidationError
+     */
+    public function uploadFilesIntoGCSV1ProductsUploadPost($file, string $contentType = self::contentTypes['uploadFilesIntoGCSV1ProductsUploadPost'][0])
+    {
+        list($response) = $this->uploadFilesIntoGCSV1ProductsUploadPostWithHttpInfo($file, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation uploadFilesIntoGCSV1ProductsUploadPostWithHttpInfo
+     *
+     * Upload Files Into Gcs
+     *
+     * @param  \SplFileObject $file (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFilesIntoGCSV1ProductsUploadPost'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of object|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function uploadFilesIntoGCSV1ProductsUploadPostWithHttpInfo($file, string $contentType = self::contentTypes['uploadFilesIntoGCSV1ProductsUploadPost'][0])
+    {
+        $request = $this->uploadFilesIntoGCSV1ProductsUploadPostRequest($file, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('object' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation uploadFilesIntoGCSV1ProductsUploadPostAsync
+     *
+     * Upload Files Into Gcs
+     *
+     * @param  \SplFileObject $file (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFilesIntoGCSV1ProductsUploadPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function uploadFilesIntoGCSV1ProductsUploadPostAsync($file, string $contentType = self::contentTypes['uploadFilesIntoGCSV1ProductsUploadPost'][0])
+    {
+        return $this->uploadFilesIntoGCSV1ProductsUploadPostAsyncWithHttpInfo($file, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation uploadFilesIntoGCSV1ProductsUploadPostAsyncWithHttpInfo
+     *
+     * Upload Files Into Gcs
+     *
+     * @param  \SplFileObject $file (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFilesIntoGCSV1ProductsUploadPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function uploadFilesIntoGCSV1ProductsUploadPostAsyncWithHttpInfo($file, string $contentType = self::contentTypes['uploadFilesIntoGCSV1ProductsUploadPost'][0])
+    {
+        $returnType = 'object';
+        $request = $this->uploadFilesIntoGCSV1ProductsUploadPostRequest($file, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'uploadFilesIntoGCSV1ProductsUploadPost'
+     *
+     * @param  \SplFileObject $file (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFilesIntoGCSV1ProductsUploadPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function uploadFilesIntoGCSV1ProductsUploadPostRequest($file, string $contentType = self::contentTypes['uploadFilesIntoGCSV1ProductsUploadPost'][0])
+    {
+
+        // verify the required parameter 'file' is set
+        if ($file === null || (is_array($file) && count($file) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $file when calling uploadFilesIntoGCSV1ProductsUploadPost'
+            );
+        }
+
+
+        $resourcePath = '/v1/products/upload';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+        // form params
+        if ($file !== null) {
+            $multipart = true;
+            $formParams['file'] = [];
+            $paramFiles = is_array($file) ? $file : [$file];
+            foreach ($paramFiles as $paramFile) {
+                $formParams['file'][] = \GuzzleHttp\Psr7\Utils::tryFopen(
+                    ObjectSerializer::toFormValue($paramFile),
+                    'rb'
+                );
+            }
+        }
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

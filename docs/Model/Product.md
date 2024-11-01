@@ -29,5 +29,7 @@ Name | Type | Description | Notes
 **gtin** | **string** |  | [optional] [default to '']
 **condition** | **string** |  | [optional] [default to '']
 **adult** | **string** |  | [optional] [default to '']
+**summary_review** | **string** |  | [optional] [default to '']
+**average_rating** | **float** |  | [optional] [default to 0]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -71,38 +71,41 @@ class FaqApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'checkIfFAQCollectionExistsV1FaqCollectionExistsGet' => [
+        'checkIfFAQCollectionExistsV1FaqsCollectionExistsGet' => [
             'application/json',
         ],
-        'createFAQByQuestionV1FaqQuestionPost' => [
+        'createFAQByQuestionV1FaqsQuestionPost' => [
             'application/json',
         ],
-        'createFAQCollectionV1FaqCollectionPost' => [
+        'createFAQCollectionV1FaqsCollectionPost' => [
             'application/json',
         ],
-        'deleteFAQByInternalIdV1FaqByInternalIdInternalIdDelete' => [
+        'deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDelete' => [
             'application/json',
         ],
-        'deleteFAQByQuestionV1FaqQuestionDelete' => [
+        'deleteFAQByQuestionV1FaqsQuestionDelete' => [
             'application/json',
         ],
-        'deleteFAQCollectionV1FaqCollectionDelete' => [
+        'deleteFAQCollectionV1FaqsCollectionDelete' => [
             'application/json',
         ],
-        'deletesAllFAQFromCollectionV1FaqResetCollectionDelete' => [
+        'deletesAllFAQFromCollectionV1FaqsResetCollectionDelete' => [
             'application/json',
         ],
-        'gestFAQByQuestionV1FaqQuestionGet' => [
+        'getAllFAQsV1FaqsGet' => [
             'application/json',
         ],
-        'getAllFAQsV1FaqGet' => [
+        'getFAQByQuestionV1FaqsQuestionGet' => [
             'application/json',
         ],
-        'importMultipleFAQsV1FaqPost' => [
+        'importMultipleFAQsV1FaqsPost' => [
             'application/json',
         ],
-        'updateFAQByQuestionV1FaqQuestionPut' => [
+        'updateFAQByQuestionV1FaqsQuestionPut' => [
             'application/json',
+        ],
+        'uploadFilesIntoGCSV1FaqsUploadPost' => [
+            'multipart/form-data',
         ],
     ];
 
@@ -153,36 +156,36 @@ class FaqApi
     }
 
     /**
-     * Operation checkIfFAQCollectionExistsV1FaqCollectionExistsGet
+     * Operation checkIfFAQCollectionExistsV1FaqsCollectionExistsGet
      *
      * Check If Faq Collection Exists.
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfFAQCollectionExistsV1FaqCollectionExistsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfFAQCollectionExistsV1FaqsCollectionExistsGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return mixed
      */
-    public function checkIfFAQCollectionExistsV1FaqCollectionExistsGet(string $contentType = self::contentTypes['checkIfFAQCollectionExistsV1FaqCollectionExistsGet'][0])
+    public function checkIfFAQCollectionExistsV1FaqsCollectionExistsGet(string $contentType = self::contentTypes['checkIfFAQCollectionExistsV1FaqsCollectionExistsGet'][0])
     {
-        list($response) = $this->checkIfFAQCollectionExistsV1FaqCollectionExistsGetWithHttpInfo($contentType);
+        list($response) = $this->checkIfFAQCollectionExistsV1FaqsCollectionExistsGetWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation checkIfFAQCollectionExistsV1FaqCollectionExistsGetWithHttpInfo
+     * Operation checkIfFAQCollectionExistsV1FaqsCollectionExistsGetWithHttpInfo
      *
      * Check If Faq Collection Exists.
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfFAQCollectionExistsV1FaqCollectionExistsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfFAQCollectionExistsV1FaqsCollectionExistsGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of mixed, HTTP status code, HTTP response headers (array of strings)
      */
-    public function checkIfFAQCollectionExistsV1FaqCollectionExistsGetWithHttpInfo(string $contentType = self::contentTypes['checkIfFAQCollectionExistsV1FaqCollectionExistsGet'][0])
+    public function checkIfFAQCollectionExistsV1FaqsCollectionExistsGetWithHttpInfo(string $contentType = self::contentTypes['checkIfFAQCollectionExistsV1FaqsCollectionExistsGet'][0])
     {
-        $request = $this->checkIfFAQCollectionExistsV1FaqCollectionExistsGetRequest($contentType);
+        $request = $this->checkIfFAQCollectionExistsV1FaqsCollectionExistsGetRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -293,18 +296,18 @@ class FaqApi
     }
 
     /**
-     * Operation checkIfFAQCollectionExistsV1FaqCollectionExistsGetAsync
+     * Operation checkIfFAQCollectionExistsV1FaqsCollectionExistsGetAsync
      *
      * Check If Faq Collection Exists.
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfFAQCollectionExistsV1FaqCollectionExistsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfFAQCollectionExistsV1FaqsCollectionExistsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function checkIfFAQCollectionExistsV1FaqCollectionExistsGetAsync(string $contentType = self::contentTypes['checkIfFAQCollectionExistsV1FaqCollectionExistsGet'][0])
+    public function checkIfFAQCollectionExistsV1FaqsCollectionExistsGetAsync(string $contentType = self::contentTypes['checkIfFAQCollectionExistsV1FaqsCollectionExistsGet'][0])
     {
-        return $this->checkIfFAQCollectionExistsV1FaqCollectionExistsGetAsyncWithHttpInfo($contentType)
+        return $this->checkIfFAQCollectionExistsV1FaqsCollectionExistsGetAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -313,19 +316,19 @@ class FaqApi
     }
 
     /**
-     * Operation checkIfFAQCollectionExistsV1FaqCollectionExistsGetAsyncWithHttpInfo
+     * Operation checkIfFAQCollectionExistsV1FaqsCollectionExistsGetAsyncWithHttpInfo
      *
      * Check If Faq Collection Exists.
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfFAQCollectionExistsV1FaqCollectionExistsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfFAQCollectionExistsV1FaqsCollectionExistsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function checkIfFAQCollectionExistsV1FaqCollectionExistsGetAsyncWithHttpInfo(string $contentType = self::contentTypes['checkIfFAQCollectionExistsV1FaqCollectionExistsGet'][0])
+    public function checkIfFAQCollectionExistsV1FaqsCollectionExistsGetAsyncWithHttpInfo(string $contentType = self::contentTypes['checkIfFAQCollectionExistsV1FaqsCollectionExistsGet'][0])
     {
         $returnType = 'mixed';
-        $request = $this->checkIfFAQCollectionExistsV1FaqCollectionExistsGetRequest($contentType);
+        $request = $this->checkIfFAQCollectionExistsV1FaqsCollectionExistsGetRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -364,18 +367,18 @@ class FaqApi
     }
 
     /**
-     * Create request for operation 'checkIfFAQCollectionExistsV1FaqCollectionExistsGet'
+     * Create request for operation 'checkIfFAQCollectionExistsV1FaqsCollectionExistsGet'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfFAQCollectionExistsV1FaqCollectionExistsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkIfFAQCollectionExistsV1FaqsCollectionExistsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function checkIfFAQCollectionExistsV1FaqCollectionExistsGetRequest(string $contentType = self::contentTypes['checkIfFAQCollectionExistsV1FaqCollectionExistsGet'][0])
+    public function checkIfFAQCollectionExistsV1FaqsCollectionExistsGetRequest(string $contentType = self::contentTypes['checkIfFAQCollectionExistsV1FaqsCollectionExistsGet'][0])
     {
 
 
-        $resourcePath = '/v1/faq/collection-exists';
+        $resourcePath = '/v1/faqs/collection-exists';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -445,40 +448,40 @@ class FaqApi
     }
 
     /**
-     * Operation createFAQByQuestionV1FaqQuestionPost
+     * Operation createFAQByQuestionV1FaqsQuestionPost
      *
      * Create Faq By Question
      *
      * @param  string $question question (required)
      * @param  \OpenAPI\Client\Model\Faq $faq faq (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFAQByQuestionV1FaqQuestionPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFAQByQuestionV1FaqsQuestionPost'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Faq|\OpenAPI\Client\Model\HTTPValidationError
      */
-    public function createFAQByQuestionV1FaqQuestionPost($question, $faq, string $contentType = self::contentTypes['createFAQByQuestionV1FaqQuestionPost'][0])
+    public function createFAQByQuestionV1FaqsQuestionPost($question, $faq, string $contentType = self::contentTypes['createFAQByQuestionV1FaqsQuestionPost'][0])
     {
-        list($response) = $this->createFAQByQuestionV1FaqQuestionPostWithHttpInfo($question, $faq, $contentType);
+        list($response) = $this->createFAQByQuestionV1FaqsQuestionPostWithHttpInfo($question, $faq, $contentType);
         return $response;
     }
 
     /**
-     * Operation createFAQByQuestionV1FaqQuestionPostWithHttpInfo
+     * Operation createFAQByQuestionV1FaqsQuestionPostWithHttpInfo
      *
      * Create Faq By Question
      *
      * @param  string $question (required)
      * @param  \OpenAPI\Client\Model\Faq $faq (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFAQByQuestionV1FaqQuestionPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFAQByQuestionV1FaqsQuestionPost'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Faq|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createFAQByQuestionV1FaqQuestionPostWithHttpInfo($question, $faq, string $contentType = self::contentTypes['createFAQByQuestionV1FaqQuestionPost'][0])
+    public function createFAQByQuestionV1FaqsQuestionPostWithHttpInfo($question, $faq, string $contentType = self::contentTypes['createFAQByQuestionV1FaqsQuestionPost'][0])
     {
-        $request = $this->createFAQByQuestionV1FaqQuestionPostRequest($question, $faq, $contentType);
+        $request = $this->createFAQByQuestionV1FaqsQuestionPostRequest($question, $faq, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -624,20 +627,20 @@ class FaqApi
     }
 
     /**
-     * Operation createFAQByQuestionV1FaqQuestionPostAsync
+     * Operation createFAQByQuestionV1FaqsQuestionPostAsync
      *
      * Create Faq By Question
      *
      * @param  string $question (required)
      * @param  \OpenAPI\Client\Model\Faq $faq (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFAQByQuestionV1FaqQuestionPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFAQByQuestionV1FaqsQuestionPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createFAQByQuestionV1FaqQuestionPostAsync($question, $faq, string $contentType = self::contentTypes['createFAQByQuestionV1FaqQuestionPost'][0])
+    public function createFAQByQuestionV1FaqsQuestionPostAsync($question, $faq, string $contentType = self::contentTypes['createFAQByQuestionV1FaqsQuestionPost'][0])
     {
-        return $this->createFAQByQuestionV1FaqQuestionPostAsyncWithHttpInfo($question, $faq, $contentType)
+        return $this->createFAQByQuestionV1FaqsQuestionPostAsyncWithHttpInfo($question, $faq, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -646,21 +649,21 @@ class FaqApi
     }
 
     /**
-     * Operation createFAQByQuestionV1FaqQuestionPostAsyncWithHttpInfo
+     * Operation createFAQByQuestionV1FaqsQuestionPostAsyncWithHttpInfo
      *
      * Create Faq By Question
      *
      * @param  string $question (required)
      * @param  \OpenAPI\Client\Model\Faq $faq (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFAQByQuestionV1FaqQuestionPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFAQByQuestionV1FaqsQuestionPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createFAQByQuestionV1FaqQuestionPostAsyncWithHttpInfo($question, $faq, string $contentType = self::contentTypes['createFAQByQuestionV1FaqQuestionPost'][0])
+    public function createFAQByQuestionV1FaqsQuestionPostAsyncWithHttpInfo($question, $faq, string $contentType = self::contentTypes['createFAQByQuestionV1FaqsQuestionPost'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Faq';
-        $request = $this->createFAQByQuestionV1FaqQuestionPostRequest($question, $faq, $contentType);
+        $request = $this->createFAQByQuestionV1FaqsQuestionPostRequest($question, $faq, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -699,34 +702,34 @@ class FaqApi
     }
 
     /**
-     * Create request for operation 'createFAQByQuestionV1FaqQuestionPost'
+     * Create request for operation 'createFAQByQuestionV1FaqsQuestionPost'
      *
      * @param  string $question (required)
      * @param  \OpenAPI\Client\Model\Faq $faq (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFAQByQuestionV1FaqQuestionPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFAQByQuestionV1FaqsQuestionPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createFAQByQuestionV1FaqQuestionPostRequest($question, $faq, string $contentType = self::contentTypes['createFAQByQuestionV1FaqQuestionPost'][0])
+    public function createFAQByQuestionV1FaqsQuestionPostRequest($question, $faq, string $contentType = self::contentTypes['createFAQByQuestionV1FaqsQuestionPost'][0])
     {
 
         // verify the required parameter 'question' is set
         if ($question === null || (is_array($question) && count($question) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $question when calling createFAQByQuestionV1FaqQuestionPost'
+                'Missing the required parameter $question when calling createFAQByQuestionV1FaqsQuestionPost'
             );
         }
 
         // verify the required parameter 'faq' is set
         if ($faq === null || (is_array($faq) && count($faq) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $faq when calling createFAQByQuestionV1FaqQuestionPost'
+                'Missing the required parameter $faq when calling createFAQByQuestionV1FaqsQuestionPost'
             );
         }
 
 
-        $resourcePath = '/v1/faq/{question}';
+        $resourcePath = '/v1/faqs/{question}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -811,38 +814,38 @@ class FaqApi
     }
 
     /**
-     * Operation createFAQCollectionV1FaqCollectionPost
+     * Operation createFAQCollectionV1FaqsCollectionPost
      *
      * Create Faq Collection
      *
      * @param  bool $delete_existing_collection delete_existing_collection (optional, default to false)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFAQCollectionV1FaqCollectionPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFAQCollectionV1FaqsCollectionPost'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return mixed|\OpenAPI\Client\Model\HTTPValidationError
      */
-    public function createFAQCollectionV1FaqCollectionPost($delete_existing_collection = false, string $contentType = self::contentTypes['createFAQCollectionV1FaqCollectionPost'][0])
+    public function createFAQCollectionV1FaqsCollectionPost($delete_existing_collection = false, string $contentType = self::contentTypes['createFAQCollectionV1FaqsCollectionPost'][0])
     {
-        list($response) = $this->createFAQCollectionV1FaqCollectionPostWithHttpInfo($delete_existing_collection, $contentType);
+        list($response) = $this->createFAQCollectionV1FaqsCollectionPostWithHttpInfo($delete_existing_collection, $contentType);
         return $response;
     }
 
     /**
-     * Operation createFAQCollectionV1FaqCollectionPostWithHttpInfo
+     * Operation createFAQCollectionV1FaqsCollectionPostWithHttpInfo
      *
      * Create Faq Collection
      *
      * @param  bool $delete_existing_collection (optional, default to false)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFAQCollectionV1FaqCollectionPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFAQCollectionV1FaqsCollectionPost'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createFAQCollectionV1FaqCollectionPostWithHttpInfo($delete_existing_collection = false, string $contentType = self::contentTypes['createFAQCollectionV1FaqCollectionPost'][0])
+    public function createFAQCollectionV1FaqsCollectionPostWithHttpInfo($delete_existing_collection = false, string $contentType = self::contentTypes['createFAQCollectionV1FaqsCollectionPost'][0])
     {
-        $request = $this->createFAQCollectionV1FaqCollectionPostRequest($delete_existing_collection, $contentType);
+        $request = $this->createFAQCollectionV1FaqsCollectionPostRequest($delete_existing_collection, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -988,19 +991,19 @@ class FaqApi
     }
 
     /**
-     * Operation createFAQCollectionV1FaqCollectionPostAsync
+     * Operation createFAQCollectionV1FaqsCollectionPostAsync
      *
      * Create Faq Collection
      *
      * @param  bool $delete_existing_collection (optional, default to false)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFAQCollectionV1FaqCollectionPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFAQCollectionV1FaqsCollectionPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createFAQCollectionV1FaqCollectionPostAsync($delete_existing_collection = false, string $contentType = self::contentTypes['createFAQCollectionV1FaqCollectionPost'][0])
+    public function createFAQCollectionV1FaqsCollectionPostAsync($delete_existing_collection = false, string $contentType = self::contentTypes['createFAQCollectionV1FaqsCollectionPost'][0])
     {
-        return $this->createFAQCollectionV1FaqCollectionPostAsyncWithHttpInfo($delete_existing_collection, $contentType)
+        return $this->createFAQCollectionV1FaqsCollectionPostAsyncWithHttpInfo($delete_existing_collection, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1009,20 +1012,20 @@ class FaqApi
     }
 
     /**
-     * Operation createFAQCollectionV1FaqCollectionPostAsyncWithHttpInfo
+     * Operation createFAQCollectionV1FaqsCollectionPostAsyncWithHttpInfo
      *
      * Create Faq Collection
      *
      * @param  bool $delete_existing_collection (optional, default to false)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFAQCollectionV1FaqCollectionPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFAQCollectionV1FaqsCollectionPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createFAQCollectionV1FaqCollectionPostAsyncWithHttpInfo($delete_existing_collection = false, string $contentType = self::contentTypes['createFAQCollectionV1FaqCollectionPost'][0])
+    public function createFAQCollectionV1FaqsCollectionPostAsyncWithHttpInfo($delete_existing_collection = false, string $contentType = self::contentTypes['createFAQCollectionV1FaqsCollectionPost'][0])
     {
         $returnType = 'mixed';
-        $request = $this->createFAQCollectionV1FaqCollectionPostRequest($delete_existing_collection, $contentType);
+        $request = $this->createFAQCollectionV1FaqsCollectionPostRequest($delete_existing_collection, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1061,20 +1064,20 @@ class FaqApi
     }
 
     /**
-     * Create request for operation 'createFAQCollectionV1FaqCollectionPost'
+     * Create request for operation 'createFAQCollectionV1FaqsCollectionPost'
      *
      * @param  bool $delete_existing_collection (optional, default to false)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFAQCollectionV1FaqCollectionPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createFAQCollectionV1FaqsCollectionPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createFAQCollectionV1FaqCollectionPostRequest($delete_existing_collection = false, string $contentType = self::contentTypes['createFAQCollectionV1FaqCollectionPost'][0])
+    public function createFAQCollectionV1FaqsCollectionPostRequest($delete_existing_collection = false, string $contentType = self::contentTypes['createFAQCollectionV1FaqsCollectionPost'][0])
     {
 
 
 
-        $resourcePath = '/v1/faq/collection';
+        $resourcePath = '/v1/faqs/collection';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1153,38 +1156,38 @@ class FaqApi
     }
 
     /**
-     * Operation deleteFAQByInternalIdV1FaqByInternalIdInternalIdDelete
+     * Operation deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDelete
      *
      * Delete Faq By Internal Id
      *
      * @param  int $internal_id internal_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQByInternalIdV1FaqByInternalIdInternalIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDelete'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return bool|\OpenAPI\Client\Model\HTTPValidationError
      */
-    public function deleteFAQByInternalIdV1FaqByInternalIdInternalIdDelete($internal_id, string $contentType = self::contentTypes['deleteFAQByInternalIdV1FaqByInternalIdInternalIdDelete'][0])
+    public function deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDelete($internal_id, string $contentType = self::contentTypes['deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDelete'][0])
     {
-        list($response) = $this->deleteFAQByInternalIdV1FaqByInternalIdInternalIdDeleteWithHttpInfo($internal_id, $contentType);
+        list($response) = $this->deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDeleteWithHttpInfo($internal_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation deleteFAQByInternalIdV1FaqByInternalIdInternalIdDeleteWithHttpInfo
+     * Operation deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDeleteWithHttpInfo
      *
      * Delete Faq By Internal Id
      *
      * @param  int $internal_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQByInternalIdV1FaqByInternalIdInternalIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDelete'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of bool|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteFAQByInternalIdV1FaqByInternalIdInternalIdDeleteWithHttpInfo($internal_id, string $contentType = self::contentTypes['deleteFAQByInternalIdV1FaqByInternalIdInternalIdDelete'][0])
+    public function deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDeleteWithHttpInfo($internal_id, string $contentType = self::contentTypes['deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDelete'][0])
     {
-        $request = $this->deleteFAQByInternalIdV1FaqByInternalIdInternalIdDeleteRequest($internal_id, $contentType);
+        $request = $this->deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDeleteRequest($internal_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1330,19 +1333,19 @@ class FaqApi
     }
 
     /**
-     * Operation deleteFAQByInternalIdV1FaqByInternalIdInternalIdDeleteAsync
+     * Operation deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDeleteAsync
      *
      * Delete Faq By Internal Id
      *
      * @param  int $internal_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQByInternalIdV1FaqByInternalIdInternalIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFAQByInternalIdV1FaqByInternalIdInternalIdDeleteAsync($internal_id, string $contentType = self::contentTypes['deleteFAQByInternalIdV1FaqByInternalIdInternalIdDelete'][0])
+    public function deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDeleteAsync($internal_id, string $contentType = self::contentTypes['deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDelete'][0])
     {
-        return $this->deleteFAQByInternalIdV1FaqByInternalIdInternalIdDeleteAsyncWithHttpInfo($internal_id, $contentType)
+        return $this->deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDeleteAsyncWithHttpInfo($internal_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1351,20 +1354,20 @@ class FaqApi
     }
 
     /**
-     * Operation deleteFAQByInternalIdV1FaqByInternalIdInternalIdDeleteAsyncWithHttpInfo
+     * Operation deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDeleteAsyncWithHttpInfo
      *
      * Delete Faq By Internal Id
      *
      * @param  int $internal_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQByInternalIdV1FaqByInternalIdInternalIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFAQByInternalIdV1FaqByInternalIdInternalIdDeleteAsyncWithHttpInfo($internal_id, string $contentType = self::contentTypes['deleteFAQByInternalIdV1FaqByInternalIdInternalIdDelete'][0])
+    public function deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDeleteAsyncWithHttpInfo($internal_id, string $contentType = self::contentTypes['deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDelete'][0])
     {
         $returnType = 'bool';
-        $request = $this->deleteFAQByInternalIdV1FaqByInternalIdInternalIdDeleteRequest($internal_id, $contentType);
+        $request = $this->deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDeleteRequest($internal_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1403,26 +1406,26 @@ class FaqApi
     }
 
     /**
-     * Create request for operation 'deleteFAQByInternalIdV1FaqByInternalIdInternalIdDelete'
+     * Create request for operation 'deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDelete'
      *
      * @param  int $internal_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQByInternalIdV1FaqByInternalIdInternalIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteFAQByInternalIdV1FaqByInternalIdInternalIdDeleteRequest($internal_id, string $contentType = self::contentTypes['deleteFAQByInternalIdV1FaqByInternalIdInternalIdDelete'][0])
+    public function deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDeleteRequest($internal_id, string $contentType = self::contentTypes['deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDelete'][0])
     {
 
         // verify the required parameter 'internal_id' is set
         if ($internal_id === null || (is_array($internal_id) && count($internal_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $internal_id when calling deleteFAQByInternalIdV1FaqByInternalIdInternalIdDelete'
+                'Missing the required parameter $internal_id when calling deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDelete'
             );
         }
 
 
-        $resourcePath = '/v1/faq/by-internal-id/{internal_id}';
+        $resourcePath = '/v1/faqs/by-internal-id/{internal_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1500,38 +1503,38 @@ class FaqApi
     }
 
     /**
-     * Operation deleteFAQByQuestionV1FaqQuestionDelete
+     * Operation deleteFAQByQuestionV1FaqsQuestionDelete
      *
      * Delete Faq By Question
      *
      * @param  string $question question (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQByQuestionV1FaqQuestionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQByQuestionV1FaqsQuestionDelete'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return bool|\OpenAPI\Client\Model\HTTPValidationError
      */
-    public function deleteFAQByQuestionV1FaqQuestionDelete($question, string $contentType = self::contentTypes['deleteFAQByQuestionV1FaqQuestionDelete'][0])
+    public function deleteFAQByQuestionV1FaqsQuestionDelete($question, string $contentType = self::contentTypes['deleteFAQByQuestionV1FaqsQuestionDelete'][0])
     {
-        list($response) = $this->deleteFAQByQuestionV1FaqQuestionDeleteWithHttpInfo($question, $contentType);
+        list($response) = $this->deleteFAQByQuestionV1FaqsQuestionDeleteWithHttpInfo($question, $contentType);
         return $response;
     }
 
     /**
-     * Operation deleteFAQByQuestionV1FaqQuestionDeleteWithHttpInfo
+     * Operation deleteFAQByQuestionV1FaqsQuestionDeleteWithHttpInfo
      *
      * Delete Faq By Question
      *
      * @param  string $question (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQByQuestionV1FaqQuestionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQByQuestionV1FaqsQuestionDelete'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of bool|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteFAQByQuestionV1FaqQuestionDeleteWithHttpInfo($question, string $contentType = self::contentTypes['deleteFAQByQuestionV1FaqQuestionDelete'][0])
+    public function deleteFAQByQuestionV1FaqsQuestionDeleteWithHttpInfo($question, string $contentType = self::contentTypes['deleteFAQByQuestionV1FaqsQuestionDelete'][0])
     {
-        $request = $this->deleteFAQByQuestionV1FaqQuestionDeleteRequest($question, $contentType);
+        $request = $this->deleteFAQByQuestionV1FaqsQuestionDeleteRequest($question, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1677,19 +1680,19 @@ class FaqApi
     }
 
     /**
-     * Operation deleteFAQByQuestionV1FaqQuestionDeleteAsync
+     * Operation deleteFAQByQuestionV1FaqsQuestionDeleteAsync
      *
      * Delete Faq By Question
      *
      * @param  string $question (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQByQuestionV1FaqQuestionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQByQuestionV1FaqsQuestionDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFAQByQuestionV1FaqQuestionDeleteAsync($question, string $contentType = self::contentTypes['deleteFAQByQuestionV1FaqQuestionDelete'][0])
+    public function deleteFAQByQuestionV1FaqsQuestionDeleteAsync($question, string $contentType = self::contentTypes['deleteFAQByQuestionV1FaqsQuestionDelete'][0])
     {
-        return $this->deleteFAQByQuestionV1FaqQuestionDeleteAsyncWithHttpInfo($question, $contentType)
+        return $this->deleteFAQByQuestionV1FaqsQuestionDeleteAsyncWithHttpInfo($question, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1698,20 +1701,20 @@ class FaqApi
     }
 
     /**
-     * Operation deleteFAQByQuestionV1FaqQuestionDeleteAsyncWithHttpInfo
+     * Operation deleteFAQByQuestionV1FaqsQuestionDeleteAsyncWithHttpInfo
      *
      * Delete Faq By Question
      *
      * @param  string $question (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQByQuestionV1FaqQuestionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQByQuestionV1FaqsQuestionDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFAQByQuestionV1FaqQuestionDeleteAsyncWithHttpInfo($question, string $contentType = self::contentTypes['deleteFAQByQuestionV1FaqQuestionDelete'][0])
+    public function deleteFAQByQuestionV1FaqsQuestionDeleteAsyncWithHttpInfo($question, string $contentType = self::contentTypes['deleteFAQByQuestionV1FaqsQuestionDelete'][0])
     {
         $returnType = 'bool';
-        $request = $this->deleteFAQByQuestionV1FaqQuestionDeleteRequest($question, $contentType);
+        $request = $this->deleteFAQByQuestionV1FaqsQuestionDeleteRequest($question, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1750,26 +1753,26 @@ class FaqApi
     }
 
     /**
-     * Create request for operation 'deleteFAQByQuestionV1FaqQuestionDelete'
+     * Create request for operation 'deleteFAQByQuestionV1FaqsQuestionDelete'
      *
      * @param  string $question (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQByQuestionV1FaqQuestionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQByQuestionV1FaqsQuestionDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteFAQByQuestionV1FaqQuestionDeleteRequest($question, string $contentType = self::contentTypes['deleteFAQByQuestionV1FaqQuestionDelete'][0])
+    public function deleteFAQByQuestionV1FaqsQuestionDeleteRequest($question, string $contentType = self::contentTypes['deleteFAQByQuestionV1FaqsQuestionDelete'][0])
     {
 
         // verify the required parameter 'question' is set
         if ($question === null || (is_array($question) && count($question) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $question when calling deleteFAQByQuestionV1FaqQuestionDelete'
+                'Missing the required parameter $question when calling deleteFAQByQuestionV1FaqsQuestionDelete'
             );
         }
 
 
-        $resourcePath = '/v1/faq/{question}';
+        $resourcePath = '/v1/faqs/{question}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1847,36 +1850,36 @@ class FaqApi
     }
 
     /**
-     * Operation deleteFAQCollectionV1FaqCollectionDelete
+     * Operation deleteFAQCollectionV1FaqsCollectionDelete
      *
      * Delete Faq Collection
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQCollectionV1FaqCollectionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQCollectionV1FaqsCollectionDelete'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return bool
      */
-    public function deleteFAQCollectionV1FaqCollectionDelete(string $contentType = self::contentTypes['deleteFAQCollectionV1FaqCollectionDelete'][0])
+    public function deleteFAQCollectionV1FaqsCollectionDelete(string $contentType = self::contentTypes['deleteFAQCollectionV1FaqsCollectionDelete'][0])
     {
-        list($response) = $this->deleteFAQCollectionV1FaqCollectionDeleteWithHttpInfo($contentType);
+        list($response) = $this->deleteFAQCollectionV1FaqsCollectionDeleteWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation deleteFAQCollectionV1FaqCollectionDeleteWithHttpInfo
+     * Operation deleteFAQCollectionV1FaqsCollectionDeleteWithHttpInfo
      *
      * Delete Faq Collection
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQCollectionV1FaqCollectionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQCollectionV1FaqsCollectionDelete'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of bool, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteFAQCollectionV1FaqCollectionDeleteWithHttpInfo(string $contentType = self::contentTypes['deleteFAQCollectionV1FaqCollectionDelete'][0])
+    public function deleteFAQCollectionV1FaqsCollectionDeleteWithHttpInfo(string $contentType = self::contentTypes['deleteFAQCollectionV1FaqsCollectionDelete'][0])
     {
-        $request = $this->deleteFAQCollectionV1FaqCollectionDeleteRequest($contentType);
+        $request = $this->deleteFAQCollectionV1FaqsCollectionDeleteRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1987,18 +1990,18 @@ class FaqApi
     }
 
     /**
-     * Operation deleteFAQCollectionV1FaqCollectionDeleteAsync
+     * Operation deleteFAQCollectionV1FaqsCollectionDeleteAsync
      *
      * Delete Faq Collection
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQCollectionV1FaqCollectionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQCollectionV1FaqsCollectionDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFAQCollectionV1FaqCollectionDeleteAsync(string $contentType = self::contentTypes['deleteFAQCollectionV1FaqCollectionDelete'][0])
+    public function deleteFAQCollectionV1FaqsCollectionDeleteAsync(string $contentType = self::contentTypes['deleteFAQCollectionV1FaqsCollectionDelete'][0])
     {
-        return $this->deleteFAQCollectionV1FaqCollectionDeleteAsyncWithHttpInfo($contentType)
+        return $this->deleteFAQCollectionV1FaqsCollectionDeleteAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2007,19 +2010,19 @@ class FaqApi
     }
 
     /**
-     * Operation deleteFAQCollectionV1FaqCollectionDeleteAsyncWithHttpInfo
+     * Operation deleteFAQCollectionV1FaqsCollectionDeleteAsyncWithHttpInfo
      *
      * Delete Faq Collection
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQCollectionV1FaqCollectionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQCollectionV1FaqsCollectionDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFAQCollectionV1FaqCollectionDeleteAsyncWithHttpInfo(string $contentType = self::contentTypes['deleteFAQCollectionV1FaqCollectionDelete'][0])
+    public function deleteFAQCollectionV1FaqsCollectionDeleteAsyncWithHttpInfo(string $contentType = self::contentTypes['deleteFAQCollectionV1FaqsCollectionDelete'][0])
     {
         $returnType = 'bool';
-        $request = $this->deleteFAQCollectionV1FaqCollectionDeleteRequest($contentType);
+        $request = $this->deleteFAQCollectionV1FaqsCollectionDeleteRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2058,18 +2061,18 @@ class FaqApi
     }
 
     /**
-     * Create request for operation 'deleteFAQCollectionV1FaqCollectionDelete'
+     * Create request for operation 'deleteFAQCollectionV1FaqsCollectionDelete'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQCollectionV1FaqCollectionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFAQCollectionV1FaqsCollectionDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteFAQCollectionV1FaqCollectionDeleteRequest(string $contentType = self::contentTypes['deleteFAQCollectionV1FaqCollectionDelete'][0])
+    public function deleteFAQCollectionV1FaqsCollectionDeleteRequest(string $contentType = self::contentTypes['deleteFAQCollectionV1FaqsCollectionDelete'][0])
     {
 
 
-        $resourcePath = '/v1/faq/collection';
+        $resourcePath = '/v1/faqs/collection';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2139,38 +2142,38 @@ class FaqApi
     }
 
     /**
-     * Operation deletesAllFAQFromCollectionV1FaqResetCollectionDelete
+     * Operation deletesAllFAQFromCollectionV1FaqsResetCollectionDelete
      *
      * Deletes All Faq From Collection
      *
      * @param  bool $dry_run dry_run (optional, default to true)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllFAQFromCollectionV1FaqResetCollectionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllFAQFromCollectionV1FaqsResetCollectionDelete'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return mixed|\OpenAPI\Client\Model\HTTPValidationError
      */
-    public function deletesAllFAQFromCollectionV1FaqResetCollectionDelete($dry_run = true, string $contentType = self::contentTypes['deletesAllFAQFromCollectionV1FaqResetCollectionDelete'][0])
+    public function deletesAllFAQFromCollectionV1FaqsResetCollectionDelete($dry_run = true, string $contentType = self::contentTypes['deletesAllFAQFromCollectionV1FaqsResetCollectionDelete'][0])
     {
-        list($response) = $this->deletesAllFAQFromCollectionV1FaqResetCollectionDeleteWithHttpInfo($dry_run, $contentType);
+        list($response) = $this->deletesAllFAQFromCollectionV1FaqsResetCollectionDeleteWithHttpInfo($dry_run, $contentType);
         return $response;
     }
 
     /**
-     * Operation deletesAllFAQFromCollectionV1FaqResetCollectionDeleteWithHttpInfo
+     * Operation deletesAllFAQFromCollectionV1FaqsResetCollectionDeleteWithHttpInfo
      *
      * Deletes All Faq From Collection
      *
      * @param  bool $dry_run (optional, default to true)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllFAQFromCollectionV1FaqResetCollectionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllFAQFromCollectionV1FaqsResetCollectionDelete'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deletesAllFAQFromCollectionV1FaqResetCollectionDeleteWithHttpInfo($dry_run = true, string $contentType = self::contentTypes['deletesAllFAQFromCollectionV1FaqResetCollectionDelete'][0])
+    public function deletesAllFAQFromCollectionV1FaqsResetCollectionDeleteWithHttpInfo($dry_run = true, string $contentType = self::contentTypes['deletesAllFAQFromCollectionV1FaqsResetCollectionDelete'][0])
     {
-        $request = $this->deletesAllFAQFromCollectionV1FaqResetCollectionDeleteRequest($dry_run, $contentType);
+        $request = $this->deletesAllFAQFromCollectionV1FaqsResetCollectionDeleteRequest($dry_run, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2316,19 +2319,19 @@ class FaqApi
     }
 
     /**
-     * Operation deletesAllFAQFromCollectionV1FaqResetCollectionDeleteAsync
+     * Operation deletesAllFAQFromCollectionV1FaqsResetCollectionDeleteAsync
      *
      * Deletes All Faq From Collection
      *
      * @param  bool $dry_run (optional, default to true)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllFAQFromCollectionV1FaqResetCollectionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllFAQFromCollectionV1FaqsResetCollectionDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deletesAllFAQFromCollectionV1FaqResetCollectionDeleteAsync($dry_run = true, string $contentType = self::contentTypes['deletesAllFAQFromCollectionV1FaqResetCollectionDelete'][0])
+    public function deletesAllFAQFromCollectionV1FaqsResetCollectionDeleteAsync($dry_run = true, string $contentType = self::contentTypes['deletesAllFAQFromCollectionV1FaqsResetCollectionDelete'][0])
     {
-        return $this->deletesAllFAQFromCollectionV1FaqResetCollectionDeleteAsyncWithHttpInfo($dry_run, $contentType)
+        return $this->deletesAllFAQFromCollectionV1FaqsResetCollectionDeleteAsyncWithHttpInfo($dry_run, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2337,20 +2340,20 @@ class FaqApi
     }
 
     /**
-     * Operation deletesAllFAQFromCollectionV1FaqResetCollectionDeleteAsyncWithHttpInfo
+     * Operation deletesAllFAQFromCollectionV1FaqsResetCollectionDeleteAsyncWithHttpInfo
      *
      * Deletes All Faq From Collection
      *
      * @param  bool $dry_run (optional, default to true)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllFAQFromCollectionV1FaqResetCollectionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllFAQFromCollectionV1FaqsResetCollectionDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deletesAllFAQFromCollectionV1FaqResetCollectionDeleteAsyncWithHttpInfo($dry_run = true, string $contentType = self::contentTypes['deletesAllFAQFromCollectionV1FaqResetCollectionDelete'][0])
+    public function deletesAllFAQFromCollectionV1FaqsResetCollectionDeleteAsyncWithHttpInfo($dry_run = true, string $contentType = self::contentTypes['deletesAllFAQFromCollectionV1FaqsResetCollectionDelete'][0])
     {
         $returnType = 'mixed';
-        $request = $this->deletesAllFAQFromCollectionV1FaqResetCollectionDeleteRequest($dry_run, $contentType);
+        $request = $this->deletesAllFAQFromCollectionV1FaqsResetCollectionDeleteRequest($dry_run, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2389,20 +2392,20 @@ class FaqApi
     }
 
     /**
-     * Create request for operation 'deletesAllFAQFromCollectionV1FaqResetCollectionDelete'
+     * Create request for operation 'deletesAllFAQFromCollectionV1FaqsResetCollectionDelete'
      *
      * @param  bool $dry_run (optional, default to true)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllFAQFromCollectionV1FaqResetCollectionDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletesAllFAQFromCollectionV1FaqsResetCollectionDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deletesAllFAQFromCollectionV1FaqResetCollectionDeleteRequest($dry_run = true, string $contentType = self::contentTypes['deletesAllFAQFromCollectionV1FaqResetCollectionDelete'][0])
+    public function deletesAllFAQFromCollectionV1FaqsResetCollectionDeleteRequest($dry_run = true, string $contentType = self::contentTypes['deletesAllFAQFromCollectionV1FaqsResetCollectionDelete'][0])
     {
 
 
 
-        $resourcePath = '/v1/faq/reset-collection';
+        $resourcePath = '/v1/faqs/reset-collection';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2481,383 +2484,36 @@ class FaqApi
     }
 
     /**
-     * Operation gestFAQByQuestionV1FaqQuestionGet
-     *
-     * Gest Faq By Question
-     *
-     * @param  string $question question (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['gestFAQByQuestionV1FaqQuestionGet'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Faq|\OpenAPI\Client\Model\HTTPValidationError
-     */
-    public function gestFAQByQuestionV1FaqQuestionGet($question, string $contentType = self::contentTypes['gestFAQByQuestionV1FaqQuestionGet'][0])
-    {
-        list($response) = $this->gestFAQByQuestionV1FaqQuestionGetWithHttpInfo($question, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation gestFAQByQuestionV1FaqQuestionGetWithHttpInfo
-     *
-     * Gest Faq By Question
-     *
-     * @param  string $question (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['gestFAQByQuestionV1FaqQuestionGet'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Faq|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function gestFAQByQuestionV1FaqQuestionGetWithHttpInfo($question, string $contentType = self::contentTypes['gestFAQByQuestionV1FaqQuestionGet'][0])
-    {
-        $request = $this->gestFAQByQuestionV1FaqQuestionGetRequest($question, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\OpenAPI\Client\Model\Faq' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\Faq' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Faq', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\OpenAPI\Client\Model\Faq';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Faq',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation gestFAQByQuestionV1FaqQuestionGetAsync
-     *
-     * Gest Faq By Question
-     *
-     * @param  string $question (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['gestFAQByQuestionV1FaqQuestionGet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gestFAQByQuestionV1FaqQuestionGetAsync($question, string $contentType = self::contentTypes['gestFAQByQuestionV1FaqQuestionGet'][0])
-    {
-        return $this->gestFAQByQuestionV1FaqQuestionGetAsyncWithHttpInfo($question, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation gestFAQByQuestionV1FaqQuestionGetAsyncWithHttpInfo
-     *
-     * Gest Faq By Question
-     *
-     * @param  string $question (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['gestFAQByQuestionV1FaqQuestionGet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gestFAQByQuestionV1FaqQuestionGetAsyncWithHttpInfo($question, string $contentType = self::contentTypes['gestFAQByQuestionV1FaqQuestionGet'][0])
-    {
-        $returnType = '\OpenAPI\Client\Model\Faq';
-        $request = $this->gestFAQByQuestionV1FaqQuestionGetRequest($question, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'gestFAQByQuestionV1FaqQuestionGet'
-     *
-     * @param  string $question (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['gestFAQByQuestionV1FaqQuestionGet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function gestFAQByQuestionV1FaqQuestionGetRequest($question, string $contentType = self::contentTypes['gestFAQByQuestionV1FaqQuestionGet'][0])
-    {
-
-        // verify the required parameter 'question' is set
-        if ($question === null || (is_array($question) && count($question) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $question when calling gestFAQByQuestionV1FaqQuestionGet'
-            );
-        }
-
-
-        $resourcePath = '/v1/faq/{question}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($question !== null) {
-            $resourcePath = str_replace(
-                '{' . 'question' . '}',
-                ObjectSerializer::toPathValue($question),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
-        if ($apiKey !== null) {
-            $headers['X-API-Key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getAllFAQsV1FaqGet
+     * Operation getAllFAQsV1FaqsGet
      *
      * Get All Faqs
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllFAQsV1FaqGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllFAQsV1FaqsGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Faq[]
      */
-    public function getAllFAQsV1FaqGet(string $contentType = self::contentTypes['getAllFAQsV1FaqGet'][0])
+    public function getAllFAQsV1FaqsGet(string $contentType = self::contentTypes['getAllFAQsV1FaqsGet'][0])
     {
-        list($response) = $this->getAllFAQsV1FaqGetWithHttpInfo($contentType);
+        list($response) = $this->getAllFAQsV1FaqsGetWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation getAllFAQsV1FaqGetWithHttpInfo
+     * Operation getAllFAQsV1FaqsGetWithHttpInfo
      *
      * Get All Faqs
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllFAQsV1FaqGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllFAQsV1FaqsGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Faq[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAllFAQsV1FaqGetWithHttpInfo(string $contentType = self::contentTypes['getAllFAQsV1FaqGet'][0])
+    public function getAllFAQsV1FaqsGetWithHttpInfo(string $contentType = self::contentTypes['getAllFAQsV1FaqsGet'][0])
     {
-        $request = $this->getAllFAQsV1FaqGetRequest($contentType);
+        $request = $this->getAllFAQsV1FaqsGetRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2968,18 +2624,18 @@ class FaqApi
     }
 
     /**
-     * Operation getAllFAQsV1FaqGetAsync
+     * Operation getAllFAQsV1FaqsGetAsync
      *
      * Get All Faqs
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllFAQsV1FaqGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllFAQsV1FaqsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllFAQsV1FaqGetAsync(string $contentType = self::contentTypes['getAllFAQsV1FaqGet'][0])
+    public function getAllFAQsV1FaqsGetAsync(string $contentType = self::contentTypes['getAllFAQsV1FaqsGet'][0])
     {
-        return $this->getAllFAQsV1FaqGetAsyncWithHttpInfo($contentType)
+        return $this->getAllFAQsV1FaqsGetAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2988,19 +2644,19 @@ class FaqApi
     }
 
     /**
-     * Operation getAllFAQsV1FaqGetAsyncWithHttpInfo
+     * Operation getAllFAQsV1FaqsGetAsyncWithHttpInfo
      *
      * Get All Faqs
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllFAQsV1FaqGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllFAQsV1FaqsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllFAQsV1FaqGetAsyncWithHttpInfo(string $contentType = self::contentTypes['getAllFAQsV1FaqGet'][0])
+    public function getAllFAQsV1FaqsGetAsyncWithHttpInfo(string $contentType = self::contentTypes['getAllFAQsV1FaqsGet'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Faq[]';
-        $request = $this->getAllFAQsV1FaqGetRequest($contentType);
+        $request = $this->getAllFAQsV1FaqsGetRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3039,18 +2695,18 @@ class FaqApi
     }
 
     /**
-     * Create request for operation 'getAllFAQsV1FaqGet'
+     * Create request for operation 'getAllFAQsV1FaqsGet'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllFAQsV1FaqGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllFAQsV1FaqsGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAllFAQsV1FaqGetRequest(string $contentType = self::contentTypes['getAllFAQsV1FaqGet'][0])
+    public function getAllFAQsV1FaqsGetRequest(string $contentType = self::contentTypes['getAllFAQsV1FaqsGet'][0])
     {
 
 
-        $resourcePath = '/v1/faq';
+        $resourcePath = '/v1/faqs';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3120,386 +2776,38 @@ class FaqApi
     }
 
     /**
-     * Operation importMultipleFAQsV1FaqPost
+     * Operation getFAQByQuestionV1FaqsQuestionGet
      *
-     * Import Multiple Faqs
-     *
-     * @param  \OpenAPI\Client\Model\Faq[] $faq faq (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleFAQsV1FaqPost'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError
-     */
-    public function importMultipleFAQsV1FaqPost($faq, string $contentType = self::contentTypes['importMultipleFAQsV1FaqPost'][0])
-    {
-        list($response) = $this->importMultipleFAQsV1FaqPostWithHttpInfo($faq, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation importMultipleFAQsV1FaqPostWithHttpInfo
-     *
-     * Import Multiple Faqs
-     *
-     * @param  \OpenAPI\Client\Model\Faq[] $faq (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleFAQsV1FaqPost'] to see the possible values for this operation
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function importMultipleFAQsV1FaqPostWithHttpInfo($faq, string $contentType = self::contentTypes['importMultipleFAQsV1FaqPost'][0])
-    {
-        $request = $this->importMultipleFAQsV1FaqPostRequest($faq, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('mixed' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('mixed' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, 'mixed', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'mixed';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation importMultipleFAQsV1FaqPostAsync
-     *
-     * Import Multiple Faqs
-     *
-     * @param  \OpenAPI\Client\Model\Faq[] $faq (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleFAQsV1FaqPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function importMultipleFAQsV1FaqPostAsync($faq, string $contentType = self::contentTypes['importMultipleFAQsV1FaqPost'][0])
-    {
-        return $this->importMultipleFAQsV1FaqPostAsyncWithHttpInfo($faq, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation importMultipleFAQsV1FaqPostAsyncWithHttpInfo
-     *
-     * Import Multiple Faqs
-     *
-     * @param  \OpenAPI\Client\Model\Faq[] $faq (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleFAQsV1FaqPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function importMultipleFAQsV1FaqPostAsyncWithHttpInfo($faq, string $contentType = self::contentTypes['importMultipleFAQsV1FaqPost'][0])
-    {
-        $returnType = 'mixed';
-        $request = $this->importMultipleFAQsV1FaqPostRequest($faq, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'importMultipleFAQsV1FaqPost'
-     *
-     * @param  \OpenAPI\Client\Model\Faq[] $faq (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleFAQsV1FaqPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function importMultipleFAQsV1FaqPostRequest($faq, string $contentType = self::contentTypes['importMultipleFAQsV1FaqPost'][0])
-    {
-
-        // verify the required parameter 'faq' is set
-        if ($faq === null || (is_array($faq) && count($faq) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $faq when calling importMultipleFAQsV1FaqPost'
-            );
-        }
-
-
-        $resourcePath = '/v1/faq';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($faq)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($faq));
-            } else {
-                $httpBody = $faq;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
-        if ($apiKey !== null) {
-            $headers['X-API-Key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation updateFAQByQuestionV1FaqQuestionPut
-     *
-     * Update Faq By Question
+     * Get Faq By Question
      *
      * @param  string $question question (required)
-     * @param  \OpenAPI\Client\Model\Faq $faq faq (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateFAQByQuestionV1FaqQuestionPut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFAQByQuestionV1FaqsQuestionGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Faq|\OpenAPI\Client\Model\HTTPValidationError
      */
-    public function updateFAQByQuestionV1FaqQuestionPut($question, $faq, string $contentType = self::contentTypes['updateFAQByQuestionV1FaqQuestionPut'][0])
+    public function getFAQByQuestionV1FaqsQuestionGet($question, string $contentType = self::contentTypes['getFAQByQuestionV1FaqsQuestionGet'][0])
     {
-        list($response) = $this->updateFAQByQuestionV1FaqQuestionPutWithHttpInfo($question, $faq, $contentType);
+        list($response) = $this->getFAQByQuestionV1FaqsQuestionGetWithHttpInfo($question, $contentType);
         return $response;
     }
 
     /**
-     * Operation updateFAQByQuestionV1FaqQuestionPutWithHttpInfo
+     * Operation getFAQByQuestionV1FaqsQuestionGetWithHttpInfo
      *
-     * Update Faq By Question
+     * Get Faq By Question
      *
      * @param  string $question (required)
-     * @param  \OpenAPI\Client\Model\Faq $faq (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateFAQByQuestionV1FaqQuestionPut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFAQByQuestionV1FaqsQuestionGet'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Faq|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateFAQByQuestionV1FaqQuestionPutWithHttpInfo($question, $faq, string $contentType = self::contentTypes['updateFAQByQuestionV1FaqQuestionPut'][0])
+    public function getFAQByQuestionV1FaqsQuestionGetWithHttpInfo($question, string $contentType = self::contentTypes['getFAQByQuestionV1FaqsQuestionGet'][0])
     {
-        $request = $this->updateFAQByQuestionV1FaqQuestionPutRequest($question, $faq, $contentType);
+        $request = $this->getFAQByQuestionV1FaqsQuestionGetRequest($question, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3645,20 +2953,19 @@ class FaqApi
     }
 
     /**
-     * Operation updateFAQByQuestionV1FaqQuestionPutAsync
+     * Operation getFAQByQuestionV1FaqsQuestionGetAsync
      *
-     * Update Faq By Question
+     * Get Faq By Question
      *
      * @param  string $question (required)
-     * @param  \OpenAPI\Client\Model\Faq $faq (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateFAQByQuestionV1FaqQuestionPut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFAQByQuestionV1FaqsQuestionGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateFAQByQuestionV1FaqQuestionPutAsync($question, $faq, string $contentType = self::contentTypes['updateFAQByQuestionV1FaqQuestionPut'][0])
+    public function getFAQByQuestionV1FaqsQuestionGetAsync($question, string $contentType = self::contentTypes['getFAQByQuestionV1FaqsQuestionGet'][0])
     {
-        return $this->updateFAQByQuestionV1FaqQuestionPutAsyncWithHttpInfo($question, $faq, $contentType)
+        return $this->getFAQByQuestionV1FaqsQuestionGetAsyncWithHttpInfo($question, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3667,21 +2974,20 @@ class FaqApi
     }
 
     /**
-     * Operation updateFAQByQuestionV1FaqQuestionPutAsyncWithHttpInfo
+     * Operation getFAQByQuestionV1FaqsQuestionGetAsyncWithHttpInfo
      *
-     * Update Faq By Question
+     * Get Faq By Question
      *
      * @param  string $question (required)
-     * @param  \OpenAPI\Client\Model\Faq $faq (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateFAQByQuestionV1FaqQuestionPut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFAQByQuestionV1FaqsQuestionGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateFAQByQuestionV1FaqQuestionPutAsyncWithHttpInfo($question, $faq, string $contentType = self::contentTypes['updateFAQByQuestionV1FaqQuestionPut'][0])
+    public function getFAQByQuestionV1FaqsQuestionGetAsyncWithHttpInfo($question, string $contentType = self::contentTypes['getFAQByQuestionV1FaqsQuestionGet'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Faq';
-        $request = $this->updateFAQByQuestionV1FaqQuestionPutRequest($question, $faq, $contentType);
+        $request = $this->getFAQByQuestionV1FaqsQuestionGetRequest($question, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3720,34 +3026,731 @@ class FaqApi
     }
 
     /**
-     * Create request for operation 'updateFAQByQuestionV1FaqQuestionPut'
+     * Create request for operation 'getFAQByQuestionV1FaqsQuestionGet'
      *
      * @param  string $question (required)
-     * @param  \OpenAPI\Client\Model\Faq $faq (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateFAQByQuestionV1FaqQuestionPut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFAQByQuestionV1FaqsQuestionGet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateFAQByQuestionV1FaqQuestionPutRequest($question, $faq, string $contentType = self::contentTypes['updateFAQByQuestionV1FaqQuestionPut'][0])
+    public function getFAQByQuestionV1FaqsQuestionGetRequest($question, string $contentType = self::contentTypes['getFAQByQuestionV1FaqsQuestionGet'][0])
     {
 
         // verify the required parameter 'question' is set
         if ($question === null || (is_array($question) && count($question) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $question when calling updateFAQByQuestionV1FaqQuestionPut'
+                'Missing the required parameter $question when calling getFAQByQuestionV1FaqsQuestionGet'
+            );
+        }
+
+
+        $resourcePath = '/v1/faqs/{question}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($question !== null) {
+            $resourcePath = str_replace(
+                '{' . 'question' . '}',
+                ObjectSerializer::toPathValue($question),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation importMultipleFAQsV1FaqsPost
+     *
+     * Import Multiple Faqs
+     *
+     * @param  \OpenAPI\Client\Model\Faq[] $faq faq (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleFAQsV1FaqsPost'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\Faq[]|\OpenAPI\Client\Model\HTTPValidationError
+     */
+    public function importMultipleFAQsV1FaqsPost($faq, string $contentType = self::contentTypes['importMultipleFAQsV1FaqsPost'][0])
+    {
+        list($response) = $this->importMultipleFAQsV1FaqsPostWithHttpInfo($faq, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation importMultipleFAQsV1FaqsPostWithHttpInfo
+     *
+     * Import Multiple Faqs
+     *
+     * @param  \OpenAPI\Client\Model\Faq[] $faq (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleFAQsV1FaqsPost'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\Faq[]|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function importMultipleFAQsV1FaqsPostWithHttpInfo($faq, string $contentType = self::contentTypes['importMultipleFAQsV1FaqsPost'][0])
+    {
+        $request = $this->importMultipleFAQsV1FaqsPostRequest($faq, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\Faq[]' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\Faq[]' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Faq[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\Faq[]';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\Faq[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation importMultipleFAQsV1FaqsPostAsync
+     *
+     * Import Multiple Faqs
+     *
+     * @param  \OpenAPI\Client\Model\Faq[] $faq (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleFAQsV1FaqsPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function importMultipleFAQsV1FaqsPostAsync($faq, string $contentType = self::contentTypes['importMultipleFAQsV1FaqsPost'][0])
+    {
+        return $this->importMultipleFAQsV1FaqsPostAsyncWithHttpInfo($faq, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation importMultipleFAQsV1FaqsPostAsyncWithHttpInfo
+     *
+     * Import Multiple Faqs
+     *
+     * @param  \OpenAPI\Client\Model\Faq[] $faq (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleFAQsV1FaqsPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function importMultipleFAQsV1FaqsPostAsyncWithHttpInfo($faq, string $contentType = self::contentTypes['importMultipleFAQsV1FaqsPost'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\Faq[]';
+        $request = $this->importMultipleFAQsV1FaqsPostRequest($faq, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'importMultipleFAQsV1FaqsPost'
+     *
+     * @param  \OpenAPI\Client\Model\Faq[] $faq (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['importMultipleFAQsV1FaqsPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function importMultipleFAQsV1FaqsPostRequest($faq, string $contentType = self::contentTypes['importMultipleFAQsV1FaqsPost'][0])
+    {
+
+        // verify the required parameter 'faq' is set
+        if ($faq === null || (is_array($faq) && count($faq) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $faq when calling importMultipleFAQsV1FaqsPost'
+            );
+        }
+
+
+        $resourcePath = '/v1/faqs';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($faq)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($faq));
+            } else {
+                $httpBody = $faq;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateFAQByQuestionV1FaqsQuestionPut
+     *
+     * Update Faq By Question
+     *
+     * @param  string $question question (required)
+     * @param  \OpenAPI\Client\Model\Faq $faq faq (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateFAQByQuestionV1FaqsQuestionPut'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\Faq|\OpenAPI\Client\Model\HTTPValidationError
+     */
+    public function updateFAQByQuestionV1FaqsQuestionPut($question, $faq, string $contentType = self::contentTypes['updateFAQByQuestionV1FaqsQuestionPut'][0])
+    {
+        list($response) = $this->updateFAQByQuestionV1FaqsQuestionPutWithHttpInfo($question, $faq, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateFAQByQuestionV1FaqsQuestionPutWithHttpInfo
+     *
+     * Update Faq By Question
+     *
+     * @param  string $question (required)
+     * @param  \OpenAPI\Client\Model\Faq $faq (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateFAQByQuestionV1FaqsQuestionPut'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\Faq|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateFAQByQuestionV1FaqsQuestionPutWithHttpInfo($question, $faq, string $contentType = self::contentTypes['updateFAQByQuestionV1FaqsQuestionPut'][0])
+    {
+        $request = $this->updateFAQByQuestionV1FaqsQuestionPutRequest($question, $faq, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\Faq' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\Faq' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Faq', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\Faq';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\Faq',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateFAQByQuestionV1FaqsQuestionPutAsync
+     *
+     * Update Faq By Question
+     *
+     * @param  string $question (required)
+     * @param  \OpenAPI\Client\Model\Faq $faq (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateFAQByQuestionV1FaqsQuestionPut'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateFAQByQuestionV1FaqsQuestionPutAsync($question, $faq, string $contentType = self::contentTypes['updateFAQByQuestionV1FaqsQuestionPut'][0])
+    {
+        return $this->updateFAQByQuestionV1FaqsQuestionPutAsyncWithHttpInfo($question, $faq, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateFAQByQuestionV1FaqsQuestionPutAsyncWithHttpInfo
+     *
+     * Update Faq By Question
+     *
+     * @param  string $question (required)
+     * @param  \OpenAPI\Client\Model\Faq $faq (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateFAQByQuestionV1FaqsQuestionPut'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateFAQByQuestionV1FaqsQuestionPutAsyncWithHttpInfo($question, $faq, string $contentType = self::contentTypes['updateFAQByQuestionV1FaqsQuestionPut'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\Faq';
+        $request = $this->updateFAQByQuestionV1FaqsQuestionPutRequest($question, $faq, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateFAQByQuestionV1FaqsQuestionPut'
+     *
+     * @param  string $question (required)
+     * @param  \OpenAPI\Client\Model\Faq $faq (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateFAQByQuestionV1FaqsQuestionPut'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateFAQByQuestionV1FaqsQuestionPutRequest($question, $faq, string $contentType = self::contentTypes['updateFAQByQuestionV1FaqsQuestionPut'][0])
+    {
+
+        // verify the required parameter 'question' is set
+        if ($question === null || (is_array($question) && count($question) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $question when calling updateFAQByQuestionV1FaqsQuestionPut'
             );
         }
 
         // verify the required parameter 'faq' is set
         if ($faq === null || (is_array($faq) && count($faq) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $faq when calling updateFAQByQuestionV1FaqQuestionPut'
+                'Missing the required parameter $faq when calling updateFAQByQuestionV1FaqsQuestionPut'
             );
         }
 
 
-        $resourcePath = '/v1/faq/{question}';
+        $resourcePath = '/v1/faqs/{question}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3825,6 +3828,357 @@ class FaqApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation uploadFilesIntoGCSV1FaqsUploadPost
+     *
+     * Upload Files Into Gcs
+     *
+     * @param  \SplFileObject $file file (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFilesIntoGCSV1FaqsUploadPost'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return object|\OpenAPI\Client\Model\HTTPValidationError
+     */
+    public function uploadFilesIntoGCSV1FaqsUploadPost($file, string $contentType = self::contentTypes['uploadFilesIntoGCSV1FaqsUploadPost'][0])
+    {
+        list($response) = $this->uploadFilesIntoGCSV1FaqsUploadPostWithHttpInfo($file, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation uploadFilesIntoGCSV1FaqsUploadPostWithHttpInfo
+     *
+     * Upload Files Into Gcs
+     *
+     * @param  \SplFileObject $file (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFilesIntoGCSV1FaqsUploadPost'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of object|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function uploadFilesIntoGCSV1FaqsUploadPostWithHttpInfo($file, string $contentType = self::contentTypes['uploadFilesIntoGCSV1FaqsUploadPost'][0])
+    {
+        $request = $this->uploadFilesIntoGCSV1FaqsUploadPostRequest($file, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('object' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation uploadFilesIntoGCSV1FaqsUploadPostAsync
+     *
+     * Upload Files Into Gcs
+     *
+     * @param  \SplFileObject $file (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFilesIntoGCSV1FaqsUploadPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function uploadFilesIntoGCSV1FaqsUploadPostAsync($file, string $contentType = self::contentTypes['uploadFilesIntoGCSV1FaqsUploadPost'][0])
+    {
+        return $this->uploadFilesIntoGCSV1FaqsUploadPostAsyncWithHttpInfo($file, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation uploadFilesIntoGCSV1FaqsUploadPostAsyncWithHttpInfo
+     *
+     * Upload Files Into Gcs
+     *
+     * @param  \SplFileObject $file (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFilesIntoGCSV1FaqsUploadPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function uploadFilesIntoGCSV1FaqsUploadPostAsyncWithHttpInfo($file, string $contentType = self::contentTypes['uploadFilesIntoGCSV1FaqsUploadPost'][0])
+    {
+        $returnType = 'object';
+        $request = $this->uploadFilesIntoGCSV1FaqsUploadPostRequest($file, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'uploadFilesIntoGCSV1FaqsUploadPost'
+     *
+     * @param  \SplFileObject $file (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFilesIntoGCSV1FaqsUploadPost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function uploadFilesIntoGCSV1FaqsUploadPostRequest($file, string $contentType = self::contentTypes['uploadFilesIntoGCSV1FaqsUploadPost'][0])
+    {
+
+        // verify the required parameter 'file' is set
+        if ($file === null || (is_array($file) && count($file) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $file when calling uploadFilesIntoGCSV1FaqsUploadPost'
+            );
+        }
+
+
+        $resourcePath = '/v1/faqs/upload';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+        // form params
+        if ($file !== null) {
+            $multipart = true;
+            $formParams['file'] = [];
+            $paramFiles = is_array($file) ? $file : [$file];
+            foreach ($paramFiles as $paramFile) {
+                $formParams['file'][] = \GuzzleHttp\Psr7\Utils::tryFopen(
+                    ObjectSerializer::toFormValue($paramFile),
+                    'rb'
+                );
+            }
+        }
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

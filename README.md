@@ -63,10 +63,10 @@ $apiInstance = new OpenAPI\Client\Api\ContentApi(
 );
 
 try {
-    $result = $apiInstance->checkIfContentCollectionExistsV1ContentCollectionExistsGet();
+    $result = $apiInstance->checkIfContentCollectionExistsV1ContentsCollectionExistsGet();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ContentApi->checkIfContentCollectionExistsV1ContentCollectionExistsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ContentApi->checkIfContentCollectionExistsV1ContentsCollectionExistsGet: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -77,42 +77,45 @@ All URIs are relative to */luma*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ContentApi* | [**checkIfContentCollectionExistsV1ContentCollectionExistsGet**](docs/Api/ContentApi.md#checkifcontentcollectionexistsv1contentcollectionexistsget) | **GET** /v1/content/collection-exists | Check If Content Collection Exists.
-*ContentApi* | [**createContentByTitleV1ContentTitlePost**](docs/Api/ContentApi.md#createcontentbytitlev1contenttitlepost) | **POST** /v1/content/{title} | Create Content By Title
-*ContentApi* | [**createContentCollectionV1ContentCollectionPost**](docs/Api/ContentApi.md#createcontentcollectionv1contentcollectionpost) | **POST** /v1/content/collection | Create Content Collection
-*ContentApi* | [**deleteContentByInternalIdV1ContentByInternalIdInternalIdDelete**](docs/Api/ContentApi.md#deletecontentbyinternalidv1contentbyinternalidinternaliddelete) | **DELETE** /v1/content/by-internal-id/{internal_id} | Delete Content By Internal Id
-*ContentApi* | [**deleteContentByTitleV1ContentTitleDelete**](docs/Api/ContentApi.md#deletecontentbytitlev1contenttitledelete) | **DELETE** /v1/content/{title} | Delete Content By Title
-*ContentApi* | [**deleteContentCollectionV1ContentCollectionDelete**](docs/Api/ContentApi.md#deletecontentcollectionv1contentcollectiondelete) | **DELETE** /v1/content/collection | Delete Content Collection
-*ContentApi* | [**deletesAllContentFromCollectionV1ContentResetCollectionDelete**](docs/Api/ContentApi.md#deletesallcontentfromcollectionv1contentresetcollectiondelete) | **DELETE** /v1/content/reset-collection | Deletes All Content From Collection
-*ContentApi* | [**gestContentByTitleV1ContentTitleGet**](docs/Api/ContentApi.md#gestcontentbytitlev1contenttitleget) | **GET** /v1/content/{title} | Gest Content By Title
-*ContentApi* | [**getAllContentsV1ContentGet**](docs/Api/ContentApi.md#getallcontentsv1contentget) | **GET** /v1/content | Get All Contents
-*ContentApi* | [**importMultipleContentsV1ContentPost**](docs/Api/ContentApi.md#importmultiplecontentsv1contentpost) | **POST** /v1/content | Import Multiple Contents
-*ContentApi* | [**updateContentByTitleV1ContentTitlePut**](docs/Api/ContentApi.md#updatecontentbytitlev1contenttitleput) | **PUT** /v1/content/{title} | Update Content By Title
+*ContentApi* | [**checkIfContentCollectionExistsV1ContentsCollectionExistsGet**](docs/Api/ContentApi.md#checkifcontentcollectionexistsv1contentscollectionexistsget) | **GET** /v1/contents/collection-exists | Check If Content Collection Exists.
+*ContentApi* | [**createContentByTitleV1ContentsTitlePost**](docs/Api/ContentApi.md#createcontentbytitlev1contentstitlepost) | **POST** /v1/contents/{title} | Create Content By Title
+*ContentApi* | [**createContentCollectionV1ContentsCollectionPost**](docs/Api/ContentApi.md#createcontentcollectionv1contentscollectionpost) | **POST** /v1/contents/collection | Create Content Collection
+*ContentApi* | [**deleteContentByInternalIdV1ContentsByInternalIdInternalIdDelete**](docs/Api/ContentApi.md#deletecontentbyinternalidv1contentsbyinternalidinternaliddelete) | **DELETE** /v1/contents/by-internal-id/{internal_id} | Delete Content By Internal Id
+*ContentApi* | [**deleteContentByTitleV1ContentsTitleDelete**](docs/Api/ContentApi.md#deletecontentbytitlev1contentstitledelete) | **DELETE** /v1/contents/{title} | Delete Content By Title
+*ContentApi* | [**deleteContentCollectionV1ContentsCollectionDelete**](docs/Api/ContentApi.md#deletecontentcollectionv1contentscollectiondelete) | **DELETE** /v1/contents/collection | Delete Content Collection
+*ContentApi* | [**deletesAllContentFromCollectionV1ContentsResetCollectionDelete**](docs/Api/ContentApi.md#deletesallcontentfromcollectionv1contentsresetcollectiondelete) | **DELETE** /v1/contents/reset-collection | Deletes All Content From Collection
+*ContentApi* | [**gestContentByTitleV1ContentsTitleGet**](docs/Api/ContentApi.md#gestcontentbytitlev1contentstitleget) | **GET** /v1/contents/{title} | Gest Content By Title
+*ContentApi* | [**getAllContentsV1ContentsGet**](docs/Api/ContentApi.md#getallcontentsv1contentsget) | **GET** /v1/contents | Get All Contents
+*ContentApi* | [**importMultipleContentsV1ContentsPost**](docs/Api/ContentApi.md#importmultiplecontentsv1contentspost) | **POST** /v1/contents | Import Multiple Contents
+*ContentApi* | [**updateContentByTitleV1ContentsTitlePut**](docs/Api/ContentApi.md#updatecontentbytitlev1contentstitleput) | **PUT** /v1/contents/{title} | Update Content By Title
+*ContentApi* | [**uploadFilesIntoGCSV1ContentsUploadPost**](docs/Api/ContentApi.md#uploadfilesintogcsv1contentsuploadpost) | **POST** /v1/contents/upload | Upload Files Into Gcs
 *DefaultApi* | [**healthCheckV1HealthGet**](docs/Api/DefaultApi.md#healthcheckv1healthget) | **GET** /v1/health | Health Check
-*FaqApi* | [**checkIfFAQCollectionExistsV1FaqCollectionExistsGet**](docs/Api/FaqApi.md#checkiffaqcollectionexistsv1faqcollectionexistsget) | **GET** /v1/faq/collection-exists | Check If Faq Collection Exists.
-*FaqApi* | [**createFAQByQuestionV1FaqQuestionPost**](docs/Api/FaqApi.md#createfaqbyquestionv1faqquestionpost) | **POST** /v1/faq/{question} | Create Faq By Question
-*FaqApi* | [**createFAQCollectionV1FaqCollectionPost**](docs/Api/FaqApi.md#createfaqcollectionv1faqcollectionpost) | **POST** /v1/faq/collection | Create Faq Collection
-*FaqApi* | [**deleteFAQByInternalIdV1FaqByInternalIdInternalIdDelete**](docs/Api/FaqApi.md#deletefaqbyinternalidv1faqbyinternalidinternaliddelete) | **DELETE** /v1/faq/by-internal-id/{internal_id} | Delete Faq By Internal Id
-*FaqApi* | [**deleteFAQByQuestionV1FaqQuestionDelete**](docs/Api/FaqApi.md#deletefaqbyquestionv1faqquestiondelete) | **DELETE** /v1/faq/{question} | Delete Faq By Question
-*FaqApi* | [**deleteFAQCollectionV1FaqCollectionDelete**](docs/Api/FaqApi.md#deletefaqcollectionv1faqcollectiondelete) | **DELETE** /v1/faq/collection | Delete Faq Collection
-*FaqApi* | [**deletesAllFAQFromCollectionV1FaqResetCollectionDelete**](docs/Api/FaqApi.md#deletesallfaqfromcollectionv1faqresetcollectiondelete) | **DELETE** /v1/faq/reset-collection | Deletes All Faq From Collection
-*FaqApi* | [**gestFAQByQuestionV1FaqQuestionGet**](docs/Api/FaqApi.md#gestfaqbyquestionv1faqquestionget) | **GET** /v1/faq/{question} | Gest Faq By Question
-*FaqApi* | [**getAllFAQsV1FaqGet**](docs/Api/FaqApi.md#getallfaqsv1faqget) | **GET** /v1/faq | Get All Faqs
-*FaqApi* | [**importMultipleFAQsV1FaqPost**](docs/Api/FaqApi.md#importmultiplefaqsv1faqpost) | **POST** /v1/faq | Import Multiple Faqs
-*FaqApi* | [**updateFAQByQuestionV1FaqQuestionPut**](docs/Api/FaqApi.md#updatefaqbyquestionv1faqquestionput) | **PUT** /v1/faq/{question} | Update Faq By Question
-*ProductApi* | [**checkIfProductCollectionExistsV1ProductCollectionExistsGet**](docs/Api/ProductApi.md#checkifproductcollectionexistsv1productcollectionexistsget) | **GET** /v1/product/collection-exists | Check If Product Collection Exists.
-*ProductApi* | [**createProductBySKUV1ProductSkuPost**](docs/Api/ProductApi.md#createproductbyskuv1productskupost) | **POST** /v1/product/{sku} | Create Product By Sku
-*ProductApi* | [**createProductCollectionV1ProductCollectionPost**](docs/Api/ProductApi.md#createproductcollectionv1productcollectionpost) | **POST** /v1/product/collection | Create Product Collection
-*ProductApi* | [**deleteProductByInternalIdV1ProductByInternalIdInternalIdDelete**](docs/Api/ProductApi.md#deleteproductbyinternalidv1productbyinternalidinternaliddelete) | **DELETE** /v1/product/by-internal-id/{internal_id} | Delete Product By Internal Id
-*ProductApi* | [**deleteProductBySKUV1ProductSkuDelete**](docs/Api/ProductApi.md#deleteproductbyskuv1productskudelete) | **DELETE** /v1/product/{sku} | Delete Product By Sku
-*ProductApi* | [**deleteProductCollectionV1ProductCollectionDelete**](docs/Api/ProductApi.md#deleteproductcollectionv1productcollectiondelete) | **DELETE** /v1/product/collection | Delete Product Collection
-*ProductApi* | [**deletesAllProductsFromCollectionV1ProductResetCollectionDelete**](docs/Api/ProductApi.md#deletesallproductsfromcollectionv1productresetcollectiondelete) | **DELETE** /v1/product/reset-collection | Deletes All Products From Collection
-*ProductApi* | [**gestProductBySKUV1ProductSkuGet**](docs/Api/ProductApi.md#gestproductbyskuv1productskuget) | **GET** /v1/product/{sku} | Gest Product By Sku
-*ProductApi* | [**getAllProductsV1ProductGet**](docs/Api/ProductApi.md#getallproductsv1productget) | **GET** /v1/product | Get All Products
-*ProductApi* | [**importMultipleProductsV1ProductPost**](docs/Api/ProductApi.md#importmultipleproductsv1productpost) | **POST** /v1/product | Import Multiple Products
-*ProductApi* | [**updateProductBySKUV1ProductSkuPut**](docs/Api/ProductApi.md#updateproductbyskuv1productskuput) | **PUT** /v1/product/{sku} | Update Product By Sku
+*FaqApi* | [**checkIfFAQCollectionExistsV1FaqsCollectionExistsGet**](docs/Api/FaqApi.md#checkiffaqcollectionexistsv1faqscollectionexistsget) | **GET** /v1/faqs/collection-exists | Check If Faq Collection Exists.
+*FaqApi* | [**createFAQByQuestionV1FaqsQuestionPost**](docs/Api/FaqApi.md#createfaqbyquestionv1faqsquestionpost) | **POST** /v1/faqs/{question} | Create Faq By Question
+*FaqApi* | [**createFAQCollectionV1FaqsCollectionPost**](docs/Api/FaqApi.md#createfaqcollectionv1faqscollectionpost) | **POST** /v1/faqs/collection | Create Faq Collection
+*FaqApi* | [**deleteFAQByInternalIdV1FaqsByInternalIdInternalIdDelete**](docs/Api/FaqApi.md#deletefaqbyinternalidv1faqsbyinternalidinternaliddelete) | **DELETE** /v1/faqs/by-internal-id/{internal_id} | Delete Faq By Internal Id
+*FaqApi* | [**deleteFAQByQuestionV1FaqsQuestionDelete**](docs/Api/FaqApi.md#deletefaqbyquestionv1faqsquestiondelete) | **DELETE** /v1/faqs/{question} | Delete Faq By Question
+*FaqApi* | [**deleteFAQCollectionV1FaqsCollectionDelete**](docs/Api/FaqApi.md#deletefaqcollectionv1faqscollectiondelete) | **DELETE** /v1/faqs/collection | Delete Faq Collection
+*FaqApi* | [**deletesAllFAQFromCollectionV1FaqsResetCollectionDelete**](docs/Api/FaqApi.md#deletesallfaqfromcollectionv1faqsresetcollectiondelete) | **DELETE** /v1/faqs/reset-collection | Deletes All Faq From Collection
+*FaqApi* | [**getAllFAQsV1FaqsGet**](docs/Api/FaqApi.md#getallfaqsv1faqsget) | **GET** /v1/faqs | Get All Faqs
+*FaqApi* | [**getFAQByQuestionV1FaqsQuestionGet**](docs/Api/FaqApi.md#getfaqbyquestionv1faqsquestionget) | **GET** /v1/faqs/{question} | Get Faq By Question
+*FaqApi* | [**importMultipleFAQsV1FaqsPost**](docs/Api/FaqApi.md#importmultiplefaqsv1faqspost) | **POST** /v1/faqs | Import Multiple Faqs
+*FaqApi* | [**updateFAQByQuestionV1FaqsQuestionPut**](docs/Api/FaqApi.md#updatefaqbyquestionv1faqsquestionput) | **PUT** /v1/faqs/{question} | Update Faq By Question
+*FaqApi* | [**uploadFilesIntoGCSV1FaqsUploadPost**](docs/Api/FaqApi.md#uploadfilesintogcsv1faqsuploadpost) | **POST** /v1/faqs/upload | Upload Files Into Gcs
+*ProductApi* | [**checkIfProductCollectionExistsV1ProductsCollectionExistsGet**](docs/Api/ProductApi.md#checkifproductcollectionexistsv1productscollectionexistsget) | **GET** /v1/products/collection-exists | Check If Product Collection Exists.
+*ProductApi* | [**createProductBySKUV1ProductsSkuPost**](docs/Api/ProductApi.md#createproductbyskuv1productsskupost) | **POST** /v1/products/{sku} | Create Product By Sku
+*ProductApi* | [**createProductCollectionV1ProductsCollectionPost**](docs/Api/ProductApi.md#createproductcollectionv1productscollectionpost) | **POST** /v1/products/collection | Create Product Collection
+*ProductApi* | [**deleteProductByInternalIdV1ProductsByInternalIdInternalIdDelete**](docs/Api/ProductApi.md#deleteproductbyinternalidv1productsbyinternalidinternaliddelete) | **DELETE** /v1/products/by-internal-id/{internal_id} | Delete Product By Internal Id
+*ProductApi* | [**deleteProductBySKUV1ProductsSkuDelete**](docs/Api/ProductApi.md#deleteproductbyskuv1productsskudelete) | **DELETE** /v1/products/{sku} | Delete Product By Sku
+*ProductApi* | [**deleteProductCollectionV1ProductsCollectionDelete**](docs/Api/ProductApi.md#deleteproductcollectionv1productscollectiondelete) | **DELETE** /v1/products/collection | Delete Product Collection
+*ProductApi* | [**deletesAllProductsFromCollectionV1ProductsResetCollectionDelete**](docs/Api/ProductApi.md#deletesallproductsfromcollectionv1productsresetcollectiondelete) | **DELETE** /v1/products/reset-collection | Deletes All Products From Collection
+*ProductApi* | [**gestProductBySKUV1ProductsSkuGet**](docs/Api/ProductApi.md#gestproductbyskuv1productsskuget) | **GET** /v1/products/{sku} | Gest Product By Sku
+*ProductApi* | [**getAllProductsV1ProductsGet**](docs/Api/ProductApi.md#getallproductsv1productsget) | **GET** /v1/products | Get All Products
+*ProductApi* | [**importMultipleProductsV1ProductsPost**](docs/Api/ProductApi.md#importmultipleproductsv1productspost) | **POST** /v1/products | Import Multiple Products
+*ProductApi* | [**updateProductBySKUV1ProductsSkuPut**](docs/Api/ProductApi.md#updateproductbyskuv1productsskuput) | **PUT** /v1/products/{sku} | Update Product By Sku
+*ProductApi* | [**uploadFilesIntoGCSV1ProductsUploadPost**](docs/Api/ProductApi.md#uploadfilesintogcsv1productsuploadpost) | **POST** /v1/products/upload | Upload Files Into Gcs
 *ReviewsApi* | [**checkIfProductReviewSchemaExistsV1ReviewsIsSchemaExistsGet**](docs/Api/ReviewsApi.md#checkifproductreviewschemaexistsv1reviewsisschemaexistsget) | **GET** /v1/reviews/is-schema-exists | Check If Product Review Schema Exists
-*ReviewsApi* | [**createOneReviewBySKUV1ReviewsPost**](docs/Api/ReviewsApi.md#createonereviewbyskuv1reviewspost) | **POST** /v1/reviews | Create One Review By Sku
+*ReviewsApi* | [**createOneReviewV1ReviewsPost**](docs/Api/ReviewsApi.md#createonereviewv1reviewspost) | **POST** /v1/reviews | Create One Review
 *ReviewsApi* | [**createSchemaAndProductReviewTableV1ReviewsSchemaPost**](docs/Api/ReviewsApi.md#createschemaandproductreviewtablev1reviewsschemapost) | **POST** /v1/reviews/schema | Create Schema And Product Review Table
 *ReviewsApi* | [**deleteAllReviewsV1ReviewsDelete**](docs/Api/ReviewsApi.md#deleteallreviewsv1reviewsdelete) | **DELETE** /v1/reviews/ | Delete All Reviews
 *ReviewsApi* | [**deleteReviewsByProductSKUV1ReviewsSkuDelete**](docs/Api/ReviewsApi.md#deletereviewsbyproductskuv1reviewsskudelete) | **DELETE** /v1/reviews/{sku} | Delete Reviews By Product Sku
