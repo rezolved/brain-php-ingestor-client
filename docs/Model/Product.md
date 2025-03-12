@@ -11,8 +11,11 @@ Name | Type | Description | Notes
 **internal_id** | **int** |  | [optional]
 **availability** | [**\OpenAPI\Client\Model\ProductAvailability**](ProductAvailability.md) |  |
 **price** | **float** |  | [optional] [default to 0]
+**sale_price** | **float** |  | [optional] [default to 0]
 **currency** | **string** |  |
 **item_group_id** | **string** |  | [optional] [default to '']
+**rrp** | **float** |  | [optional] [default to 0]
+**product_status** | **string** |  | [optional] [default to '']
 **title** | **string** |  | [optional] [default to '']
 **description** | **string** |  | [optional] [default to '']
 **gender** | **string** |  | [optional] [default to '']

@@ -1,6 +1,6 @@
 <?php
 /**
- * ValidationErrorLocInner
+ * ConfigModel
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * ValidationErrorLocInner Class Doc Comment
+ * ConfigModel Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -40,7 +40,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ValidationErrorLocInner implements ModelInterface, ArrayAccess, \JsonSerializable
+class ConfigModel implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ValidationErrorLocInner implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ValidationError_loc_inner';
+    protected static $openAPIModelName = 'ConfigModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,8 @@ class ValidationErrorLocInner implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -68,7 +69,8 @@ class ValidationErrorLocInner implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        
+        'key' => null,
+        'value' => null
     ];
 
     /**
@@ -77,7 +79,8 @@ class ValidationErrorLocInner implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        
+        'key' => false,
+        'value' => false
     ];
 
     /**
@@ -166,7 +169,8 @@ class ValidationErrorLocInner implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'key' => 'key',
+        'value' => 'value'
     ];
 
     /**
@@ -175,7 +179,8 @@ class ValidationErrorLocInner implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
     /**
@@ -184,7 +189,8 @@ class ValidationErrorLocInner implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     /**
@@ -244,6 +250,8 @@ class ValidationErrorLocInner implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('key', $data ?? [], null);
+        $this->setIfExists('value', $data ?? [], null);
     }
 
     /**
@@ -273,6 +281,12 @@ class ValidationErrorLocInner implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
+        if ($this->container['key'] === null) {
+            $invalidProperties[] = "'key' can't be null";
+        }
+        if ($this->container['value'] === null) {
+            $invalidProperties[] = "'value' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -287,6 +301,60 @@ class ValidationErrorLocInner implements ModelInterface, ArrayAccess, \JsonSeria
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets key
+     *
+     * @return string
+     */
+    public function getKey()
+    {
+        return $this->container['key'];
+    }
+
+    /**
+     * Sets key
+     *
+     * @param string $key key
+     *
+     * @return self
+     */
+    public function setKey($key)
+    {
+        if (is_null($key)) {
+            throw new \InvalidArgumentException('non-nullable key cannot be null');
+        }
+        $this->container['key'] = $key;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param string $value value
+     *
+     * @return self
+     */
+    public function setValue($value)
+    {
+        if (is_null($value)) {
+            throw new \InvalidArgumentException('non-nullable value cannot be null');
+        }
+        $this->container['value'] = $value;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

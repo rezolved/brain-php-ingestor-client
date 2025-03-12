@@ -1,6 +1,6 @@
 <?php
 /**
- * HTTPValidationErrorTest
+ * ConfigModelTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * HTTPValidationErrorTest Class Doc Comment
+ * ConfigModelTest Class Doc Comment
  *
  * @category    Class
- * @description HTTPValidationError
+ * @description ConfigModel
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class HTTPValidationErrorTest extends TestCase
+class ConfigModelTest extends TestCase
 {
 
     /**
@@ -71,18 +71,27 @@ class HTTPValidationErrorTest extends TestCase
     }
 
     /**
-     * Test "HTTPValidationError"
+     * Test "ConfigModel"
      */
-    public function testHTTPValidationError()
+    public function testConfigModel()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "detail"
+     * Test attribute "key"
      */
-    public function testPropertyDetail()
+    public function testPropertyKey()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "value"
+     */
+    public function testPropertyValue()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
