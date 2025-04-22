@@ -15,7 +15,7 @@ All URIs are relative to /luma, except if the operation defines another base pat
 | [**getAllProductsV1ProductsGet()**](ProductApi.md#getAllProductsV1ProductsGet) | **GET** /v1/products | Get All Products |
 | [**importMultipleProductsV1ProductsPost()**](ProductApi.md#importMultipleProductsV1ProductsPost) | **POST** /v1/products | Import Multiple Products |
 | [**updateProductBySKUV1ProductsSkuPut()**](ProductApi.md#updateProductBySKUV1ProductsSkuPut) | **PUT** /v1/products/{sku} | Update Product By Sku |
-| [**uploadFilesIntoGCSV1ProductsUploadPost()**](ProductApi.md#uploadFilesIntoGCSV1ProductsUploadPost) | **POST** /v1/products/upload | Upload Files Into Gcs |
+| [**uploadFilesIntoStorageV1ProductsUploadPost()**](ProductApi.md#uploadFilesIntoStorageV1ProductsUploadPost) | **POST** /v1/products/upload/ | Upload Files Into Storage |
 
 
 ## `checkIfProductCollectionExistsV1ProductsCollectionExistsGet()`
@@ -695,15 +695,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `uploadFilesIntoGCSV1ProductsUploadPost()`
+## `uploadFilesIntoStorageV1ProductsUploadPost()`
 
 ```php
-uploadFilesIntoGCSV1ProductsUploadPost($file): object
+uploadFilesIntoStorageV1ProductsUploadPost($file): object
 ```
 
-Upload Files Into Gcs
+Upload Files Into Storage
 
-Upload files into Google Storage.
+Upload files to Cloud Storage.
 
 ### Example
 
@@ -727,10 +727,10 @@ $apiInstance = new OpenAPI\Client\Api\ProductApi(
 $file = "/path/to/file.txt"; // \SplFileObject
 
 try {
-    $result = $apiInstance->uploadFilesIntoGCSV1ProductsUploadPost($file);
+    $result = $apiInstance->uploadFilesIntoStorageV1ProductsUploadPost($file);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProductApi->uploadFilesIntoGCSV1ProductsUploadPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProductApi->uploadFilesIntoStorageV1ProductsUploadPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
