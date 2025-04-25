@@ -15,7 +15,7 @@ All URIs are relative to /luma, except if the operation defines another base pat
 | [**getFAQByQuestionV1FaqsQuestionGet()**](FaqApi.md#getFAQByQuestionV1FaqsQuestionGet) | **GET** /v1/faqs/{question} | Get Faq By Question |
 | [**importMultipleFAQsV1FaqsPost()**](FaqApi.md#importMultipleFAQsV1FaqsPost) | **POST** /v1/faqs | Import Multiple Faqs |
 | [**updateFAQByQuestionV1FaqsQuestionPut()**](FaqApi.md#updateFAQByQuestionV1FaqsQuestionPut) | **PUT** /v1/faqs/{question} | Update Faq By Question |
-| [**uploadFilesIntoGCSV1FaqsUploadPost()**](FaqApi.md#uploadFilesIntoGCSV1FaqsUploadPost) | **POST** /v1/faqs/upload | Upload Files Into Gcs |
+| [**uploadFilesIntoCloudStorageV1FaqsUploadPost()**](FaqApi.md#uploadFilesIntoCloudStorageV1FaqsUploadPost) | **POST** /v1/faqs/upload/ | Upload Files Into Cloud Storage |
 
 
 ## `checkIfFAQCollectionExistsV1FaqsCollectionExistsGet()`
@@ -695,15 +695,15 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `uploadFilesIntoGCSV1FaqsUploadPost()`
+## `uploadFilesIntoCloudStorageV1FaqsUploadPost()`
 
 ```php
-uploadFilesIntoGCSV1FaqsUploadPost($file): object
+uploadFilesIntoCloudStorageV1FaqsUploadPost($file): object
 ```
 
-Upload Files Into Gcs
+Upload Files Into Cloud Storage
 
-Upload files into Google Storage.
+Upload files into Cloud Storage.
 
 ### Example
 
@@ -727,10 +727,10 @@ $apiInstance = new OpenAPI\Client\Api\FaqApi(
 $file = "/path/to/file.txt"; // \SplFileObject
 
 try {
-    $result = $apiInstance->uploadFilesIntoGCSV1FaqsUploadPost($file);
+    $result = $apiInstance->uploadFilesIntoCloudStorageV1FaqsUploadPost($file);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FaqApi->uploadFilesIntoGCSV1FaqsUploadPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FaqApi->uploadFilesIntoCloudStorageV1FaqsUploadPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
